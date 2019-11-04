@@ -240,15 +240,17 @@ It is particularly important to ensure that non-communications security related 
 
 It may also be necessary to have dedicated guidance on how systems design and architecture affects security. The sole consideration of communications security aspects in designing Internet protocols may lead to accidental or increased impact of security issues elsewhere. For instance, allowing a participant to unnecessarily collect or receive information may be lead to a similar effect as described in {{RFC8546}} for protocols: over time, unnecessary information will get used with all the associated downsides, regardless of what deployment expectations there were during protocol design. 
 
-The rest of this memo is organized as follows. {{situationanalysis}} analyzes the situation, with respect to communications security in {{commsec}}, beyond it {{beyondcommsec}}, and in {{examples}} looks at a number of real-world examples.
+The rest of this memo is organized as follows. {{situationanalysis}} makes some observations about the situation, with respect to communications security and beyond. The section also provides a number of real-world examples.
 
-{{reale2e}} discusses how the authors believe the Internet threat model should evolve, and what types of threats should be seen as critical ones and in-scope. {{guidelines}} will also discuss high-level guidance to addressing these threats.
+{{analysis}} discusses some high-level implications that can be drawn, such as the need to consider what the "ends" really are in an "end-to-end" communication.
 
-{{changes}} outlines the author's suggested future changes to RFC 3552 and RFC 7258 and the need for guidance on the impacts of system design and architecture on security. Comments are solicited on these and other aspects of this document. The best place for discussion is on the arch-discuss list (https://www.ietf.org/mailman/listinfo/Architecture-discuss). This memo acts also as an input for the IAB retreat discussion on threat models, and it is a submission for the IAB DEDR workshop (https://www.iab.org/activities/workshops/dedr-workshop/).
+{{actions}} discusses the potential remedies, both from the point of view of a system design, as well as from the point of IETF procedures and recommended analysis procedures when designing new protocols. For instance, {{guidelines}} will also discuss high-level guidance to addressing these threats, and {{changes3552}} suggests some potential changes to the definition of the IETF's "Internet Threat Model". It is also apparent that the dangers posed by pervasive monitoring need to be taken in a broader light, given the evolution of the threats beyond communications security.
 
-Finally, {{otherwork}} highlights other discussions in this problem space and {{concl}} draws some conclusions for next steps.
+Comments are solicited on these and other aspects of this document. The best place for discussion is on the arch-discuss list (https://www.ietf.org/mailman/listinfo/Architecture-discuss).
 
-# Situation Analysis {#situationanalysis}
+Finally, {{concl}} draws some conclusions for next steps.
+
+# Observations {#situationanalysis}
 
 ## Improvements in Communications Security {#commsec}
 
@@ -300,7 +302,9 @@ There are other examples about the perils of centralised solutions in Internet i
 
 In general, many recent attacks relate more to information than communications. For instance, personal information leaks typically happen via information stored on a compromised server rather than capturing communications. There is little hope that such attacks can be prevented entirely. Again, the best course of action seems to be avoid the disclosure of information in the first place, or at least to not perform that in a manner that makes it possible that others can readily use the information.
 
-## Examples of deliberate adversarial behaviour in applications {#examples}
+## Examples {#examples}
+
+### Deliberate adversarial behaviour in applications
 
 In this section we describe a few documented examples of deliberate adversarial
 behaviour by applications that could affect Internet protocol development.  The
@@ -317,7 +321,7 @@ as potential adversaries despite the many examples of network operators who
 do act primarily in the best interests of their users. So this section is
 not intended as a slur on all or some application developers.
 
-### Malware in curated application stores
+#### Malware in curated application stores
 
 Despite the best efforts of curators, so-called App-Stores frequently 
 distribute malware of many kinds and one recent study [@?Curated]
@@ -326,14 +330,14 @@ even sophisticated operators. Given the
 scale of these deployments, ditribution of even a small percentage of malware-infected
 applictions can affect a huge number of people.
 
-### Virtual private networks (VPNs)
+#### Virtual private networks (VPNs)
 
 Virtual private networks (VPNs) are supposed to hide user traffic to various
 degrees depending on the particular technology chosen by the VPN provider.
 However, not all VPNs do what they say, some for example misrepresenting the
 countries in which they provide vantage points. [@?Vpns] 
 
-### Compromised (home) networks
+#### Compromised (home) networks
 
 What we normally might consider network devices such as home routers do also run
 applications that can end up being adversarial, for example running DNS and DHCP
@@ -343,7 +347,7 @@ absence of software update [@?RFC8240] has been a major cause of these issues
 and rises to the level that considering this as intentional behaviour by 
 device vendors who have chosen this path is warranted.
 
-### Web browsers
+#### Web browsers
 
 Tracking of users in order to support advertising based business models is
 ubiquitous on the Internet today.  HTTP header fields (such as cookies) are
@@ -360,7 +364,7 @@ enabled it by default, though some recent browser versions are starting to
 enable visibility and blocking of some kinds of tracking. Browsers are also increasingly
 imposing more stringent requirements on plug-ins for varied security reasons. 
 
-### Web site policy deception
+#### Web site policy deception
 
 Many web sites today provide some form of privacy policy and terms of service,
 that are known to be mostly unread. [@?Unread] This implies that, legal fiction
@@ -377,7 +381,7 @@ perhaps a misnomer, but considered as web applications, that may for
 example link in advertising networks, it seems clear that
 many exist that are adversarial.
 
-### Tracking bugs in mail
+#### Tracking bugs in mail
 
 Some mail user agents (MUAs) render HTML content by default (with a subset not
 allowing that to be turned off, perhaps particularly on mobile devices) and
@@ -387,7 +391,7 @@ one study [@?Mailbug] the authors estimated that 62% of leakage to third
 parties was intentional, for example if leaked data included a hash of the
 recipient email address. 
 
-### Troll farms in online social networks
+#### Troll farms in online social networks
 
 Online social network applications/platforms are well-known to be vulnerable to
 troll farms, sometimes with tragic
@@ -404,7 +408,7 @@ case that some online social networks, at some points in their evolution,
 appear to have prioritised counts of active users so highly that they have
 failed to invest sufficient effort for detection of such troll farms.
 
-### Smart televisions
+#### Smart televisions
 
 There have been examples of so-called "smart" televisions spying on their
 owners [without permission](https://www.welivesecurity.com/2013/11/22/lg-admits-that-its-smart-tvs-have-been-watching-users-and-transmitting-data-without-consent/)
@@ -415,7 +419,7 @@ devices generally have not provided controls for their owners that would allow
 them to meaningfully make a decision as to whether or not they want to share
 such data.
 
-### Internet of things
+#### Internet of things
 
 Internet of Things (IoT) devices (which might be "so-called Internet of Things" as all devices
 were already things:-) have been found extremely deficient when their security
@@ -424,7 +428,7 @@ in some cases this may be due to incompetence rather than being deliberately
 adversarial behaviour, the levels of incompetence frequently seen imply that it
 is valid to consider such cases as not being accidental.
 
-### Attacks leveraging compromised high-level DNS infrastructure 
+#### Attacks leveraging compromised high-level DNS infrastructure 
 
 Recent
 [attacks](https://krebsonsecurity.com/2019/02/a-deep-dive-on-the-recent-widespread-dns-hijacking-attacks/)
@@ -473,7 +477,7 @@ fake. This appears to be a good argument that our current threat model is
 lacking in some respect(s), even as applied to our currently most important
 security protocol (TLS).
 
-### BGP hijacking
+#### BGP hijacking
 
 There is a clear history of BGP hijacking [@?BgpHijack] being used to ensure endpoints
 connect to adversarial applications. As in the previous example, such hijacks
@@ -481,6 +485,384 @@ can be used to trick a PKI into issuing a certificate for a fake entity. Indeed
 one study [@?HijackDet] used the emergence of new web server TLS key pairs during
 the event, (detected via Internet-wide scans), as a distinguisher between
 one form of deliberate BGP hijacking and indadvertent route leaks. 
+
+### Inadvertent adversarial behaviours
+
+Not all adversarial behaviour by applications is deliberate, some is likely due
+to various levels of carelessness (some quite understandable, others not)
+and/or due to erroneous assumptions about the environments in which those
+applications (now) run.  
+We very briefly list some such cases:
+
+- Application abuse for command and control, for example, use of IRC or apache
+  logs for [malware command and
+control](https://security.stackexchange.com/questions/100577/creating-botnet-cc-server-what-architecture-should-i-use-irc-http)
+
+- Carelessly [leaky
+  buckets](https://businessinsights.bitdefender.com/worst-amazon-breaches), for
+example, lots of Amazon S3 leaks showing that careless admins can too easily
+cause application server data to become available to adversaries
+
+- Virtualisation exposing secrets, for example, [Meltdown and
+  Spectre](https://www.us-cert.gov/ncas/alerts/TA18-004A) and similar
+side-channels 
+
+- Compromised badly-maintained web sites, that for example, have led to massive
+  online [databases of passwords](https://haveibeenpwned.com/Passwords)
+
+- Supply-chain attacks, for example, the 
+[Target attack](https://www.zdnet.com/article/how-hackers-stole-millions-of-credit-card-records-from-target/) 
+  or malware within pre-installed applications on Android phones. [@?bloatware]
+
+- Breaches of major service providers, that many of us might have assumed would
+  be sufficiently capable to be the best large-scale "Identity providers", for
+example:
+    - 3 billion accounts: [yahoo](https://www.wired.com/story/yahoo-breach-three-billion-accounts/) 
+    - "up to 600M" account passwords stored in clear: [facebook](https://www.pcmag.com/news/367319/facebook-stored-up-to-600m-user-passwords-in-plain-text)
+    - many millions at risk: [telcos selling location data](https://www.zdnet.com/article/us-telcos-caught-selling-your-location-data-again-senator-demands-new-laws/)
+    - 50 million accounts: [facebook](https://www.cnet.com/news/facebook-breach-affected-50-million-people/)
+    - 14 million accounts: [verizon](https://www.zdnet.com/article/millions-verizon-customer-records-israeli-data/)
+    - "hundreds of thousands" of accounts: [google](https://www.wsj.com/articles/google-exposed-user-data-feared-repercussions-of-disclosing-to-public-1539017194)
+    - unknown numbers, some email content exposed: [microsoft](https://motherboard.vice.com/en_us/article/ywyz3x/hackers-could-read-your-hotmail-msn-outlook-microsoft-customer-support)
+
+- Breaches of smaller service providers: Too many to enumerate, sadly 
+
+# Analysis {#analysis}
+
+## The Role of End-to-end {#reale2e}
+
+{{RFC1958}} notes that "end-to-end functions can best be realised by end-to-end protocols":
+
+> The basic argument is that, as a first principle, certain
+> required end-to-end functions can only be performed correctly
+> by the end-systems themselves. A specific case is that any
+> network, however carefully designed, will be subject to
+> failures of transmission at some statistically determined rate.
+> The best way to cope with this is to accept it, and give
+> responsibility for the integrity of communication to the end
+> systems. Another specific case is end-to-end security.
+
+The "end-to-end argument" was originally described by Saltzer et al {{Saltzer}}. They said:
+
+> The function in question can completely and correctly be
+> implemented only with the knowledge and help of the
+> application standing at the endpoints of the communication
+> system. Therefore, providing that questioned function as a
+> feature of the communication system itself is not possible.
+
+These functional arguments align with other, practical arguments about the evolution of the Internet under the end-to-end model. The endpoints evolve quickly, often with simply having one party change the necessary software on both ends. Whereas waiting for network upgrades would involve potentially a large number of parties from application owners to multiple network operators.
+
+The end-to-end model supports permissionless innovation where new innovation can flourish in the Internet without excessive wait for other parties to act.
+
+But the details matter. What is considered an endpoint? What characteristics of Internet are we trying to optimize? This memo makes the argument that, for security purposes, there is a significant distinction between actual endpoints from a user's interaction perspective (e.g., another user) and from a system perspective (e.g., a third party relaying a message).
+
+This memo proposes to focus on the distinction between "real ends" and other endpoints to guide the development of protocols. A conversation between one "real end" to another "real end" has necessarily different security needs than a conversation between, say, one of the "real ends" and a component in a larger system. The end-to-end argument is used primarily for the design of one protocol. The security of the system, however, depends on the entire system and potentially multiple storage, compute, and communication protocol aspects. All have to work properly together to obtain security.
+
+For instance, a transport connection between two components of a system is not an end-to-end connection even if it encompasses all the protocol layers up to the application layer. It is not end-to-end, if the information or control function it carries actually extends beyond those components. For instance, just because an e-mail server can read the contents of an e-mail message does not make it a legitimate recipient of the e-mail.
+
+This memo also proposes to focus on the "need to know" aspect in systems. Information should not be disclosed, stored, or routed in cleartext through parties that do not absolutely need to have that information. 
+
+The proposed argument about real ends is as follows:
+
+> Application functions are best realised by the entities directly
+> serving the users, and when more than one entity is involved, by
+> end-to-end protocols. The role and authority of any additional
+> entities necessary to carry out a function should match their
+> part of the function. No information or control roles should be
+> provided to these additional entities unless it is required by
+> the function they provide.
+
+For instance, a particular piece of information may be necessary for the other real endpoint, such as message contents for another user. The same piece of information may not be necessary for any additional parties, unless the information had to do with, say, routing information for the message to reach the other user. When information is only needed by the actual other endpoint, it should be protected and be only relayed to the actual other endpoint. Protocol design should ensure that the additional parties do not have access to the information.
+
+Note that it may well be that the easiest design approach is to send all information to a third party and have majority of actual functionality reside in that third party. But this is a case of a clear tradeoff between ease of change by evolving that third party vs. providing reasonable security against misuse of information.
+
+Note that the above "real ends" argument is not limited to communication systems. Even an application that does not communicate with anyone else than its user may be implemented on top of a distributed system where some information about the user is exposed to untrusted parties.
+
+The implications of the system security also extend beyond information and control aspects. For instance, poorly design component protocols can become DoS vectors which are then used to attack other parts of the system. Availability is an important aspect to consider in the analysis along other aspects.
+
+## Trusted networks {#trusted}
+
+Some systems are thought of as being deployed only in a closed setting, where all the relevant nodes are under direct control of the network administrators. Technologies developed for such networks tend to be optimized, at least initially, for these environments, and may lack security features necessary for different types of deployments.
+
+It is well known that many such systems evolve over time, grow, and get used and connected in new ways. For instance, the collaboration and mergers between organizations, and new services for customers may change the system or its environment. A system that used to be truly within an administrative domain may suddenly need to cross network boundaries or even run over the Internet. As a result, it is also well known that it is good to ensure that underlying technologies used in such systems can cope with that evolution, for instance, by having the necessary security capabilities to operate in different environments.
+
+In general, the outside vs. inside security model is outdated for most situations, due to the complex and evolving networks and the need to support mixture of devices from different sources (e.g., BYOD networks). Network virtualization also implies that previously clear notions of local area networks and physical proximity may create an entirely different reality from what appears from a simple notion of a local network.
+
+### Even closed networks can have compromised nodes
+
+This memo argues that the situation is even more dire than what was explained above. It is impossible to ensure that all components in a network are actually trusted. Even in a closed network with carefully managed components there may be compromised components, and this should be factored into the design of the system and protocols used in the system.
+
+For instance, during the Snowden revelations it was reported that internal communication flows of large content providers were compromised in an effort to acquire information from large number of end users. This shows the need to protect not just communications targeted to go over the Internet, but in many cases also internal and control communications.
+
+Furthermore, there is a danger of compromised nodes, so communications security alone will be insufficient to protect against this. The defences against this include limiting information within networks to the parties that have a need to know, as well as limiting control capabilities. This is necessary even when all the nodes are under the control of the same network manager; the network manager needs to assume that some nodes and communications will be compromised, and build a system to mitigate or minimise attacks even under that assumption.
+
+Even airgapped networks can have these issues, as evidenced, for instance, by the Stuxnet worm. The Internet is not the only form of connectivity, as most systems include, for instance, USB ports that proved to be the achilles heel of the targets in the Stuxnet case. More commonly, every system runs large amount of software, and it is often not practical or even possible to black the software to prevent compromised code even in a high-security setting, let alone in commercial or private networks. Installation media, physical ports, both open source and proprietary programs, firmware, or even innocent-looking components on a circuit board can be suspect. In addition, complex underlying computing platforms, such as modern CPUs with underlying security and management tools are prone for problems.
+
+In general, this means that one cannot entirely trust even a closed system where you picked all the components yourself. Analysis for the security of many interesting real-world systems now commonly needs to include cross-component attacks, e.g., the use of car radios and other externally communicating devices as part of attacks launched against the control components such as breaks in a car {{Savage}}.
+
+## Balancing Threats
+
+Note that not all information needs to be protected, and not all threats can be protected against. But it is important that the main threats are understood and protected against.
+
+Sometimes there are higher-level mechanisms that provide safeguards for failures. For instance, it is very difficult in general to protect against denial-of-service against compromised nodes on a communications path. However, it may be possible to detect that a service has failed.
+
+Another example is from packet-carrying networks. Payload traffic that has been properly protected with encryption does not provide much value to an attacker. For instance, it does not always make sense to encrypt every packet transmission in a packet-carrying system where the traffic is already encrypted at other layers. But it almost always makes sense to protect control communications and to understand the impacts of compromised nodes, particularly control nodes.
+
+# Actions
+
+This section discusses potential actions to be taken by the Internet community:
+
+## Basic Guidelines {#guidelines}
+
+As {{RFC3935}} says:
+
+> We embrace technical concepts such as decentralized control,
+> edge-user empowerment and sharing of resources, because those
+> concepts resonate with the core values of the IETF community.
+
+To be more specific, this memo suggests the following guidelines for protocol designers:
+
+1. Consider first principles in protecting information and systems, rather than following a specific pattern such as protecting information in a particular way or at a particular protocol layer. It is necessary to understand what components can be compromised, where interests may or may not be aligned, and what parties have a legitimate role in being a party to a specific information or a control task.
+
+2. Minimize information passed to others: Information passed to another party in a protocol exchange should be minimized to guard against the potential compromise of that party.
+
+3. Perform end-to-end protection via other parties: Information passed via another party who does not intrinsically need the information to perform its function should be protected end-to-end to its intended recipient. This guideline is general, and holds equally for sending TCP/IP packets, TLS connections, or application-layer interactions. As {{RFC8546}} notes, it is a useful design rule to avoid "accidental invariance" (the deployment of on-path devices that over-time start to make assumptions about protocols). However, it is also a necessary security design rule to avoid "accidental disclosure" where information originally thought to be benign and untapped over-time becomes a significant information leak. This guideline can also be applied for different aspects of security, e.g., confidentiality and integrity protection, depending on what the specific need for information is in the other parties.
+
+4. Minimize passing of control functions to others: Any passing of control functions to other parties should be minimized to guard against the potential misuse of those control functions. This applies to both technical (e.g., nodes that assign resources) and process control functions (e.g., the ability to allocate number or develop extensions). Control functions can also become a matter of contest and power struggle, even in cases where their function as such is minimal, as we saw with the IANA transition debates.
+
+5. Avoid centralized resources: While centralized components, resources, and function provide usually a useful function, there are grave issues associated with them. Protocol and network design should balance the benefits of centralized resources or control points against the threats arising from them. The general guideline is to avoid such centralized resources when possible. And if it is not possible, find a way to allow the centralized resources to be selectable, depending on context and user settings.
+
+6. Have explicit agreements: When users and their devices provide information to network entities, it would be beneficial to have an opportunity for the users to state their requirements regarding the use of the information provided in this way. While the actual use of such requirements and the willingness of network entities to agree to them remains to be seen, at the moment even the technical means of doing this are limited. For instance, it would be beneficial to be able to embed usage requirements within popular data formats.
+
+7. Treat parties that your equipment connects to with suspicion, even if the communications are encrypted. The other endpoint may misuse any information or control opportunity in the communication. Similarly, even parties within your own system need to be treated with suspicision, as some nodes may become compromised.
+
+8. Do not take any of this as blanket reason to provide no information to anyone, encrypt everything to everyone, or other extreme measures. However, the designers of a system need to be aware of the different threats facing their system, and deal with the most serious ones (of which there are typically many). Similarly, users should be aware of the choices made in a particular design, and avoid designs or products that protect against some threats but are wide open to other serious issues.
+
+## Potential Further Guidelines
+
+### Consider ABuse-cases as well as use-cases
+
+Protocol developers and those implementing and deploying Internet technologies
+are typically most interested in a few specific use-cases for which they need
+solutions. Expanding our threat model to include adversarial application
+behaviours [@?abusecases] seems likely to call for significant attention to be
+paid to potential abuses of whatever new or re-purposed technology is being
+considered. 
+
+### Isolation
+
+Sophisticated users can sometimes deal with adversarial behaviours in applications
+by using different instances of those applications, for example, differently
+configured web browsers for use in different contexts.  Applications (including
+web browsers) and operating systems are also building in isolation via use of
+different processes or sandboxing.  Protocol artefacts that relate to uses of
+such isolation mechanisms might be worth considering.  To an extent, the IETF
+has in practice already recognised some of these issues as being in-scope, e.g.
+when considering the linkability issues with mechanisms such as TLS session
+tickets, or QUIC connection identifiers.
+
+### Transparency
+
+Certificate transparency (CT) [@?RFC6962] has been an effective countermeasure
+for X.509 certificate mis-issuance, which used be a known application layer
+misbehaviour in the public web PKI. 
+CT can also help with post-facto detection of some infrastructure attacks where
+BGP or DNS weakenesses have been leveraged so that some certification 
+authority is tricked into issuing a certificate for the wrong entity.
+
+While the context in which CT operates is
+very constrained (essentially to the public CAs trusted by web browsers),
+similar approaches could perhaps be useful for other protocols or technologies.
+
+In addition, legislative requirements such as those imposed by the GDPR for
+[subject access to data](https://gdpr-info.eu/art-15-gdpr/) could lead to a
+desire to handle internal data structures and databases in ways that are
+reminiscent of CT, though clearly with significant authorisation being required
+and without the append-only nature of a CT log.
+
+### Minimise
+
+As recommended in [@?RFC6973] data minimisation and additional encryption are
+likely to be helpful - if applications don't ever see data, or a cleartext form
+of data, then they should have a harder time misbehaving. Similarly, not adding
+new long-term identifiers, and not exposing existing ones, would seem helpful.
+
+### Same-Origin Policy
+
+The Same-Origin Policy (SOP) [@?RFC6454] perhaps already provides an example of
+how going beyond the RFC 3552 threat model can be useful. Arguably, the
+existence of the SOP demonstrates that at least web browsers already consider
+the 3552 model as being too limited. (Clearly, differentiating between 
+same and not-same origins implicitly assumes that some origins are not
+as trustworthy as others.)
+
+### Greasing
+
+The TLS protocol [@?RFC8446] now supports the use of GREASE [@?I-D.ietf-tls-grease] 
+as a way to mitigate on-path ossification. While this technique is not likely
+to prevent any deliberate misbehaviours, it may provide a proof-of-concept that
+network protocol mechanisms can have impact in this space, if we spend the time
+to try analyse the incentives of the various parties.
+
+### Generalise OAuth Threat Model {#oauthsect}
+
+The OAuth threat model [@?RFC6819] provides an extensive list of threats and
+security considerations for those implementing and deploying OAuth version 2.0 [@?RFC6749].
+That document is perhaps too detailed to serve as useful generic guidance
+but does go beyond the Internet threat model from RFC3552, for example it 
+says: 
+
+    two of the three parties involved in the OAuth protocol may
+    collude to mount an attack against the 3rd party.  For example,
+    the client and authorization server may be under control of an
+    attacker and collude to trick a user to gain access to resources.
+
+It could be useful to attempt to derive a more abstract threat 
+model from that RFC that considers threats in more generic 
+multi-party contexts. 
+
+### Look again at how well we're securing infrastructure
+
+Some attacks (e.g. against DNS or routing infrastructure) appear
+to benefit from current infrastructure mechanisms not being 
+deployed, e.g. DNSSEC, RPKI. In the case of DNSSEC, deployment
+is still minimal despite much time having elapsed. This 
+suggests a number of different possible avenues for investigation:
+
+- For any protocol dependent on infrastructure like DNS or BGP, we ought analysse 
+potential outcomes in the event the relevant infrastructure
+has been compromised
+- Protocol designers perhaps ought consider post-facto detection 
+compromise mechanisms in the event that it is infeasible to
+mitigate attacks on infrastructure that is not under local control
+- Despite the sunk costs, it may be worth re-considering infrastructure security mechanisms 
+that have not been deployed, and hence are ineffective.
+
+### Consider recovery from attack as part of protocol design
+
+Recent work on multiparty messaging security primitives
+[@I-D.ietf-mls-architecture] considers "post-compromise security" as an
+inherent part of the design of that protocol. Perhaps protocol designers ought
+generally consider recovery from attack during protocol design - we do know
+that all widely used protocols will at sometime be subject to successful
+attack, whether that is due to deployment or implementation error, or, as is
+less common, due to protocol design flaws.
+
+### Don't think in terms of hosts
+
+More and more, protocol endpoints are not being executed on what used be
+understood as a host system. The web and Javascript model clearly  differs from
+traditional host models, but so do most server-side deployments these days,
+thanks to virtualisation.
+
+As yes unpublished work on this topic within the IAB
+[stackevo](https://github.com/stackevo/endpoint-draft/blob/master/draft-trammell-whats-an-endpoint.md)
+programme, appears to posit the same kind of thesis. In the stackevo case, that
+work would presumably lead to some new definition of protocol endpoint, but
+(consensus on) such a definition may not be needed for an expanded threat
+model.  For this work, it may be sufficient to note that protocol endpoints can
+no longer be considered to be executing on a traditional host, to assume (at
+protocol design time) that all endpoints will be run in a virtualised
+environment where co-tenants and (sometimes) hypervisors are adversaries, and
+to then call for analysis of such scenarios.
+
+## Does IETF Analysis of Protocols Need to Change? {#changes}
+
+It may also be necessary to make procedural changes in how new protocols are defined at the IETF. For instance, our existing documentation of threat models and requirements for security considerations sections may not be adequate in today's world.
+
+These suggested changes are entirely tentative.
+
+### Develop a BCP for privacy considerations
+
+It may be time for the IETF to develop a BCP for privacy
+considerations, possibly starting from [@?RFC6973].
+
+### Re-consider protocol design "lore"
+
+It could be that this discussion demonstrates that it is timely to reconsider
+some protocol design "lore" as for example is done in
+[@?I-D.iab-protocol-maintenance]. More specifically, protocol extensibility
+mechanisms may inadvertently create vectors for abuse-cases, given that
+designers cannot fully analyse their impact at the time a new protocol is
+defined or standardised. One might conclude that a lack of extensibility could
+be a virtue for some new protocols, in contrast to earlier assumptions.
+As pointed out by one commenter though, people can find ways to extend
+things regardless, if they feel the need.
+
+### Consider the user perspective
+
+[@?I-D.nottingham-for-the-users] argues that, in relevant cases where there are
+conflicting requirements, the "IETF considers end users as its highest priority
+concern." Doing so seems consistent with the expanded threat model being argued
+for here, so may indicate that a BCP in that space could also be useful.
+
+### Potential changes in RFC 3552 {#changes3552}
+
+The earlier quote from OAuth ({{oauthsect}}) also has another aspect - it considers the effect of compromised endpoints on those that are not compromised.  It may therefore be interesting to consider the consequeneces that would follow from a change to {{RFC3552}}. RFC 3552 is the RFC that defines "An Internet Threat Model". It also provides guidance to writing Security Considerations sections in other RFCs. One initial, draft proposal for such changes would be this:
+
+OLD:
+
+> In general, we assume that the end-systems engaging in a protocol
+> exchange have not themselves been compromised.  Protecting against an
+> attack when one of the end-systems has been compromised is
+> extraordinarily difficult.  It is, however, possible to design
+> protocols which minimize the extent of the damage done under these
+> circumstances.
+
+NEW:
+
+> In general, we assume that the end-system engaging in a protocol
+> exchange has not itself been compromised.  Protecting against an
+> attack of a protocol implementation itself is extraordinarily
+> difficult.  It is, however, possible to design protocols which
+> minimize the extent of the damage done when the other parties in
+> a protocol become compromised or do not act in the best interests
+> the end-system implementing a protocol.
+
+In addition, the following new section could be added to discuss the capabilities required to mount an attack:
+
+NEW:
+
+3.x. Other endpoint compromise
+
+> In this attack, the other endpoints in the protocol become
+> compromised. As a result, they can, for instance, misuse any
+> information that the end-system implementing a protocol has sent to the
+> compromised endpoint.
+
+System and architecture aspects definitely also need more attention from Internet technology developers and standards organizations. Here is one possible addition:
+
+NEW:
+
+> The design of any Internet technology should start from an understanding
+> of the participants in a system, their roles, and the extent to which they
+> should have access to information and ability to control other participants.
+
+### Potential Changes in RFC 7258 {#changes7258}
+
+Other additional guidelines may be necessary also in {{RFC7258}}, the RFC that specifies how IETF work should take into account pervasive monitoring, such as the one performed as a part of broad, indiscriminate surveillance activity.
+
+An initial, draft suggestion for starting point of those changes could be adding the following paragraph after the 2nd paragraph in Section 2:
+
+NEW:
+
+> PM attacks include those cases where information collected by a
+> legitimate protocol participant is misused for PM purposes. The
+> attacks also include those cases where a protocol or network
+> architecture results in centralized data storage or control functions
+> relating to many users, raising the risk of said misuse.
+
+# Conclusions {#concl}
+
+At this stage we don't think it approriate to claim that any strong conclusion can be reached based on the above.  We do however, claim that the is a topic that could be worth discussion and more work.
+
+To start with, Internet technology developers need to be better aware of the issues beyond communications security, and consider them in design. At the IETF it would be beneficial to include some of these considerations in the usual systematic security analysis of technologies under development.
+
+In particular, when the IETF develops infrastructure technology for the Internet (such as routing or naming systems), considering the impacts of data generated by those technologies is important. Minimising data collection from users, minimising the parties who get exposed to user data, and protecting data that is relayed or stored in systems should be a priority.
+
+A key focus area at the IETF has been the security of transport protocols, and how transport layer security can be best used to provide the right security for various applications. However, more work is needed in equivalently broadly deployed tools for minimising or obfuscating information provided by users to other entities, and the use of end-to-end security through entities that are involved in the protocol exchange but who do not need to know everything that is being passed through them.
+
+Comments on the issues discussed in this memo are gladly taken either privately or on the architecture-discuss mailing list.
 
 --- back
 
