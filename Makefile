@@ -1,5 +1,5 @@
 
-base:	draft-arkko-arch-dedr-report.txt
+base:	draft-arkko-farrell-arch-model-t.txt
 
 LIBDIR := lib
 include $(LIBDIR)/main.mk
@@ -16,10 +16,10 @@ endif
 cleantrash:
 	rm -f *~
 
-jaricompile:	draft-arkko-arch-dedr-report.txt Makefile
-	scp draft-arkko-arch-dedr-report.txt \
+jaricompile:	draft-arkko-farrell-arch-model-t.txt Makefile
+	scp draft-arkko-farrell-arch-model-t.txt \
 		jar@cloud1.arkko.eu:/var/www/www.arkko.com/html/ietf/iab
 
-#		draft-arkko-arch-dedr-report.diff.html \
-#	rfcdiff draft-arkko-arch-dedr-report-00.txt draft-arkko-arch-dedr-report.txt
-#	cp draft-arkko-arch-dedr-report-from--00.diff.html draft-arkko-arch-dedr-report.diff.html
+#		draft-arkko-farrell-arch-model-t.diff.html \
+#	rfcdiff draft-arkko-farrell-arch-model-t-00.txt draft-arkko-farrell-arch-model-t.txt
+#	cp draft-arkko-farrell-arch-model-t-from--00.diff.html draft-arkko-farrell-arch-model-t.diff.html
