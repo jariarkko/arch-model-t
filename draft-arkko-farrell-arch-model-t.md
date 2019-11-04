@@ -28,13 +28,18 @@ informative:
   RFC3935: 
   RFC3552:
   RFC4655:
+  RFC6454:
   RFC6480:
+  RFC6749:
   RFC6797:
+  RFC6819:
+  RFC6962:
   RFC6973:
   RFC7258:
   RFC7469:
   RFC7540:
   RFC7817:
+  RFC8240:
   RFC8446:
   RFC8484:
   RFC8546:
@@ -44,6 +49,9 @@ informative:
   I-D.ietf-quic-transport:
   I-D.ietf-httpbis-expect-ct:
   I-D.farrell-etm:
+  I-D.iab-protocol-maintenance:
+  I-D.ietf-mls-architecture:
+  I-D.ietf-tls-grease:
   Saltzer:
    title: End-To-End Arguments in System Design
    date: November 1984
@@ -147,7 +155,7 @@ informative:
    date: 2015
    author:
    seriesinfo: "Symposium on Usable Privacy and Security (SOUPS), https://www.usenix.org/conference/soups2015/proceedings/presentation/chanchary"
-  Abusecases:
+  AbuseCases:
    title: "Using abuse case models for security requirements analysis"
    date: 1999
    author:
@@ -192,6 +200,57 @@ informative:
     - ins: A. Dainotti
     - ins: X. Dimitropoulos
    seriesinfo: "ACM SIGCOMM Computer Communication Review 48, no. 1 (2018): 64-69, https://arxiv.org/pdf/1801.02918.pdf"
+  DeepDive:
+   title: "A Deep Dive on the Recent Widespread DNS Hijacking Attacks"
+   date: 2019
+   author:
+    - ins: "Krebs on Security"
+   seriesinfo: "krebsonsecurity.com blog, https://krebsonsecurity.com/2019/02/a-deep-dive-on-the-recent-widespread-dns-hijacking-attacks/"
+  CommandAndControl:
+   title: "Creating botnet C&C server. What architecture should I use? IRC? HTTP?"
+   date: 2014
+   author: 
+    - ins: Botnet
+   seriesinfo: "Stackexchange.com question, https://security.stackexchange.com/questions/100577/creating-botnet-cc-server-what-architecture-should-i-use-irc-http"
+  LeakyBuckets:
+   title: "Leaky Buckets: 10 Worst Amazon S3 Breaches"
+   date: 2018
+   author:
+    - ins: E. Chickowski
+   seriesinfo: "Bitdefender blog, https://businessinsights.bitdefender.com/worst-amazon-breaches"
+  MeltdownAndSpectre:
+   title: Meltdown and Spectre Side-Channel Vulnerability Guidance
+   date: 2018
+   author:
+    - ins: CISA
+   seriesinfo: "Alert (TA18-004A), https://www.us-cert.gov/ncas/alerts/TA18-004A"
+  Passwords:
+   title: "Pwned Passwords"
+   author:
+    - ins: haveibeenpwned.com
+   date: 2019
+   seriesinfo: "Website https://haveibeenpwned.com/Passwords"
+  TargetAttack:
+    title: "How hackers stole millions of credit card records from Target"
+    date: 2014
+    author:
+     - ins: C. Osborne
+    seriesinfo: "ZDNET, https://www.zdnet.com/article/how-hackers-stole-millions-of-credit-card-records-from-target/"
+  GDPRAccess:
+   title: "Right of access by the data subject"
+   date: 
+   author:
+    - ins: EU
+   seriesinfo: "Article 15, GDPR, https://gdpr-info.eu/art-15-gdpr/"
+  StackEvo:
+   title: "What Is an Endpoint?"
+   date: 2017
+   author:
+    - ins: B. Trammell
+    - ins: M. Thomson
+    - ins: L. Howard
+    - ins: T. Hardie
+   seriesinfo: "Unpublished work, https://github.com/stackevo/endpoint-draft/blob/master/draft-trammell-whats-an-endpoint.md"
 --- abstract
 
 Communications security has been at the center of many security improvements in the Internet. The goal has been to ensure that communications are protected against outside observers and attackers.
@@ -238,7 +297,7 @@ Of course, there are many trade-offs in the Internet on who one chooses to inter
 
 It is particularly important to ensure that non-communications security related threats are properly understood for any new Internet technology. While the consideration of these issues is relatively new in the IETF, this memo provides some initial ideas about potential broader threat models to consider when designing protocols for the Internet or when trying to defend against pervasive monitoring. Further down the road, updated threat models could result in changes in BCP 72 {{RFC3552}} (guidelines for writing security considerations) and BCP 188 {{RFC7258}} (pervasive monitoring), to include proper consideration of non-communications security threats.
 
-It may also be necessary to have dedicated guidance on how systems design and architecture affects security. The sole consideration of communications security aspects in designing Internet protocols may lead to accidental or increased impact of security issues elsewhere. For instance, allowing a participant to unnecessarily collect or receive information may be lead to a similar effect as described in {{RFC8546}} for protocols: over time, unnecessary information will get used with all the associated downsides, regardless of what deployment expectations there were during protocol design. 
+It may also be necessary to have dedicated guidance on how systems design and architecture affect security. The sole consideration of communications security aspects in designing Internet protocols may lead to accidental or increased impact of security issues elsewhere. For instance, allowing a participant to unnecessarily collect or receive information may lead to a similar effect as described in {{RFC8546}} for protocols: over time, unnecessary information will get used with all the associated downsides, regardless of what deployment expectations there were during protocol design. 
 
 The rest of this memo is organized as follows. {{situationanalysis}} makes some observations about the situation, with respect to communications security and beyond. The section also provides a number of real-world examples.
 
@@ -252,7 +311,7 @@ Finally, {{concl}} draws some conclusions for next steps.
 
 # Observations {#situationanalysis}
 
-## Improvements in Communications Security {#commsec}
+## Communications Security Improvements {#commsec}
 
 The fraction of Internet traffic that is cryptographically protected has grown tremendously in the last few years. Several factors have contributed to this change, from Snowden revelations to business reasons and to better available technology such as HTTP/2 {{RFC7540}}, TLS 1.3 {{RFC8446}}, QUIC {{I-D.ietf-quic-transport}}.
 
@@ -260,11 +319,11 @@ In many networks, the majority of traffic has flipped from being cleartext to be
 
 At the same time, technology developments and policy choices have driven the scope of cryptographic protection from protecting only the pure payload to protecting much of the rest as well, including far more header and meta-data information than was protected before. For instance, efforts are ongoing in the IETF to assist encrypting transport headers {{I-D.ietf-quic-transport}}, server domain name information in TLS {{I-D.ietf-tls-esni}}, and domain name queries {{RFC8484}}.
 
-There has also been improvements to ensure that the security protocols that are in use actually have suitable credentials and that those credentials have not been compromised, see, for instance, Let's Encrypt {{RFC8555}}, HSTS {{RFC6797}}, HPKP {{RFC7469}}, and Expect-CT {{I-D.ietf-httpbis-expect-ct}}.
+There have also been improvements to ensure that the security protocols that are in use actually have suitable credentials and that those credentials have not been compromised, see, for instance, Let's Encrypt {{RFC8555}}, HSTS {{RFC6797}}, HPKP {{RFC7469}}, and Expect-CT {{I-D.ietf-httpbis-expect-ct}}.
 
 This is not to say that all problems in communications security have been resolved -- far from it. But the situation is definitely different from what it was a few years ago. Remaining issues will be and are worked on; the fight between defense and attack will also continue. Communications security will stay at the top of the agenda in any Internet technology development.
 
-## Issues in Security Beyond Communications Security {#beyondcommsec}
+## Beyond Communications Security {#beyondcommsec}
 
 There are, however, significant issues beyond communications security in the Internet. To begin with, it is not necessarily clear that one can trust all the endpoints.
 
@@ -292,7 +351,7 @@ Specifically, the following issues need attention:
 
 For instance, while e-mail transport security {{RFC7817}} has become much more widely distributed in recent years, progress in securing e-mail messages between users has been much slower. This has lead to a situation where e-mail content is considered a critical resource by mail providers who use it for machine learning, advertisement targeting, and other purposes.
 
-The Domain Name System (DNS) shows signs of ageing but due to the legacy of deployed systems, has changed very slowly. Newer technology {{RFC8484}} developed at the IETF enables DNS queries to be performed confidentially, but its deployment is happening mostly in browsers that use global DNS resolver services, such as Cloudflare's 1.1.1.1 or Google's 8.8.8.8. This results in faster evolution and better security for end users.
+The Domain Name System (DNS) shows signs of ageing but due to the legacy of deployed systems has changed very slowly. Newer technology {{RFC8484}} developed at the IETF enables DNS queries to be performed confidentially, but its deployment is happening mostly in browsers that use global DNS resolver services, such as Cloudflare's 1.1.1.1 or Google's 8.8.8.8. This results in faster evolution and better security for end users.
 
 However, if one steps back and considers the overall security effects of these developments, the resulting effects can be different. While the security of the actual protocol exchanges improves with the introduction of this new technology, at the same time this implies a move from using a worldwide distributed set of DNS resolvers into more centralised global resolvers. While these resolvers are very well maintained (and a great service), they are potential high-value targets for pervasive monitoring and Denial-of-Service (DoS) attacks. In 2016, for example, DoS attacks were launched against Dyn, one of the largest DNS providers, leading to some outages. It is difficult to imagine that DNS resolvers wouldn't be a target in many future attacks or pervasive monitoring projects.
 
@@ -318,32 +377,24 @@ behaviour, there are also many examples of application developers doing their
 best to protect the security and privacy of their users or customers. That's
 just the same as the case today where we need to consider in-network actors
 as potential adversaries despite the many examples of network operators who
-do act primarily in the best interests of their users. So this section is
-not intended as a slur on all or some application developers.
+do act primarily in the best interests of their users.
 
 #### Malware in curated application stores
 
-Despite the best efforts of curators, so-called App-Stores frequently 
-distribute malware of many kinds and one recent study [@?Curated]
-claims that simple obfuscation enables malware to avoid detection by
-even sophisticated operators. Given the
-scale of these deployments, ditribution of even a small percentage of malware-infected
-applictions can affect a huge number of people.
+Despite the best efforts of curators, so-called App-Stores frequently distribute malware of many kinds and one recent study {{Curated}}
+claims that simple obfuscation enables malware to avoid detection by even sophisticated operators. Given the scale of these deployments, ditribution of even a small percentage of malware-infected applictions can affect a huge number of people.
 
 #### Virtual private networks (VPNs)
 
-Virtual private networks (VPNs) are supposed to hide user traffic to various
-degrees depending on the particular technology chosen by the VPN provider.
-However, not all VPNs do what they say, some for example misrepresenting the
-countries in which they provide vantage points. [@?Vpns] 
+Virtual private networks (VPNs) are supposed to hide user traffic to various degrees depending on the particular technology chosen by the VPN provider. However, not all VPNs do what they say, some for example misrepresenting the countries in which they provide vantage points {{Vpns}}.
 
 #### Compromised (home) networks
 
 What we normally might consider network devices such as home routers do also run
 applications that can end up being adversarial, for example running DNS and DHCP
-attacks from home routers targeting other devices in the home. One study [home]
+attacks from home routers targeting other devices in the home. One study {{Home}}
 reports on a 2011 attack that affected 4.5 million DSL modems in Brazil.  The
-absence of software update [@?RFC8240] has been a major cause of these issues
+absence of software update {{RFC8240}} has been a major cause of these issues
 and rises to the level that considering this as intentional behaviour by 
 device vendors who have chosen this path is warranted.
 
@@ -353,11 +404,11 @@ Tracking of users in order to support advertising based business models is
 ubiquitous on the Internet today.  HTTP header fields (such as cookies) are
 commonly used for such tracking, as are structures within the content of HTTP
 responses such as links to 1x1 pixel images and (ab)use of Javascript APIs
-offered by browsers. [@?Tracking] 
+offered by browsers {{Tracking}}.
 
 While some people may be sanguine about this kind of tracking, others consider
 this behaviour unwelcome, when or if they are informed that it happens,
-[@?Attitude] though the evidence here seems somewhat harder to interpret and many
+{{Attitude}} though the evidence here seems somewhat harder to interpret and many
 studies (that we have found to date) involve small numbers of users.
 Historically, browsers have not made this kind of tracking visible and have
 enabled it by default, though some recent browser versions are starting to
@@ -367,10 +418,10 @@ imposing more stringent requirements on plug-ins for varied security reasons.
 #### Web site policy deception
 
 Many web sites today provide some form of privacy policy and terms of service,
-that are known to be mostly unread. [@?Unread] This implies that, legal fiction
+that are known to be mostly unread {{Unread}}. This implies that, legal fiction
 aside, users of those sites have not in reality agreed to the specific terms
 published and so users are therefore highly exposed to being exploited by web
-sites, for example [@?Cambridge] is a recent well-publicised case where a
+sites, for example {{Cambridge}} is a recent well-publicised case where a
 service provider abused the data of 87 million users via a partnership.  While
 many web site operators claim that they care deeply about privacy, it seems
 prudent to assume that some (or most?) do not in fact care about user privacy,
@@ -387,21 +438,19 @@ Some mail user agents (MUAs) render HTML content by default (with a subset not
 allowing that to be turned off, perhaps particularly on mobile devices) and
 thus enable the same kind of adversarial tracking seen on the web. Attempts at
 such intentional tracking are also seen many times per day by email users - in
-one study [@?Mailbug] the authors estimated that 62% of leakage to third
+one study {{Mailbug}} the authors estimated that 62% of leakage to third
 parties was intentional, for example if leaked data included a hash of the
 recipient email address. 
 
 #### Troll farms in online social networks
 
 Online social network applications/platforms are well-known to be vulnerable to
-troll farms, sometimes with tragic
-[consequences,](https://www.nytimes.com/2018/10/20/us/politics/saudi-image-campaign-twitter.html)
-where organised/paid sets of users deliberately abuse the application platform
-for reasons invisible to a normal user.  For-profit companies building online
+troll farms, sometimes with tragic consequences where organised/paid sets of users deliberately abuse the application platform
+for reasons invisible to a normal user. For-profit companies building online
 social networks are well aware that subsets of their "normal" users are
-anything but.  In one US study, [@?Troll] sets of troll accounts were roughly
+anything but.  In one US study, {{Troll}} sets of troll accounts were roughly
 equally distributed on both sides of a controversial discussion. While Internet
-protocol designers do sometimes consider sybil attacks [@?Sybil], arguably we
+protocol designers do sometimes consider sybil attacks {{Sybil}}, arguably we
 have not provided mechanisms to handle such attacks sufficiently well,
 especially when they occur within walled-gardens. Equally, one can make the
 case that some online social networks, at some points in their evolution,
@@ -411,8 +460,7 @@ failed to invest sufficient effort for detection of such troll farms.
 #### Smart televisions
 
 There have been examples of so-called "smart" televisions spying on their
-owners [without permission](https://www.welivesecurity.com/2013/11/22/lg-admits-that-its-smart-tvs-have-been-watching-users-and-transmitting-data-without-consent/)
-and one survey of user attitudes [@?SmartTV] found "broad agreement was that it
+owners and one survey of user attitudes {{SmartTV}} found "broad agreement was that it
 is unacceptable for the data to be repurposed or shared" although the level of
 user understanding may be questionable.  What is clear though is that such
 devices generally have not provided controls for their owners that would allow
@@ -422,17 +470,14 @@ such data.
 #### Internet of things
 
 Internet of Things (IoT) devices (which might be "so-called Internet of Things" as all devices
-were already things:-) have been found extremely deficient when their security
-and privacy aspects were analysed, for example children's toys. [@?Toys] While
+were already things:-) have been found deficient when their security
+and privacy aspects were analysed, for example children's toys {{Toys}}. While
 in some cases this may be due to incompetence rather than being deliberately
-adversarial behaviour, the levels of incompetence frequently seen imply that it
-is valid to consider such cases as not being accidental.
+adversarial behaviour, the levels of incompetence frequently seen imply these aspects have simply not been considered a priority.
 
 #### Attacks leveraging compromised high-level DNS infrastructure 
 
-Recent
-[attacks](https://krebsonsecurity.com/2019/02/a-deep-dive-on-the-recent-widespread-dns-hijacking-attacks/)
-against DNS infrastructure enable subsequent targetted attacks on specific
+Recent attacks {{DeepDive}} against DNS infrastructure enable subsequent targetted attacks on specific
 application layer sources or destinations. The general method appears to be to
 attack DNS infrastructure, in these cases infrastructure that is towards the
 top of the DNS naming hierarchy and "far" from the presumed targets, in order
@@ -479,51 +524,39 @@ security protocol (TLS).
 
 #### BGP hijacking
 
-There is a clear history of BGP hijacking [@?BgpHijack] being used to ensure endpoints
+There is a clear history of BGP hijacking {{BgpHijack}} being used to ensure endpoints
 connect to adversarial applications. As in the previous example, such hijacks
 can be used to trick a PKI into issuing a certificate for a fake entity. Indeed
-one study [@?HijackDet] used the emergence of new web server TLS key pairs during
+one study {{HijackDet}} used the emergence of new web server TLS key pairs during
 the event, (detected via Internet-wide scans), as a distinguisher between
 one form of deliberate BGP hijacking and indadvertent route leaks. 
 
 ### Inadvertent adversarial behaviours
 
-Not all adversarial behaviour by applications is deliberate, some is likely due
-to various levels of carelessness (some quite understandable, others not)
-and/or due to erroneous assumptions about the environments in which those
-applications (now) run.  
+Not all adversarial behaviour by applications is deliberate, some is likely due to various levels of carelessness (some quite understandable, others not) and/or due to erroneous assumptions about the environments in which those applications (now) run.
+
 We very briefly list some such cases:
 
 - Application abuse for command and control, for example, use of IRC or apache
-  logs for [malware command and
-control](https://security.stackexchange.com/questions/100577/creating-botnet-cc-server-what-architecture-should-i-use-irc-http)
+  logs for {{CommandAndControl}}
 
-- Carelessly [leaky
-  buckets](https://businessinsights.bitdefender.com/worst-amazon-breaches), for
-example, lots of Amazon S3 leaks showing that careless admins can too easily
-cause application server data to become available to adversaries
+- Carelessly {{LeakyBuckets}}, for example, lots of Amazon S3 leaks showing that careless admins can too easily cause application server data to become available to adversaries
 
-- Virtualisation exposing secrets, for example, [Meltdown and
-  Spectre](https://www.us-cert.gov/ncas/alerts/TA18-004A) and similar
-side-channels 
+- Virtualisation exposing secrets, for example, {{MeltdownAndSpectre}} and similar side-channels 
 
-- Compromised badly-maintained web sites, that for example, have led to massive
-  online [databases of passwords](https://haveibeenpwned.com/Passwords)
+- Compromised badly-maintained web sites, that for example, have led to massive online {{Passwords}}.
 
-- Supply-chain attacks, for example, the 
-[Target attack](https://www.zdnet.com/article/how-hackers-stole-millions-of-credit-card-records-from-target/) 
-  or malware within pre-installed applications on Android phones. [@?bloatware]
+- Supply-chain attacks, for example, the {{TargetAttack}} or malware within pre-installed applications on Android phones {{Bloatware}}.
 
-- Breaches of major service providers, that many of us might have assumed would
-  be sufficiently capable to be the best large-scale "Identity providers", for
-example:
-    - 3 billion accounts: [yahoo](https://www.wired.com/story/yahoo-breach-three-billion-accounts/) 
-    - "up to 600M" account passwords stored in clear: [facebook](https://www.pcmag.com/news/367319/facebook-stored-up-to-600m-user-passwords-in-plain-text)
-    - many millions at risk: [telcos selling location data](https://www.zdnet.com/article/us-telcos-caught-selling-your-location-data-again-senator-demands-new-laws/)
-    - 50 million accounts: [facebook](https://www.cnet.com/news/facebook-breach-affected-50-million-people/)
-    - 14 million accounts: [verizon](https://www.zdnet.com/article/millions-verizon-customer-records-israeli-data/)
-    - "hundreds of thousands" of accounts: [google](https://www.wsj.com/articles/google-exposed-user-data-feared-repercussions-of-disclosing-to-public-1539017194)
-    - unknown numbers, some email content exposed: [microsoft](https://motherboard.vice.com/en_us/article/ywyz3x/hackers-could-read-your-hotmail-msn-outlook-microsoft-customer-support)
+- Breaches of major service providers, that many of us might have assumed would be sufficiently capable to be the best large-scale "Identity providers", for example:
+
+    - 3 billion accounts: https://www.wired.com/story/yahoo-breach-three-billion-accounts/
+    - "up to 600M" account passwords stored in clear: https://www.pcmag.com/news/367319/facebook-stored-up-to-600m-user-passwords-in-plain-text
+    - many millions at risk: https://www.zdnet.com/article/us-telcos-caught-selling-your-location-data-again-senator-demands-new-laws/
+    - 50 million accounts: https://www.cnet.com/news/facebook-breach-affected-50-million-people/
+    - 14 million accounts: https://www.zdnet.com/article/millions-verizon-customer-records-israeli-data/
+    - "hundreds of thousands" of accounts: https://www.wsj.com/articles/google-exposed-user-data-feared-repercussions-of-disclosing-to-public-1539017194
+    - unknown numbers, some email content exposed: https://motherboard.vice.com/en_us/article/ywyz3x/hackers-could-read-your-hotmail-msn-outlook-microsoft-customer-support
 
 - Breaches of smaller service providers: Too many to enumerate, sadly 
 
@@ -645,7 +678,7 @@ To be more specific, this memo suggests the following guidelines for protocol de
 Protocol developers and those implementing and deploying Internet technologies
 are typically most interested in a few specific use-cases for which they need
 solutions. Expanding our threat model to include adversarial application
-behaviours [@?abusecases] seems likely to call for significant attention to be
+behaviours {{AbuseCases}} seems likely to call for significant attention to be
 paid to potential abuses of whatever new or re-purposed technology is being
 considered. 
 
@@ -663,7 +696,7 @@ tickets, or QUIC connection identifiers.
 
 ### Transparency
 
-Certificate transparency (CT) [@?RFC6962] has been an effective countermeasure
+Certificate transparency (CT) {{RFC6962}} has been an effective countermeasure
 for X.509 certificate mis-issuance, which used be a known application layer
 misbehaviour in the public web PKI. 
 CT can also help with post-facto detection of some infrastructure attacks where
@@ -674,22 +707,21 @@ While the context in which CT operates is
 very constrained (essentially to the public CAs trusted by web browsers),
 similar approaches could perhaps be useful for other protocols or technologies.
 
-In addition, legislative requirements such as those imposed by the GDPR for
-[subject access to data](https://gdpr-info.eu/art-15-gdpr/) could lead to a
+In addition, legislative requirements such as those imposed by the GDPR {{GDPRAccess}} could lead to a
 desire to handle internal data structures and databases in ways that are
 reminiscent of CT, though clearly with significant authorisation being required
 and without the append-only nature of a CT log.
 
 ### Minimise
 
-As recommended in [@?RFC6973] data minimisation and additional encryption are
+As recommended in {{RFC6973}} data minimisation and additional encryption are
 likely to be helpful - if applications don't ever see data, or a cleartext form
 of data, then they should have a harder time misbehaving. Similarly, not adding
 new long-term identifiers, and not exposing existing ones, would seem helpful.
 
 ### Same-Origin Policy
 
-The Same-Origin Policy (SOP) [@?RFC6454] perhaps already provides an example of
+The Same-Origin Policy (SOP) {{RFC6454}} perhaps already provides an example of
 how going beyond the RFC 3552 threat model can be useful. Arguably, the
 existence of the SOP demonstrates that at least web browsers already consider
 the 3552 model as being too limited. (Clearly, differentiating between 
@@ -698,7 +730,7 @@ as trustworthy as others.)
 
 ### Greasing
 
-The TLS protocol [@?RFC8446] now supports the use of GREASE [@?I-D.ietf-tls-grease] 
+The TLS protocol {{RFC8446}} now supports the use of GREASE {{I-D.ietf-tls-grease}}
 as a way to mitigate on-path ossification. While this technique is not likely
 to prevent any deliberate misbehaviours, it may provide a proof-of-concept that
 network protocol mechanisms can have impact in this space, if we spend the time
@@ -706,8 +738,8 @@ to try analyse the incentives of the various parties.
 
 ### Generalise OAuth Threat Model {#oauthsect}
 
-The OAuth threat model [@?RFC6819] provides an extensive list of threats and
-security considerations for those implementing and deploying OAuth version 2.0 [@?RFC6749].
+The OAuth threat model {{RFC6819}} provides an extensive list of threats and
+security considerations for those implementing and deploying OAuth version 2.0 {{RFC6749}}.
 That document is perhaps too detailed to serve as useful generic guidance
 but does go beyond the Internet threat model from RFC3552, for example it 
 says: 
@@ -741,7 +773,7 @@ that have not been deployed, and hence are ineffective.
 ### Consider recovery from attack as part of protocol design
 
 Recent work on multiparty messaging security primitives
-[@I-D.ietf-mls-architecture] considers "post-compromise security" as an
+{{I-D.ietf-mls-architecture}} considers "post-compromise security" as an
 inherent part of the design of that protocol. Perhaps protocol designers ought
 generally consider recovery from attack during protocol design - we do know
 that all widely used protocols will at sometime be subject to successful
@@ -755,8 +787,7 @@ understood as a host system. The web and Javascript model clearly  differs from
 traditional host models, but so do most server-side deployments these days,
 thanks to virtualisation.
 
-As yes unpublished work on this topic within the IAB
-[stackevo](https://github.com/stackevo/endpoint-draft/blob/master/draft-trammell-whats-an-endpoint.md)
+As yes unpublished work on this topic within the IAB {{StackEvo}}
 programme, appears to posit the same kind of thesis. In the stackevo case, that
 work would presumably lead to some new definition of protocol endpoint, but
 (consensus on) such a definition may not be needed for an expanded threat
@@ -775,13 +806,13 @@ These suggested changes are entirely tentative.
 ### Develop a BCP for privacy considerations
 
 It may be time for the IETF to develop a BCP for privacy
-considerations, possibly starting from [@?RFC6973].
+considerations, possibly starting from {{RFC6973}}.
 
 ### Re-consider protocol design "lore"
 
 It could be that this discussion demonstrates that it is timely to reconsider
 some protocol design "lore" as for example is done in
-[@?I-D.iab-protocol-maintenance]. More specifically, protocol extensibility
+{{I-D.iab-protocol-maintenance}}. More specifically, protocol extensibility
 mechanisms may inadvertently create vectors for abuse-cases, given that
 designers cannot fully analyse their impact at the time a new protocol is
 defined or standardised. One might conclude that a lack of extensibility could
@@ -791,7 +822,7 @@ things regardless, if they feel the need.
 
 ### Consider the user perspective
 
-[@?I-D.nottingham-for-the-users] argues that, in relevant cases where there are
+{{I-D.nottingham-for-the-users}} argues that, in relevant cases where there are
 conflicting requirements, the "IETF considers end users as its highest priority
 concern." Doing so seems consistent with the expanded threat model being argued
 for here, so may indicate that a BCP in that space could also be useful.
@@ -868,4 +899,4 @@ Comments on the issues discussed in this memo are gladly taken either privately 
 
 # Acknowledgements {#ack}
 
-The authors would like to thank the members of the IAB, participants of the IETF SAAG meeting, and numerous other people for insightful comments and discussions in this space.
+The authors would like to thank the members of the IAB, participants of the IETF SAAG meeting, participants of the IAB 2019 DEDR workshop, and numerous other people for insightful comments and discussions in this space.
