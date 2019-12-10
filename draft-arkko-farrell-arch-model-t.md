@@ -1,7 +1,7 @@
 ---
 title: Challenges and Changes in the Internet Threat Model
 abbrev: Internet Threat Model Evolution
-docname: draft-arkko-farrell-arch-model-t
+docname: draft-arkko-farrell-arch-model-t-01pre2
 date:
 category: info
 
@@ -52,6 +52,12 @@ informative:
   I-D.iab-protocol-maintenance:
   I-D.ietf-mls-architecture:
   I-D.ietf-tls-grease:
+  I-D.lazanski-smart-users-internet:
+  I-D.arkko-arch-internet-threat-model:
+  I-D.arkko-arch-dedr-report:
+  I-D.mcfadden-smart-endpoint-taxonomy-for-cless:
+  I-D.ietf-teep-architecture:
+  I-D.ietf-rats-eat:
   Saltzer:
    title: End-To-End Arguments in System Design
    date: November 1984
@@ -224,6 +230,40 @@ informative:
    author:
     - ins: CISA
    seriesinfo: "Alert (TA18-004A), https://www.us-cert.gov/ncas/alerts/TA18-004A"
+  Kocher2019:
+   title: "Spectre Attacks: Exploiting Speculative Execution"
+   date: 2019
+   author:
+    - ins: P. Kocher
+    - ins: J. Horn
+    - ins: A. Fogh
+    - ins: D. Genkin
+    - ins: D. Gruss
+    - ins: W. Haas
+    - ins: M. Hamburg
+    - ins: M. Lipp
+    - ins: S. Mangard
+    - ins: T. Prescher
+    - ins: M. Schwarz
+    - ins: Y. Yarom
+   seriesinfo: "40th IEEE Symposium on Security and Privacy (S&P'19)"
+  Lipp2018:
+   title: "Meltdown: Reading Kernel Memory from User Space"
+   date: 2018
+   author:
+    - ins: M. Lipp
+    - ins: M. Schwarz
+    - ins: D. Gruss
+    - ins: T. Prescher
+    - ins: W. Haas
+    - ins: A. Fogh
+    - ins: J. Horn
+    - ins: S. Mangard
+    - ins: P. Kocher
+    - ins: D. Genkin
+    - ins: Y. Yarom
+    - ins: M. Hamburg
+   seriesinfo: "27th USENIX Security Symposium (USENIX Security 18)"
   Passwords:
    title: "Pwned Passwords"
    author:
@@ -299,6 +339,8 @@ It is particularly important to ensure that non-communications security related 
 
 It may also be necessary to have dedicated guidance on how systems design and architecture affect security. The sole consideration of communications security aspects in designing Internet protocols may lead to accidental or increased impact of security issues elsewhere. For instance, allowing a participant to unnecessarily collect or receive information may lead to a similar effect as described in {{RFC8546}} for protocols: over time, unnecessary information will get used with all the associated downsides, regardless of what deployment expectations there were during protocol design. 
 
+This memo does not stand alone. To begin with, it is a merge of earlier work by the two authors {{I-D.farrell-etm}} {{I-D.arkko-arch-internet-threat-model}}. There are also other documents discussing this overall space, e.g. {{I-D.lazanski-smart-users-internet}} {{I-D.arkko-arch-dedr-report}}.
+
 The rest of this memo is organized as follows. {{situationanalysis}} makes some observations about the situation, with respect to communications security and beyond. The section also provides a number of real-world examples.
 
 {{analysis}} discusses some high-level implications that can be drawn, such as the need to consider what the "ends" really are in an "end-to-end" communication.
@@ -313,7 +355,7 @@ Finally, {{concl}} draws some conclusions for next steps.
 
 ## Communications Security Improvements {#commsec}
 
-The fraction of Internet traffic that is cryptographically protected has grown tremendously in the last few years. Several factors have contributed to this change, from Snowden revelations to business reasons and to better available technology such as HTTP/2 {{RFC7540}}, TLS 1.3 {{RFC8446}}, QUIC {{I-D.ietf-quic-transport}}.
+Being able to ask about threat model improvements is due to progress already made: The fraction of Internet traffic that is cryptographically protected has grown tremendously in the last few years. Several factors have contributed to this change, from Snowden revelations to business reasons and to better available technology such as HTTP/2 {{RFC7540}}, TLS 1.3 {{RFC8446}}, QUIC {{I-D.ietf-quic-transport}}.
 
 In many networks, the majority of traffic has flipped from being cleartext to being encrypted. Reaching the level of (almost) all traffic being encrypted is no longer something unthinkable but rather a likely outcome in a few years.
 
@@ -542,7 +584,7 @@ We very briefly list some such cases:
 
 - Carelessly {{LeakyBuckets}}, for example, lots of Amazon S3 leaks showing that careless admins can too easily cause application server data to become available to adversaries
 
-- Virtualisation exposing secrets, for example, {{MeltdownAndSpectre}} and similar side-channels 
+- Virtualisation exposing secrets, for example, Meltdown and Spectre {{MeltdownAndSpectre}} {{Kocher2019}} {{Lipp2018}} and similar other side-channel attacks.
 
 - Compromised badly-maintained web sites, that for example, have led to massive online {{Passwords}}.
 
@@ -657,7 +699,7 @@ To be more specific, this memo suggests the following guidelines for protocol de
 
 1. Consider first principles in protecting information and systems, rather than following a specific pattern such as protecting information in a particular way or at a particular protocol layer. It is necessary to understand what components can be compromised, where interests may or may not be aligned, and what parties have a legitimate role in being a party to a specific information or a control task.
 
-2. Minimize information passed to others: Information passed to another party in a protocol exchange should be minimized to guard against the potential compromise of that party.
+2. Once you have something, do not pass it onto others without serious consideration: In other words, minimize information passed to others. Information passed to another party in a protocol exchange should be minimized to guard against the potential compromise of that party.
 
 3. Perform end-to-end protection via other parties: Information passed via another party who does not intrinsically need the information to perform its function should be protected end-to-end to its intended recipient. This guideline is general, and holds equally for sending TCP/IP packets, TLS connections, or application-layer interactions. As {{RFC8546}} notes, it is a useful design rule to avoid "accidental invariance" (the deployment of on-path devices that over-time start to make assumptions about protocols). However, it is also a necessary security design rule to avoid "accidental disclosure" where information originally thought to be benign and untapped over-time becomes a significant information leak. This guideline can also be applied for different aspects of security, e.g., confidentiality and integrity protection, depending on what the specific need for information is in the other parties.
 
@@ -797,6 +839,33 @@ protocol design time) that all endpoints will be run in a virtualised
 environment where co-tenants and (sometimes) hypervisors are adversaries, and
 to then call for analysis of such scenarios.
 
+### Trusted Computing
+
+Various trusted computing mechanisms allow placing some additional trust on a particular endpoint. This can be useful to address some of the issues in this memo:
+
+   * A network manager of a set of devices may be assured that the devices have not been compromised.
+   * An outside party may be assured that someone who runs a device employs a particular software installation in that device, and that the software runs in a protected environment.
+
+IETF work such as TEEP {{I-D.ietf-teep-architecture}} and RATS {{I-D.ietf-rats-eat}} may be helpful in providing attestations to other nodes about a particular endpoint, or lifecycle management of such endpoints.
+
+One should note, however, that it is often not possible to fully protect endpoints (see, e.g., {{Kocher2019}} {{Lipp2018}} {{I-D.mcfadden-smart-endpoint-taxonomy-for-cless}}). And of course, a trusted computing may be set up and controlled by a party that itself is not trusted; a client that contacts a server that the server's owner runs in a trusted computing setting does not change the fact that the client and the server's owner may have different interests. As a result, there is a need to prepare for the possibility that another party in a communication is not entirely trusted.
+
+### Trust Boundaries
+
+Traditional forms of communication equipment have morphed into today's virtualized environments, where new trust boundaries exist, e.g., between different virtualisation layers. And an application might consider itself trusted while not entirely trusting the underlying operating system. A browser application wants to protect itself against Javascript loaded from a website, while the website considers itself and the Javascript an application that it wants to protect from the browser.
+
+In general, there are multiple parties even in a single device, with differing interests, including some that have (or claim to) the interest of the human user in mind.
+
+### Other things ...
+
+... not processed yet ...
+
+... something about decentralised apps and source of trust in them (brought up by Melinda) ...
+
+... something about how some level of trust is needed for any system to work (brought up by Martin)  ...
+        
+... linkability (brought up by DKG) ...
+
 ## Does IETF Analysis of Protocols Need to Change? {#changes}
 
 It may also be necessary to make procedural changes in how new protocols are defined at the IETF. For instance, our existing documentation of threat models and requirements for security considerations sections may not be adequate in today's world.
@@ -893,10 +962,103 @@ In particular, when the IETF develops infrastructure technology for the Internet
 
 A key focus area at the IETF has been the security of transport protocols, and how transport layer security can be best used to provide the right security for various applications. However, more work is needed in equivalently broadly deployed tools for minimising or obfuscating information provided by users to other entities, and the use of end-to-end security through entities that are involved in the protocol exchange but who do not need to know everything that is being passed through them.
 
-Comments on the issues discussed in this memo are gladly taken either privately or on the architecture-discuss mailing list.
+Comments on the issues discussed in this memo are gladly taken either privately or on the model-t mailing list (https://www.ietf.org/mailman/listinfo/Model-t).
+
+Some further work includes items listed in {{guidelines}} and {{changes}}, as well as compiling categories of vulnerabilities that need to be addressed, examples of specific attacks, and continuing the analysis of the situation and possible new remedies.
+
+It is also necessary find suitable use cases that the IETF can address by further work in this space. A completely adversial situation is not really workable, but  there are situations where some parties are trustworthy, and wish to co-operate to show to each other that this is really the case. In these situations data minimisation can be beneficial to both, attestation can provide additional trust, detection of incidents can alert the parties to action, and so on.
 
 --- back
 
 # Acknowledgements {#ack}
 
-The authors would like to thank the members of the IAB, participants of the IETF SAAG meeting, participants of the IAB 2019 DEDR workshop, and numerous other people for insightful comments and discussions in this space.
+The authors would like to thank the IAB:
+
+Alissa Cooper,
+Wes Hardaker,
+Ted Hardie,
+Christian Huitema,
+Zhenbin Li,
+Erik Nordmark,
+Mark Nottingham,
+Melinda Shore,
+Jeff Tantsura,
+Martin Thomson,
+Brian Trammel,
+Mirja Kuhlewind, and
+Colin Perkins.
+
+The authors would also like to thank the participants of the IETF SAAG
+meeting where this topic was discussed:
+
+Harald Alvestrand,
+Roman Danyliw,
+Daniel Kahn Gilmore, 
+Wes Hardaker, 
+Bret Jordan, 
+Ben Kaduk, 
+Dominique Lazanski, 
+Eliot Lear, 
+Lawrence Lundblade, 
+Kathleen Moriarty,
+Kirsty Paine, 
+Eric Rescorla, 
+Ali Rezaki, 
+Mohit Sethi,
+Ben Schwartz, 
+Dave Thaler,
+Paul Turner, 
+David Waltemire,  and
+Jeffrey Yaskin.
+
+The authors would also like to thank the participants of the IAB 2019 DEDR workshop:
+
+Tuomas Aura,
+Vittorio Bertola,
+Carsten Bormann,
+Stéphane Bortzmeyer,
+Alissa Cooper,
+Stephen Farrell,
+Hannu Flinck,
+Carl Gahnberg,
+Phillip Hallam-Baker,
+Ted Hardie,
+Paul Hoffman,
+Christian Huitema,
+Geoff Huston,
+Konstantinos Komaitis,
+Mirja Kuhlewind,
+Dirk Kutscher,
+Zhenbin Li,
+Julien Maisonneuve,
+John Mattson,
+Moritz Muller,
+Jörg Ott,
+Lucas Pardue,
+Jim Reid,
+Jan-Frederik Rieckers,
+Mohit Sethi,
+Melinda Shore,
+Jonne Soininen,
+Andrew Sullivan, and
+Brian Trammell.
+
+The authors would also like to thank the participants of the November 2016 meeting at the IETF:
+
+Carsten Bormann, 
+Tommy C, 
+Roman Danyliw,
+Christian Huitema, 
+Ben Kaduk, 
+Dirk Kutscher, 
+Dominique Lazanski,
+Eric Rescorla,
+Ali Rezaki, 
+Melinda Shore,
+Martin Thomson, and
+Robin Wilton
+... (missing many people... did we have minutes other than the list of
+actions?) ...
+
+Finally, the authors would like to thank numerous other people for insightful comments and discussions in this space.
+
