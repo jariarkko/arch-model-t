@@ -17,6 +17,7 @@ author:
     name: Jari Arkko
     org: Ericsson
     email: jari.arkko@piuha.net
+
   -
     ins: S. Farrell
     name: Stephen Farrell
@@ -291,13 +292,14 @@ informative:
     - ins: L. Howard
     - ins: T. Hardie
    seriesinfo: "Unpublished work, https://github.com/stackevo/endpoint-draft/blob/master/draft-trammell-whats-an-endpoint.md"
+
 --- abstract
 
 Communications security has been at the center of many security improvements in the Internet. The goal has been to ensure that communications are protected against outside observers and attackers.
 
 This memo suggests that the existing threat model, while important and still valid, is no longer alone sufficient to cater for the pressing security issues in the Internet. For instance, it is also necessary to protect systems against endpoints that are compromised, malicious, or whose interests simply do not align with the interests of the users. While such protection is difficult, there are some measures that can be taken.
 
-It is particularly important to ensure that as we continue to develop Internet technology, non-communications security related threats are properly understood.
+It is particularly important to ensure that as we continue to develop Internet technology, non-communications security related threats, and privacy issues, are properly understood.
 
 --- middle
 
@@ -329,7 +331,14 @@ However, the communications-security -only threat model is becoming outdated. Th
 
 * New adversaries and risks have arisen, e.g., due to creation of large centralized information sources.
 
-In short, attacks are migrating towards the currently easier targets, which no longer necessarily include direct attacks on traffic flows. In addition, trading information about users and ability to influence them has become a common practice for many Internet services, often without consent of the users.
+* While communications-security does seem to be required to protect privacy,
+  more is needed.
+
+In short, attacks are migrating towards the currently easier targets, which no
+longer necessarily include direct attacks on traffic flows. In addition,
+trading information about users and ability to influence them has become a
+common practice for many Internet services, often without users understanding
+those practices.
 
 This memo suggests that the existing threat model, while important and still valid, is no longer alone sufficient to cater for the pressing security issues in the Internet. For instance, while it continues to be very important to protect Internet communications against outsiders, it is also necessary to protect systems against endpoints that are compromised, malicious, or whose interests simply do not align with the interests of the users.
 
@@ -341,11 +350,17 @@ It may also be necessary to have dedicated guidance on how systems design and ar
 
 This memo does not stand alone. To begin with, it is a merge of earlier work by the two authors {{I-D.farrell-etm}} {{I-D.arkko-arch-internet-threat-model}}. There are also other documents discussing this overall space, e.g. {{I-D.lazanski-smart-users-internet}} {{I-D.arkko-arch-dedr-report}}.
 
+The authors (of this memo) envisage independent development of each of those
+(and other work) with an eventual goal to extract an updated (but usefully
+brief!) description of an extended threat model from the collection of works.
+We consider it an open question whether this memo, or any of the others, would
+be usefully published as an RFC.
+
 The rest of this memo is organized as follows. {{situationanalysis}} makes some observations about the situation, with respect to communications security and beyond. The section also provides a number of real-world examples.
 
 {{analysis}} discusses some high-level implications that can be drawn, such as the need to consider what the "ends" really are in an "end-to-end" communication.
 
-{{actions}} discusses the potential remedies, both from the point of view of a system design, as well as from the point of IETF procedures and recommended analysis procedures when designing new protocols. For instance, {{guidelines}} will also discuss high-level guidance to addressing these threats, and {{changes3552}} suggests some potential changes to the definition of the IETF's "Internet Threat Model". It is also apparent that the dangers posed by pervasive monitoring need to be taken in a broader light, given the evolution of the threats beyond communications security.
+{{actions}} discusses some potential remedies, both from the point of view of a system design, as well as from the point of IETF procedures and recommended analysis procedures when designing new protocols. For instance, {{guidelines}} will also discuss high-level guidance to addressing these threats, and {{changes3552}} suggests some potential changes to the definition of the IETF's "Internet Threat Model". It is also apparent that the dangers posed by pervasive monitoring need to be taken in a broader light, given the evolution of the threats beyond communications security.
 
 Comments are solicited on these and other aspects of this document. The best place for discussion is on the arch-discuss list (https://www.ietf.org/mailman/listinfo/Architecture-discuss).
 
@@ -367,11 +382,11 @@ This is not to say that all problems in communications security have been resolv
 
 ## Beyond Communications Security {#beyondcommsec}
 
-There are, however, significant issues beyond communications security in the Internet. To begin with, it is not necessarily clear that one can trust all the endpoints.
+There are, however, significant issues beyond communications security in the Internet. To begin with, it is not necessarily clear that one can trust all the endpoints in any protocol interaction.
 
-Of course, the endpoints were never trusted, but the pressures against endpoints issues seem to be mounting. For instance, the users may not be in as much control over their own devices as they used to be due to manufacturer-controlled operating system installations and locked device ecosystems. And within those ecosystems, even the applications that are available tend to have features that users by themselves would most likely not desire to have, such as excessive rights to media, location, and peripherals. There are also designated efforts by various authorities to hack end-user devices as a means of intercepting data about the user.
+Of course, the endpoints were never trusted, but the pressures against endpoints issues seem to be mounting. For instance, the users may not be in as much control over their own devices as they used to be due to manufacturer-controlled operating system installations and locked device ecosystems. And within those ecosystems, even the applications that are available tend to have privileges that users by themselves would most likely not desire those applications have, such as excessive rights to media, location, and peripherals. There are also designated efforts by various authorities to hack end-user devices as a means of intercepting data about the user.
 
-The situation is different, but not necessarily better on the side of servers. The pattern of communications in today's Internet is almost always via a third party that has at least as much information than the other parties have. For instance, these third parties are typically endpoints for any transport layer security connections, and able to see any communications or other messaging in cleartextx. There are some exceptions, of course, e.g., messaging applications with end-to-end protection.
+The situation is different, but not necessarily better on the side of servers. The pattern of communications in today's Internet is almost always via a third party that has at least as much information as the other parties have. For instance, these third parties are typically endpoints for any transport layer security connections, and able to see any communications or other messaging in cleartext. There are some exceptions, of course, e.g., messaging applications with end-to-end protection.
 
 With the growth of trading users' information by many of these third parties, it becomes necessary to take precautions against endpoints that are compromised, malicious, or whose interests simply do not align with the interests of the users.
 
@@ -391,11 +406,12 @@ Specifically, the following issues need attention:
 
 * Leverage and control points outside the hands of the users or end-user device owners.
 
-For instance, while e-mail transport security {{RFC7817}} has become much more widely distributed in recent years, progress in securing e-mail messages between users has been much slower. This has lead to a situation where e-mail content is considered a critical resource by mail providers who use it for machine learning, advertisement targeting, and other purposes.
+For instance, while e-mail transport security {{RFC7817}} has become much more widely distributed in recent years, progress in securing e-mail messages between users has been much slower. This has lead to a situation where e-mail content is considered a critical resource by some mail service providers who use the content for machine learning, advertisement targeting, and other purposes unrelated to message delivery. Equally however, it is unclear how some useful anti-spam techniques could be deployed in an end-to-end encrypted mail universe (with today's
+end-to-end mail sercurity protocols).  
 
-The Domain Name System (DNS) shows signs of ageing but due to the legacy of deployed systems has changed very slowly. Newer technology {{RFC8484}} developed at the IETF enables DNS queries to be performed confidentially, but its deployment is happening mostly in browsers that use global DNS resolver services, such as Cloudflare's 1.1.1.1 or Google's 8.8.8.8. This results in faster evolution and better security for end users.
+The Domain Name System (DNS) shows signs of ageing but due to the legacy of deployed systems has changed very slowly. Newer technology {{RFC8484}} developed at the IETF enables DNS queries to be performed confidentially, but its initial deployment is happening mostly in browsers that use global DNS resolver services, such as Cloudflare's 1.1.1.1 or Google's 8.8.8.8. This results in faster evolution and better security for end users.
 
-However, if one steps back and considers the overall security effects of these developments, the resulting effects can be different. While the security of the actual protocol exchanges improves with the introduction of this new technology, at the same time this implies a move from using a worldwide distributed set of DNS resolvers into more centralised global resolvers. While these resolvers are very well maintained (and a great service), they are potential high-value targets for pervasive monitoring and Denial-of-Service (DoS) attacks. In 2016, for example, DoS attacks were launched against Dyn, one of the largest DNS providers, leading to some outages. It is difficult to imagine that DNS resolvers wouldn't be a target in many future attacks or pervasive monitoring projects.
+However, if one steps back and considers the overall security effects of these developments, the resulting effects can be different. While the security of the actual protocol exchanges improves with the introduction of this new technology, at the same time this could lead to a move from using a worldwide distributed set of DNS resolvers into a far smaller set of centralised global resolvers. While these resolvers are very well maintained (and a great service), they are potential high-value targets for pervasive monitoring and Denial-of-Service (DoS) attacks. In 2016, for example, DoS attacks were launched against Dyn, one of the largest DNS providers, leading to some outages. It is difficult to imagine that DNS resolvers wouldn't be a target in many future attacks or pervasive monitoring projects.
 
 Unfortunately, there is little that even large service providers can do to refuse authority-sanctioned pervasive monitoring. As a result it seems that the only reasonable course of defense is to ensure that no such information or control point exists.
 
