@@ -55,9 +55,18 @@ The rest of this memo is organized as follows. {{situationanalysis}} makes some 
 
 {{analysis}} discusses some high-level implications that can be drawn, such as the need to consider what the "ends" really are in an "end-to-end" communication.
 
-{{guidelinessect}} discusses some potential remedies, both from the point of view of a system design, as well as from the point of IETF procedures and recommended analysis procedures when designing new protocols. For instance, {{guidelinessect}} will also discuss high-level guidance to addressing these threats, and {{changes3552}} suggests some potential changes to the definition of the IETF's "Internet Threat Model". It is also apparent that the dangers posed by pervasive monitoring need to be taken in a broader light, given the evolution of the threats beyond communications security.
+{{studysect}} lists some areas where additional work is required
+before we could feel confident in crafting guidelines, whereas
+{{guidelinessect}} presents what we think are perhaps already
+credible potential guidelines - both from the point of
+view of a system design, as well as from the point of IETF procedures and
+recommended analysis procedures when designing new protocols. 
+{{changes3552}} and {{changes7258}} tentatively suggest some changes to 
+current IETF BCPs in this space. 
 
-Comments are solicited on these and other aspects of this document. The best place for discussion is on the arch-discuss list (https://www.ietf.org/mailman/listinfo/Architecture-discuss).
+Comments are solicited on these and other aspects of this document. The best
+place for discussion is on the arch-discuss list
+(https://www.ietf.org/mailman/listinfo/Architecture-discuss).
 
 Finally, {{concl}} draws some conclusions for next steps.
 

@@ -1,8 +1,7 @@
 # Areas requiring more study {#studysect}
 
 In addition to the guidelines in ({{guidelinessect}}), we suggest there may be value in further
-study on the topics balow, with the goal of producing guidelines as
-presented in ({{guidelinessect}}).
+study on the topics balow, with the goal of producing more concrete guidelines.
 
 1. Isolation:
 Sophisticated users can sometimes deal with adversarial behaviours in
@@ -135,3 +134,32 @@ conflicting requirements, the "IETF considers end users as its highest priority
 concern." Doing so seems consistent with the expanded threat model being argued
 for here, so may indicate that a BCP in that space could also be useful.
 
+1. Have explicit agreements: When users and their devices provide information
+   to network entities, it would be beneficial to have an opportunity for the
+users to state their requirements regarding the use of the information provided
+in this way. While the actual use of such requirements and the willingness of
+network entities to agree to them remains to be seen, at the moment even the
+technical means of doing this are limited. For instance, it would be beneficial
+to be able to embed usage requirements within popular data formats.
+
+    As appropriate, users should be made aware of the choices made in a particular
+design, and avoid designs or products that protect against some threats but are
+wide open to other serious issues. (SF doesn't know what that last bit means;-)
+
+1. Perform end-to-end protection via other parties: Information passed via
+   another party who does not intrinsically need the information to perform its
+function should be protected end-to-end to its intended recipient. This
+guideline is general, and holds equally for sending TCP/IP packets, TLS
+connections, or application-layer interactions. As {{RFC8546}} notes, it is a
+useful design rule to avoid "accidental invariance" (the deployment of on-path
+devices that over-time start to make assumptions about protocols). However, it
+is also a necessary security design rule to avoid "accidental disclosure" where
+information originally thought to be benign and untapped over-time becomes a
+significant information leak. This guideline can also be applied for different
+aspects of security, e.g., confidentiality and integrity protection, depending
+on what the specific need for information is in the other parties.
+
+    The main reason that further study is needed here is that the key
+management consequences can be significant here - once one enters into a
+multi-party world, securely managing keys for all entities can be so burdonsome
+that deployment just doesn't happen.
