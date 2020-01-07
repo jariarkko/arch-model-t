@@ -6,16 +6,16 @@ This is the working area for an individual Internet-Draft.
 
 The draft is split into a markdown file per section:
 
-    - [Introduction](intro.md)
-    - [Observations](observations.md)
-    - [Analysis](analysis.md)
-    - [Areas for further study](study.md)
-    - [Guidelines](guidelines.md)
-    - [Possible Changes to RFC 3552](changes3552.md)
-    - [Possible Changes to RFC 7258](changes7258.md)
-    - [Conclusions](conclusions.md)
-    - [References](refs.md)
-    - [Acknowlendgments](acks.md)
+- [Introduction](intro.md)
+- [Observations](observations.md)
+- [Analysis](analysis.md)
+- [Areas for further study](study.md)
+- [Guidelines](guidelines.md)
+- [Possible Changes to RFC 3552](changes3552.md)
+- [Possible Changes to RFC 7258](changes7258.md)
+- [Conclusions](conclusions.md)
+- [References](refs.md)
+- [Acknowlendgments](acks.md)
 
 ## Building the Draft
 
