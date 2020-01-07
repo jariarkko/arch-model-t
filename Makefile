@@ -3,6 +3,7 @@ MD_PREPROCESSOR=markdown-pp /dev/stdin
 
 MD_FILES= draft-arkko-farrell-arch-model-t.md \
 		  refs.md \
+		  abstract.md \
 		  intro.md \
 		  observations.md \
 		  analysis.md \

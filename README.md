@@ -9,6 +9,7 @@ The [editor's version](draft-arkko-farrell-arch-model-t.txt)
 
 The draft is split into a markdown file per section:
 
+- [Abstract](abstract.md)
 - [Introduction](intro.md)
 - [Observations](observations.md)
 - [Analysis](analysis.md)
