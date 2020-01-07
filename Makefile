@@ -1,4 +1,20 @@
 
+MD_PREPROCESSOR=markdown-pp /dev/stdin
+
+MD_FILES= draft-arkko-farrell-arch-model-t.md \
+		  refs.md \
+		  intro.md \
+		  observations.md \
+		  analysis.md \
+		  study.md \
+		  changes3552.md \
+		  changes7258.md \
+		  guidelines.md \
+		  conclusions.md \
+		  acks.md
+
+draft-arkko-farrell-arch-model-t.txt: $(MD_FILES)
+
 base:	draft-arkko-farrell-arch-model-t.txt
 
 LIBDIR := lib
