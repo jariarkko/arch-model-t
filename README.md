@@ -2,6 +2,9 @@
 
 This is the working area for an individual Internet-Draft.
 
+The [editor's version](draft-arkko-farrell-arch-model-t.txt)
+
+
 ## Sections
 
 The draft is split into a markdown file per section:
@@ -16,6 +19,9 @@ The draft is split into a markdown file per section:
 - [Conclusions](conclusions.md)
 - [References](refs.md)
 - [Acknowlendgments](acks.md)
+
+The [main markdown file](draft-arkko-farrell-arch-model-t.md) has ``!INCLUDE``
+statements for all the above.
 
 ## Building the Draft
 
