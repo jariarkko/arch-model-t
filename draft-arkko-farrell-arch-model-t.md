@@ -1,7 +1,7 @@
 ---
 title: Challenges and Changes in the Internet Threat Model
 abbrev: Internet Threat Model Evolution
-docname: draft-arkko-farrell-arch-model-t-01pre2
+docname: draft-arkko-farrell-arch-model-t-01
 date:
 category: info
 
@@ -56,8 +56,11 @@ informative:
   I-D.lazanski-smart-users-internet:
   I-D.arkko-arch-internet-threat-model:
   I-D.arkko-arch-dedr-report:
+  I-D.arkko-arch-infrastructure-centralisation:
+  I-D.taddei-smart-cless-introduction:
   I-D.mcfadden-smart-endpoint-taxonomy-for-cless:
   I-D.ietf-teep-architecture:
+  I-D.ietf-teep-protocol:
   I-D.ietf-rats-eat:
   Saltzer:
    title: End-To-End Arguments in System Design
@@ -350,7 +353,7 @@ It may also be necessary to have dedicated guidance on how systems design and ar
 
 This memo does not stand alone. To begin with, it is a merge of earlier work by the two authors {{I-D.farrell-etm}} {{I-D.arkko-arch-internet-threat-model}}. There are also other documents discussing this overall space, e.g. {{I-D.lazanski-smart-users-internet}} {{I-D.arkko-arch-dedr-report}}.
 
-The authors (of this memo) envisage independent development of each of those
+The authors of this memo envisage independent development of each of those
 (and other work) with an eventual goal to extract an updated (but usefully
 brief!) description of an extended threat model from the collection of works.
 We consider it an open question whether this memo, or any of the others, would
@@ -679,6 +682,8 @@ It is well known that many such systems evolve over time, grow, and get used and
 
 In general, the outside vs. inside security model is outdated for most situations, due to the complex and evolving networks and the need to support mixture of devices from different sources (e.g., BYOD networks). Network virtualization also implies that previously clear notions of local area networks and physical proximity may create an entirely different reality from what appears from a simple notion of a local network.
 
+Similarly, even trusted, well-managed parties can be problematic, even  when operating openly in the Internet. Systems that collect data from a large number of Internet users, or that are used by a large number of devices have some inherent issues: large data stores attract attempts to use that data in a manner that is not consistent with the users' interests. They can also become single points of failure through network management, software, or business failures. See also {{I-D.arkko-arch-infrastructure-centralisation}}.
+
 ### Even closed networks can have compromised nodes
 
 This memo argues that the situation is even more dire than what was explained above. It is impossible to ensure that all components in a network are actually trusted. Even in a closed network with carefully managed components there may be compromised components, and this should be factored into the design of the system and protocols used in the system.
@@ -862,25 +867,15 @@ Various trusted computing mechanisms allow placing some additional trust on a pa
    * A network manager of a set of devices may be assured that the devices have not been compromised.
    * An outside party may be assured that someone who runs a device employs a particular software installation in that device, and that the software runs in a protected environment.
 
-IETF work such as TEEP {{I-D.ietf-teep-architecture}} and RATS {{I-D.ietf-rats-eat}} may be helpful in providing attestations to other nodes about a particular endpoint, or lifecycle management of such endpoints.
+IETF work such as TEEP {{I-D.ietf-teep-architecture}} {{I-D.ietf-teep-protocol}} and RATS {{I-D.ietf-rats-eat}} may be helpful in providing attestations to other nodes about a particular endpoint, or lifecycle management of such endpoints.
 
-One should note, however, that it is often not possible to fully protect endpoints (see, e.g., {{Kocher2019}} {{Lipp2018}} {{I-D.mcfadden-smart-endpoint-taxonomy-for-cless}}). And of course, a trusted computing may be set up and controlled by a party that itself is not trusted; a client that contacts a server that the server's owner runs in a trusted computing setting does not change the fact that the client and the server's owner may have different interests. As a result, there is a need to prepare for the possibility that another party in a communication is not entirely trusted.
+One should note, however, that it is often not possible to fully protect endpoints (see, e.g., {{Kocher2019}} {{Lipp2018}} {{I-D.taddei-smart-cless-introduction}} {{I-D.mcfadden-smart-endpoint-taxonomy-for-cless}}). And of course, a trusted computing may be set up and controlled by a party that itself is not trusted; a client that contacts a server that the server's owner runs in a trusted computing setting does not change the fact that the client and the server's owner may have different interests. As a result, there is a need to prepare for the possibility that another party in a communication is not entirely trusted.
 
 ### Trust Boundaries
 
 Traditional forms of communication equipment have morphed into today's virtualized environments, where new trust boundaries exist, e.g., between different virtualisation layers. And an application might consider itself trusted while not entirely trusting the underlying operating system. A browser application wants to protect itself against Javascript loaded from a website, while the website considers itself and the Javascript an application that it wants to protect from the browser.
 
 In general, there are multiple parties even in a single device, with differing interests, including some that have (or claim to) the interest of the human user in mind.
-
-### Other things ...
-
-... not processed yet ...
-
-... something about decentralised apps and source of trust in them (brought up by Melinda) ...
-
-... something about how some level of trust is needed for any system to work (brought up by Martin)  ...
-        
-... linkability (brought up by DKG) ...
 
 ## Does IETF Analysis of Protocols Need to Change? {#changes}
 
@@ -1062,14 +1057,17 @@ Brian Trammell.
 The authors would also like to thank the participants of the November 2016 meeting at the IETF:
 
 Carsten Bormann, 
+Randy Bush,
 Tommy C, 
 Roman Danyliw,
+Ted Hardie,
 Christian Huitema, 
 Ben Kaduk, 
 Dirk Kutscher, 
 Dominique Lazanski,
 Eric Rescorla,
 Ali Rezaki, 
+Mohit Sethi,
 Melinda Shore,
 Martin Thomson, and
 Robin Wilton
