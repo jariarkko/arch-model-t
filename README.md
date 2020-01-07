@@ -1,4 +1,4 @@
-# Recommendations for Centralisation and Encryption 
+# Challenges and Changes in the Internet Threat Model
 
 This is the working area for an individual Internet-Draft.
 
