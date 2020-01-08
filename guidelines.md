@@ -70,6 +70,8 @@ due to protocol design flaws.  For example, recent work on multiparty messaging
 security primitives {{I-D.ietf-mls-architecture}} considers "post-compromise
 security" as an inherent part of the design of that protocol. 
 
+1. Consider linkability. Nice crisp text TBD.
+
 But when applying these guidelines, don't take this as blanket reason to
 provide no information to anyone, or (impractically) insist on encrypting
 everything, or other extreme measures.  Designers need to be aware of the

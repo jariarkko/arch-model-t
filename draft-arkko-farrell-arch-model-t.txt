@@ -5,8 +5,8 @@
 Network Working Group                                           J. Arkko
 Internet-Draft                                                  Ericsson
 Intended status: Informational                                S. Farrell
-Expires: 10 July 2020                             Trinity College Dublin
-                                                          7 January 2020
+Expires: 11 July 2020                             Trinity College Dublin
+                                                          8 January 2020
 
 
           Challenges and Changes in the Internet Threat Model
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 July 2020.
+   This Internet-Draft will expire on 11 July 2020.
 
 Copyright Notice
 
@@ -1046,78 +1046,82 @@ Table of Contents
    To be more specific, this memo suggests the following guidelines for
    protocol designers:
 
-   1.  Consider first principles in protecting information and systems,
-       rather than following a specific pattern such as protecting
-       information in a particular way or only at a particular protocol
-       layer.  It is necessary to understand what components can be
-       compromised, where interests may or may not be aligned, and what
-       parties have a legitimate role in being a party to a specific
-       information or a control task.
+   1.   Consider first principles in protecting information and systems,
+        rather than following a specific pattern such as protecting
+        information in a particular way or only at a particular protocol
+        layer.  It is necessary to understand what components can be
+        compromised, where interests may or may not be aligned, and what
+        parties have a legitimate role in being a party to a specific
+        information or a control task.
 
-   2.  Consider how you depend on infrastructure.  For any protocol
-       directly or indirectly dependent on infrastructure like DNS or
-       BGP, analyse potential outcomes in the event that the relevant
-       infrastructure has been compromised.  Such attacks occur in the
-       wild.  [DeepDive]
+   2.   Consider how you depend on infrastructure.  For any protocol
+        directly or indirectly dependent on infrastructure like DNS or
+        BGP, analyse potential outcomes in the event that the relevant
+        infrastructure has been compromised.  Such attacks occur in the
+        wild.  [DeepDive]
 
-   3.  Protocol endpoints are commonly no longer executed on what used
-       be understood as a host system.  [StackEvo] The web and
-       Javascript model clearly differs from traditional host models,
-       but so do many server-side deployments, thanks to virtualisation.
-       At protocol design time assume that all endpoints will be run in
-       virtualised environments where co-tenants and (sometimes)
-       hypervisors are adversaries, and then analyse such scenarios.
+   3.   Protocol endpoints are commonly no longer executed on what used
+        be understood as a host system.  [StackEvo] The web and
+        Javascript model clearly differs from traditional host models,
+        but so do many server-side deployments, thanks to
+        virtualisation.  At protocol design time assume that all
+        endpoints will be run in virtualised environments where co-
+        tenants and (sometimes) hypervisors are adversaries, and then
+        analyse such scenarios.
 
-   4.  Once you have something, do not pass it onto others without
-       serious consideration.  In other words, minimize information
-       passed to others to guard against the potential compromise of
-       that party.  As recommended in [RFC6973] data minimisation and
-       additional encryption can be helpful - if applications don't ever
-       see data, or a cleartext form of data, then they should have a
-       harder time misbehaving.  Similarly, not defining new long-term
-       identifiers, and not exposing existing ones, help in minimising
-       risk.
+   4.   Once you have something, do not pass it onto others without
+        serious consideration.  In other words, minimize information
+        passed to others to guard against the potential compromise of
+        that party.  As recommended in [RFC6973] data minimisation and
+        additional encryption can be helpful - if applications don't
+        ever see data, or a cleartext form of data, then they should
+        have a harder time misbehaving.  Similarly, not defining new
+        long-term identifiers, and not exposing existing ones, help in
+        minimising risk.
 
-   5.  Minimize passing of control functions to others.  Any passing of
-       control functions to other parties should be minimized to guard
-       against the potential misuse of those control functions.  This
-       applies to both technical (e.g., nodes that assign resources) and
-       process control functions (e.g., the ability to allocate number
-       or develop extensions).  Control functions of all kinds can
-       become a matter of contention and power struggle, even in cases
-       where their actual function is minimal, as we saw with the IANA
-       transition debates.
+   5.   Minimize passing of control functions to others.  Any passing of
+        control functions to other parties should be minimized to guard
+        against the potential misuse of those control functions.  This
+        applies to both technical (e.g., nodes that assign resources)
+        and process control functions (e.g., the ability to allocate
+        number or develop extensions).  Control functions of all kinds
+        can become a matter of contention and power struggle, even in
+        cases where their actual function is minimal, as we saw with the
+        IANA transition debates.
 
-   6.  Where possible, avoid centralized resources.  While centralized
-       components, resources, and functions are often simpler, there can
-       be grave issues associated with them, for example meta-data
-       leakage.  Designers should balance the benefits of centralized
-       resources or control points against the threats arising.  If it
-       is not possible to avoid, find a way to allow the centralized
-       resources to be selectable, depending on context and user
-       settings.
+   6.   Where possible, avoid centralized resources.  While centralized
+        components, resources, and functions are often simpler, there
+        can be grave issues associated with them, for example meta-data
+        leakage.  Designers should balance the benefits of centralized
+        resources or control points against the threats arising.  If it
+        is not possible to avoid, find a way to allow the centralized
+        resources to be selectable, depending on context and user
+        settings.
 
-   7.  Treat parties with which your protocol endpoints interact with
-       suspicion, even if the communications are encrypted.  Other
-       endpoints may misuse any information or control opportunity in
-       the communication.  Similarly, even endpoints within your own
-       system need to be treated with suspicision, as some may become
-       compromised.
+   7.   Treat parties with which your protocol endpoints interact with
+        suspicion, even if the communications are encrypted.  Other
+        endpoints may misuse any information or control opportunity in
+        the communication.  Similarly, even endpoints within your own
+        system need to be treated with suspicision, as some may become
+        compromised.
 
-   8.  Consider abuse-cases.  Protocol developers are typically most
-       interested in a few specific use-cases for which they need
-       solutions.  Expanding the threat model to consider adversarial
-       behaviours [AbuseCases] calls for significant attention to be
-       paid to potential abuses of whatever new or re-purposed
-       technology is being considered.
+   8.   Consider abuse-cases.  Protocol developers are typically most
+        interested in a few specific use-cases for which they need
+        solutions.  Expanding the threat model to consider adversarial
+        behaviours [AbuseCases] calls for significant attention to be
+        paid to potential abuses of whatever new or re-purposed
+        technology is being considered.
 
-   9.  Consider recovery from compromse or attack during protocol design
-       - all widely used protocols will at some time be subject to
-       successful attack, whether that is due to deployment or
-       implementation error, or, less commonly, due to protocol design
-       flaws.  For example, recent work on multiparty messaging security
-       primitives [I-D.ietf-mls-architecture] considers "post-compromise
-       security" as an inherent part of the design of that protocol.
+   9.   Consider recovery from compromse or attack during protocol
+        design - all widely used protocols will at some time be subject
+        to successful attack, whether that is due to deployment or
+        implementation error, or, less commonly, due to protocol design
+        flaws.  For example, recent work on multiparty messaging
+        security primitives [I-D.ietf-mls-architecture] considers "post-
+        compromise security" as an inherent part of the design of that
+        protocol.
+
+   10.  Consider linkability.  Nice crisp text TBD.
 
    But when applying these guidelines, don't take this as blanket reason
    to provide no information to anyone, or (impractically) insist on

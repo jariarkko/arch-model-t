@@ -1,3 +1,4 @@
+
 # Potential changes in RFC 3552 {#changes3552}
 
 The earlier quote from OAuth ({{studysect}}) also has another aspect - it considers the effect of compromised endpoints on those that are not compromised.  It may therefore be interesting to consider the consequeneces that would follow from a change to {{RFC3552}}. RFC 3552 is the RFC that defines "An Internet Threat Model". It also provides guidance to writing Security Considerations sections in other RFCs. One initial, draft proposal for such changes would be this:
