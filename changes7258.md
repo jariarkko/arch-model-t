@@ -1,8 +1,8 @@
-# Potential Changes in RFC 7258 {#changes7258}
+# Potential Changes in BCP 188/RFC 7258 {#changes7258}
 
-Other additional guidelines may be necessary also in {{RFC7258}}, the RFC that
-specifies how IETF work should take into account pervasive monitoring, such as
-the one performed as a part of broad, indiscriminate surveillance activity.
+Other additional guidelines may be necessary also in BCP 188/RFC
+7258{{RFC7258}}, which specifies how IETF work should take into account
+pervasive monitoring.
 
 An initial, draft suggestion for starting point of those changes could be
 adding the following paragraph after the 2nd paragraph in Section 2:

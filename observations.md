@@ -14,48 +14,125 @@ This is not to say that all problems in communications security have been resolv
 
 ## Beyond Communications Security {#beyondcommsec}
 
-There are, however, significant issues beyond communications security in the Internet. To begin with, it is not necessarily clear that one can trust all the endpoints in any protocol interaction.
+There are, however, significant issues beyond communications security in the
+Internet. To begin with, it is not necessarily clear that one can trust all the
+endpoints in any protocol interaction.
 
-Of course, the endpoints were never trusted, but the pressures against endpoints issues seem to be mounting. For instance, the users may not be in as much control over their own devices as they used to be due to manufacturer-controlled operating system installations and locked device ecosystems. And within those ecosystems, even the applications that are available tend to have privileges that users by themselves would most likely not desire those applications have, such as excessive rights to media, location, and peripherals. There are also designated efforts by various authorities to hack end-user devices as a means of intercepting data about the user.
+Of course, client endpoint implemententations were never fully trusted, but the
+environments in which those endpoints exist are changing.  For instance, users
+may have as much control over their own devices as they used to, due to
+manufacturer-controlled operating system installations and locked device
+ecosystems. And within those ecosystems, even the applications that are
+available tend to have privileges that users by themselves might not desire
+those applications be granted, such as excessive rights to media, location, and
+peripherals. There are also designated efforts by various authorities to hack
+end-user devices as a means of intercepting data about the user.
 
-The situation is different, but not necessarily better on the side of servers. The pattern of communications in today's Internet is almost always via a third party that has at least as much information as the other parties have. For instance, these third parties are typically endpoints for any transport layer security connections, and able to see any communications or other messaging in cleartext. There are some exceptions, of course, e.g., messaging applications with end-to-end protection.
+The situation is different, but not necessarily better on the side of servers.
+The pattern of communications in today's Internet is almost always via a third
+party that has at least as much information as the other parties have. For
+instance, these third parties are typically endpoints for any transport layer
+security connections, and able to see much communications or other messaging in
+cleartext. There are some exceptions, of course, e.g., messaging applications
+with end-to-end confidentiatlity protection.
 
-With the growth of trading users' information by many of these third parties, it becomes necessary to take precautions against endpoints that are compromised, malicious, or whose interests simply do not align with the interests of the users.
+With the growth of trading users' information by many of these third parties,
+it becomes necessary to take precautions against endpoints that are
+compromised, malicious, or whose interests simply do not align with the
+interests of the users.
 
 Specifically, the following issues need attention:
 
-* Security of users' devices and the ability of the user to control their own equipment.
+* Security of users' devices and the ability of the user to control their own
+  equipment.
 
 * Leaks and attacks related to data at rest.
 
-* Coercion of some endpoints to reveal information to authorities or surveillance organizations, sometimes even in an extra-territorial fashion.
+* Coercion of some endpoints to reveal information to authorities or
+  surveillance organizations, sometimes even in an extra-territorial fashion.
 
-* Application design patterns that result in cleartext information passing through a third party or the application owner.
+* Application design patterns that result in cleartext information passing
+  through a third party or the application owner.
 
-* Involvement of entities that have no direct need for involvement for the sake of providing the service that the user is after.
+* Involvement of entities that have no direct need for involvement for the sake
+  of providing the service that the user is after.
 
-* Network and application architectures that result in a lot of information collected in a (logically) central location.
+* Network and application architectures that result in a lot of information
+  collected in a (logically) central location.
 
-* Leverage and control points outside the hands of the users or end-user device owners.
+* Leverage and control points outside the hands of the users or end-user device
+  owners.
 
-For instance, while e-mail transport security {{RFC7817}} has become much more widely distributed in recent years, progress in securing e-mail messages between users has been much slower. This has lead to a situation where e-mail content is considered a critical resource by some mail service providers who use the content for machine learning, advertisement targeting, and other purposes unrelated to message delivery. Equally however, it is unclear how some useful anti-spam techniques could be deployed in an end-to-end encrypted mail universe (with today's
-end-to-end mail sercurity protocols).  
+For instance, while e-mail transport security {{RFC7817}} has become much more
+widely deployed in recent years, progress in securing e-mail messages
+between users has been much slower. This has lead to a situation where e-mail
+content is considered a critical resource by some mail service providers who
+use the content for machine learning, advertisement targeting, and other
+purposes unrelated to message delivery. Equally however, it is unclear how some
+useful anti-spam techniques could be deployed in an end-to-end encrypted mail
+universe (with today's end-to-end mail sercurity protocols) and there
+are many significant challenges should one desire to deploy end-to-end
+email security at scale.  
 
-The Domain Name System (DNS) shows signs of ageing but due to the legacy of deployed systems has changed very slowly. Newer technology {{RFC8484}} developed at the IETF enables DNS queries to be performed confidentially, but its initial deployment is happening mostly in browsers that use global DNS resolver services, such as Cloudflare's 1.1.1.1 or Google's 8.8.8.8. This results in faster evolution and better security for end users.
+The Domain Name System (DNS) shows signs of ageing but due to the legacy of
+deployed systems has changed very slowly. Newer technology {{RFC8484}}
+developed at the IETF enables DNS queries to be performed with confidentiality
+and authentication (of a recursive resolver), but its initial deployment is
+happening mostly in browsers that use global DNS resolver services, such as
+Cloudflare's 1.1.1.1 or Google's 8.8.8.8. This results in faster evolution and
+better security for end users.
 
-However, if one steps back and considers the potential security and privacy effects of these developments, the outcome could appear different. While the security and confidentiality of the protocol exchanges improves with the introduction of this new technology, at the same time this could lead to a move from using a worldwide distributed set of DNS resolvers into a far smaller set of centralised global resolvers. While these resolvers are very well maintained (and a great service), they are potential high-value targets for pervasive monitoring and Denial-of-Service (DoS) attacks. In 2016, for example, DoS attacks were launched against Dyn, one of the largest DNS providers, leading to some outages. It is difficult to imagine that DNS resolvers wouldn't be a target in many future attacks or pervasive monitoring projects.
+However, if one steps back and considers the potential security and privacy
+effects of these developments, the outcome could appear different. While the
+security and confidentiality of the protocol exchanges improves with the
+introduction of this new technology, at the same time this could lead to a move
+from using (what appears to be) a large worldwide distributed set of DNS
+resolvers into a far smaller set of centralised global resolvers. While these
+resolvers are very well maintained (and a great service), they are potential
+high-value targets for pervasive monitoring and Denial-of-Service (DoS)
+attacks. In 2016, for example, DoS attacks were launched against Dyn,
+{{DynDDoS}} then one of the largest DNS providers, leading to some outages. It is
+difficult to imagine that DNS resolvers wouldn't be a target in many future
+attacks or pervasive monitoring projects.
 
-Unfortunately, there is little that even large service providers can do to not be a DDoS target, not to refuse authority-sanctioned pervasive monitoring. As a result it seems that a reasonable defense strategy may be to aim for outcomes where such highly centralised control points are unecessary or don't handle sensitive data. (Recalling that with the DNS, information about the requestor and the act of requesting an answer are what is potentially sensitive, rather than the content of the answer.) 
+Unfortunately, there is little that even large service providers can do to not
+be a DDoS target, (though anycast and other DDoS mitigations can certainly help
+when one is targetted), nor to refuse authority-sanctioned pervasive
+monitoring. As a result it seems that a reasonable defense strategy may be to
+aim for outcomes where such highly centralised control points are unecessary or
+don't handle sensitive data. (Recalling that with the DNS, meta-data about
+the requestor and the act of requesting an answer are what is potentially
+sensitive, rather than the content of the answer.) 
 
-There are other examples of the perils of centralised solutions in Internet infrastructure. The DNS example involves an interesting combination of information flows (who is asking for what domain names) as well as a potential ability to exert control (what domains will actually resolve to an address). Routing systems are primarily about control. While there are intra-domain centralized routing solutions (such as PCE {{RFC4655}}), a control within a single administrative domain is usually not the kind of centralization that we would be worried about. Global centralization would be much more concerning. Fortunately, global Internet routing is performed a among peers. However, controls could be introduced even in this global, distributed system. To secure some of the control exchanges, the Resource Public Key Infrastructure (RPKI) system ({{RFC6480}}) allows selected Certification Authorities (CAs) to help drive decisions about which participants in the routing infrastructure can make what claims. If this system were globally centralized, it would be a concern, but again, fortunately, current designs involve at least regional distribution.
+There are other examples of the perils of centralised solutions in Internet
+infrastructure. The DNS example involves an interesting combination of
+information flows (who is asking for what domain names) as well as a potential
+ability to exert control (what domains will actually resolve to an address).
+Routing systems are primarily about control. While there are intra-domain
+centralized routing solutions (such as PCE {{RFC4655}}), a control within a
+single administrative domain is usually not the kind of centralization that we
+would be worried about. Global centralization would be much more concerning.
+Fortunately, global Internet routing is performed among peers. However,
+controls could be introduced even in this global, distributed system. To secure
+some of the control exchanges, the Resource Public Key Infrastructure (RPKI)
+system ({{RFC6480}}) allows selected Certification Authorities (CAs) to help
+drive decisions about which participants in the routing infrastructure can make
+what claims. If this system were globally centralized, it would be a concern,
+but again, fortunately, current designs involve at least regional distribution.
 
-In general, many recent attacks relate more to information than communications. For instance, personal information leaks typically happen via information stored on a compromised server rather than capturing communications. There is little hope that such attacks can be prevented entirely. Again, the best course of action seems to be avoid the disclosure of information in the first place, or at least to not perform that in a manner that makes it possible that others can readily use the information.
+In general, many recent attacks relate more to information than communications.
+For instance, personal information leaks typically happen via information
+stored on a compromised server rather than capturing communications. There is
+little hope that such attacks can be prevented entirely. Again, the best course
+of action seems to be avoid the disclosure of information in the first place,
+or at least to not perform that in a manner that makes it possible that others
+can readily use the information.
 
 ## Examples {#examples}
 
 ### Deliberate adversarial behaviour in applications
 
-In this section we describe a few documented examples of deliberate adversarial
+In this section we describe some documented examples of deliberate adversarial
 behaviour by applications that could affect Internet protocol development.  The
 adversarial behaviours described below involve various kinds of attack, varying
 from simple fraud, to credential theft, surveillance and contributing to DDoS
@@ -220,6 +297,18 @@ can be used to trick a PKI into issuing a certificate for a fake entity. Indeed
 one study {{HijackDet}} used the emergence of new web server TLS key pairs during
 the event, (detected via Internet-wide scans), as a distinguisher between
 one form of deliberate BGP hijacking and indadvertent route leaks. 
+
+#### Anti-virus vendor selling user clickstream data
+
+An anti-virus product vendor was feeding user clickstream data to a subsidiary
+that then sold on supposedly "anonymised" but highly detailed data to unrelated
+parties.  {{avleak}} After browser makers had removed that vendor's browser
+extension from their online stores, the anti-virus product itself apparently
+took over data collection initially only offering users an opt-out, with the
+result that apparently few users were even aware of the data collection, never
+mind the subsequent clickstream sales. Very shortly after publication of
+{{avleak}}, the anti-virus vendor announced they were closing down the
+subsidiary. 
 
 ### Inadvertent adversarial behaviours
 

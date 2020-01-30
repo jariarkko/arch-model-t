@@ -1,7 +1,25 @@
 
-# Potential changes in RFC 3552 {#changes3552}
+# Potential changes in BCP 72/RFC 3552 {#changes3552}
 
-The earlier quote from OAuth ({{studysect}}) also has another aspect - it considers the effect of compromised endpoints on those that are not compromised.  It may therefore be interesting to consider the consequeneces that would follow from a change to {{RFC3552}}. RFC 3552 is the RFC that defines "An Internet Threat Model". It also provides guidance to writing Security Considerations sections in other RFCs. One initial, draft proposal for such changes would be this:
+BCP 72/RFC 3553 {{RFC3552}} defines an "Internet Threat Model" and provides
+guidance on writing Security Considerations sections in other RFCs.  It is
+important to note that BCP 72 is (or should be:-) used by all IETF participants
+when developing protocols.  Potential changes to RFC 3552
+therefore need to be brief - IETF participants cannot in general be expected
+to devote huge amounts of time to developing their security considerations
+text.  Potential changes also need to be easily understood as IETF participants
+from all backgrounds need to be able to use BCP 72. In this section
+we provide a couple of initial suggested changes to BCP 72 that will
+need to be further developed as part of this work. (For example, it
+may be possible to include some of the guidelines from {{guidelinessect}}
+as those are further developed.)
+
+As evidenced in the OAuth quote in {{studysect}} - it can be useful to conside
+the effect of compromised endpoints on those that are not compromised.  It may
+therefore be interesting to consider the consequeneces that would follow from a
+change to {{RFC3552}} that recognises how the landscape has changed since 2003. 
+
+One initial, draft proposal for such a change could be:
 
 OLD:
 
@@ -22,7 +40,8 @@ NEW:
 > a protocol become compromised or do not act in the best interests
 > the end-system implementing a protocol.
 
-In addition, the following new section could be added to discuss the capabilities required to mount an attack:
+In addition, the following new section could be added to discuss the
+capabilities required to mount an attack:
 
 NEW:
 
@@ -33,7 +52,9 @@ NEW:
 > information that the end-system implementing a protocol has sent to the
 > compromised endpoint.
 
-System and architecture aspects definitely also need more attention from Internet technology developers and standards organizations. Here is one possible addition:
+System and architecture aspects definitely also need more attention from
+Internet technology developers and standards organizations. Here is one
+possible addition:
 
 NEW:
 

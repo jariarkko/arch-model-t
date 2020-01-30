@@ -269,4 +269,16 @@ informative:
     - ins: L. Howard
     - ins: T. Hardie
    seriesinfo: "Unpublished work, https://github.com/stackevo/endpoint-draft/blob/master/draft-trammell-whats-an-endpoint.md"
+  DynDDoS:
+    title: "Dyn's Statement on the 10/21/2016 DNS DDoS Attack"
+    date: 2016
+    author: 
+    - ins: K. York
+    seriesinfo: "Company statement: https://dyn.com/blog/dyn-statement-on-10212016-ddos-attack/"
+  avleak:
+    title: "Leaked Documents Expose the Secretive Market for Your Web Browsing Data"
+    date: 2020
+    author:
+    - ins: J. Cox
+    seriesinfo: "https://www.vice.com/en_us/article/qjdkq7/avast-antivirus-sells-user-browsing-data-investigation"
 

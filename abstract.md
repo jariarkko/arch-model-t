@@ -4,11 +4,13 @@ the Internet. The goal has been to ensure that communications are protected
 against outside observers and attackers.
 
 This memo suggests that the existing RFC 3552 threat model, while important and still
-valid, is no longer alone sufficient to cater for the pressing security issues
-in the Internet. For instance, it is also necessary to protect systems against
+valid, is no longer alone sufficient to cater for the pressing security and
+privacy issues
+seen on the Internet today. For instance, it is often also necessary to protect against
 endpoints that are compromised, malicious, or whose interests simply do not
-align with the interests of the users. While such protection is difficult,
-there are some measures that can be taken.
+align with the interests of users. While such protection is difficult,
+there are some measures that can be taken and we argue that investigation
+of these issues is warranted.
 
 It is particularly important to ensure that as we continue to develop Internet
 technology, non-communications security related threats, and privacy issues,

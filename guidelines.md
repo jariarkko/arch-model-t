@@ -70,7 +70,16 @@ due to protocol design flaws.  For example, recent work on multiparty messaging
 security primitives {{I-D.ietf-mls-architecture}} considers "post-compromise
 security" as an inherent part of the design of that protocol. 
 
-1. Consider linkability. Nice crisp text TBD.
+1. Consider linkability. As discussed in {{RFC6973}} the ability to link or
+   correlate different protocol messages with one another, or with external
+sources of information (e.g. public or private databases) can create privacy or
+security issues. As an example, re-use of TLS session tickets can enable an
+observer to associate multiple TLS sessions regardless of changes in source or
+destination addressing, which may reduce privacy or help a bad actor in
+targetting an attack. The same effects may result regardless of how protocol
+exchanges can be linked to one another.  Protocol designs that aim to prevent
+such linkage may produce have fewer unexpected or unwanted side-effects when
+deployed.
 
 But when applying these guidelines, don't take this as blanket reason to
 provide no information to anyone, or (impractically) insist on encrypting
