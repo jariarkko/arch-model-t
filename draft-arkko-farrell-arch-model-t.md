@@ -1,7 +1,7 @@
 ---
 title: Challenges and Changes in the Internet Threat Model
 abbrev: Internet Threat Model Evolution
-docname: draft-arkko-farrell-arch-model-t-pre-02
+docname: draft-arkko-farrell-arch-model-t-pre-03
 date: 
 category: info
 
@@ -16,12 +16,14 @@ author:
     ins: J. Arkko
     name: Jari Arkko
     org: Ericsson
+    country: Finland
     email: jari.arkko@piuha.net
 
   -
     ins: S. Farrell
     name: Stephen Farrell
     org: Trinity College Dublin
+    country: Ireland
     email: stephen.farrell@cs.tcd.ie
 
 !INCLUDE "refs.md"
