@@ -5,12 +5,12 @@
 Network Working Group                                           J. Arkko
 Internet-Draft                                                  Ericsson
 Intended status: Informational                                S. Farrell
-Expires: 9 August 2020                            Trinity College Dublin
-                                                         6 February 2020
+Expires: 10 August 2020                           Trinity College Dublin
+                                                         7 February 2020
 
 
           Challenges and Changes in the Internet Threat Model
-                  draft-arkko-farrell-arch-model-t-02
+                draft-arkko-farrell-arch-model-t-pre-03
 
 Abstract
 
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 August 2020.
+   This Internet-Draft will expire on 10 August 2020.
 
 Copyright Notice
 
@@ -843,7 +843,7 @@ Table of Contents
    the security of many interesting real-world systems now commonly
    needs to include cross-component attacks, e.g., the use of car radios
    and other externally communicating devices as part of attacks
-   launched against the control components such as breaks in a car
+   launched against the control components such as brakes in a car
    [Savage].
 
 3.3.  Balancing Threats
