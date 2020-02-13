@@ -1,7 +1,7 @@
 # Areas requiring more study {#studysect}
 
 In addition to the guidelines in ({{guidelinessect}}), we suggest there may be value in further
-study on the topics balow, with the goal of producing more concrete guidelines.
+study on the topics below, with the goal of producing more concrete guidelines.
 
 1. Isolation:
 Sophisticated users can sometimes deal with adversarial behaviours in
@@ -18,7 +18,7 @@ mechanisms such as TLS session tickets, or QUIC connection identifiers.
 Certificate transparency (CT) {{RFC6962}} has been an effective countermeasure
 for X.509 certificate mis-issuance, which used be a known application layer
 misbehaviour in the public web PKI.  CT can also help with post-facto detection
-of some infrastructure attacks where BGP or DNS weakenesses have been leveraged
+of some infrastructure attacks where BGP or DNS weaknesses have been leveraged
 so that some certification authority is tricked into issuing a certificate for
 the wrong entity.
 While the context in which CT operates is very constrained (essentially to the
@@ -67,7 +67,7 @@ elapsed. This suggests a number of different possible avenues for
 investigation:
 
     - For any protocol dependent on infrastructure like DNS or BGP, we ought
-      analysse potential outcomes in the event the relevant infrastructure has
+      analyse potential outcomes in the event the relevant infrastructure has
 been compromised
     - Protocol designers perhaps ought consider post-facto detection compromise
       mechanisms in the event that it is infeasible to mitigate attacks on

@@ -1,6 +1,6 @@
 # Conclusions {#concl}
 
-At this stage we don't think it approriate to claim that any strong conclusion can be reached based on the above.  We do however, claim that the is a topic that could be worth discussion and more work.
+At this stage we don't think it appropriate to claim that any strong conclusion can be reached based on the above.  We do however, claim that the is a topic that could be worth discussion and more work.
 
 To start with, Internet technology developers need to be better aware of the issues beyond communications security, and consider them in design. At the IETF it would be beneficial to include some of these considerations in the usual systematic security analysis of technologies under development.
 

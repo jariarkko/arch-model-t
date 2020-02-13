@@ -14,9 +14,9 @@ need to be further developed as part of this work. (For example, it
 may be possible to include some of the guidelines from {{guidelinessect}}
 as those are further developed.)
 
-As evidenced in the OAuth quote in {{studysect}} - it can be useful to conside
+As evidenced in the OAuth quote in {{studysect}} - it can be useful to consider
 the effect of compromised endpoints on those that are not compromised.  It may
-therefore be interesting to consider the consequeneces that would follow from a
+therefore be interesting to consider the consequences that would follow from a
 change to {{RFC3552}} that recognises how the landscape has changed since 2003. 
 
 One initial, draft proposal for such a change could be:

@@ -18,9 +18,9 @@ There are, however, significant issues beyond communications security in the
 Internet. To begin with, it is not necessarily clear that one can trust all the
 endpoints in any protocol interaction.
 
-Of course, client endpoint implemententations were never fully trusted, but the
+Of course, client endpoint implementations were never fully trusted, but the
 environments in which those endpoints exist are changing.  For instance, users
-may have as much control over their own devices as they used to, due to
+may not have as much control over their own devices as they used to, due to
 manufacturer-controlled operating system installations and locked device
 ecosystems. And within those ecosystems, even the applications that are
 available tend to have privileges that users by themselves might not desire
@@ -34,7 +34,7 @@ party that has at least as much information as the other parties have. For
 instance, these third parties are typically endpoints for any transport layer
 security connections, and able to see much communications or other messaging in
 cleartext. There are some exceptions, of course, e.g., messaging applications
-with end-to-end confidentiatlity protection.
+with end-to-end confidentiality protection.
 
 With the growth of trading users' information by many of these third parties,
 it becomes necessary to take precautions against endpoints that are
@@ -70,7 +70,7 @@ content is considered a critical resource by some mail service providers who
 use the content for machine learning, advertisement targeting, and other
 purposes unrelated to message delivery. Equally however, it is unclear how some
 useful anti-spam techniques could be deployed in an end-to-end encrypted mail
-universe (with today's end-to-end mail sercurity protocols) and there
+universe (with today's end-to-end mail security protocols) and there
 are many significant challenges should one desire to deploy end-to-end
 email security at scale.  
 
@@ -97,9 +97,9 @@ attacks or pervasive monitoring projects.
 
 Unfortunately, there is little that even large service providers can do to not
 be a DDoS target, (though anycast and other DDoS mitigations can certainly help
-when one is targetted), nor to refuse authority-sanctioned pervasive
+when one is targeted), nor to refuse authority-sanctioned pervasive
 monitoring. As a result it seems that a reasonable defense strategy may be to
-aim for outcomes where such highly centralised control points are unecessary or
+aim for outcomes where such highly centralised control points are unnecessary or
 don't handle sensitive data. (Recalling that with the DNS, meta-data about
 the requestor and the act of requesting an answer are what is potentially
 sensitive, rather than the content of the answer.) 
@@ -149,7 +149,7 @@ do act primarily in the best interests of their users.
 #### Malware in curated application stores
 
 Despite the best efforts of curators, so-called App-Stores frequently distribute malware of many kinds and one recent study {{Curated}}
-claims that simple obfuscation enables malware to avoid detection by even sophisticated operators. Given the scale of these deployments, distribution of even a small percentage of malware-infected applictions can affect a huge number of people.
+claims that simple obfuscation enables malware to avoid detection by even sophisticated operators. Given the scale of these deployments, distribution of even a small percentage of malware-infected applications can affect a huge number of people.
 
 #### Virtual private networks (VPNs)
 
@@ -244,7 +244,7 @@ adversarial behaviour, the levels of incompetence frequently seen imply these as
 
 #### Attacks leveraging compromised high-level DNS infrastructure 
 
-Recent attacks {{DeepDive}} against DNS infrastructure enable subsequent targetted attacks on specific
+Recent attacks {{DeepDive}} against DNS infrastructure enable subsequent targeted attacks on specific
 application layer sources or destinations. The general method appears to be to
 attack DNS infrastructure, in these cases infrastructure that is towards the
 top of the DNS naming hierarchy and "far" from the presumed targets, in order
@@ -296,7 +296,7 @@ connect to adversarial applications. As in the previous example, such hijacks
 can be used to trick a PKI into issuing a certificate for a fake entity. Indeed
 one study {{HijackDet}} used the emergence of new web server TLS key pairs during
 the event, (detected via Internet-wide scans), as a distinguisher between
-one form of deliberate BGP hijacking and indadvertent route leaks. 
+one form of deliberate BGP hijacking and inadvertent route leaks. 
 
 #### Anti-virus vendor selling user clickstream data
 

@@ -5,8 +5,8 @@
 Network Working Group                                           J. Arkko
 Internet-Draft                                                  Ericsson
 Intended status: Informational                                S. Farrell
-Expires: 10 August 2020                           Trinity College Dublin
-                                                         7 February 2020
+Expires: 16 August 2020                           Trinity College Dublin
+                                                        13 February 2020
 
 
           Challenges and Changes in the Internet Threat Model
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 August 2020.
+   This Internet-Draft will expire on 16 August 2020.
 
 Copyright Notice
 
@@ -263,10 +263,10 @@ Table of Contents
    in the Internet.  To begin with, it is not necessarily clear that one
    can trust all the endpoints in any protocol interaction.
 
-   Of course, client endpoint implemententations were never fully
-   trusted, but the environments in which those endpoints exist are
-   changing.  For instance, users may have as much control over their
-   own devices as they used to, due to manufacturer-controlled operating
+   Of course, client endpoint implementations were never fully trusted,
+   but the environments in which those endpoints exist are changing.
+   For instance, users may not have as much control over their own
+   devices as they used to, due to manufacturer-controlled operating
    system installations and locked device ecosystems.  And within those
    ecosystems, even the applications that are available tend to have
    privileges that users by themselves might not desire those
@@ -282,7 +282,7 @@ Table of Contents
    endpoints for any transport layer security connections, and able to
    see much communications or other messaging in cleartext.  There are
    some exceptions, of course, e.g., messaging applications with end-to-
-   end confidentiatlity protection.
+   end confidentiality protection.
 
    With the growth of trading users' information by many of these third
    parties, it becomes necessary to take precautions against endpoints
@@ -320,7 +320,7 @@ Table of Contents
    advertisement targeting, and other purposes unrelated to message
    delivery.  Equally however, it is unclear how some useful anti-spam
    techniques could be deployed in an end-to-end encrypted mail universe
-   (with today's end-to-end mail sercurity protocols) and there are many
+   (with today's end-to-end mail security protocols) and there are many
    significant challenges should one desire to deploy end-to-end email
    security at scale.
 
@@ -350,10 +350,10 @@ Table of Contents
 
    Unfortunately, there is little that even large service providers can
    do to not be a DDoS target, (though anycast and other DDoS
-   mitigations can certainly help when one is targetted), nor to refuse
+   mitigations can certainly help when one is targeted), nor to refuse
    authority-sanctioned pervasive monitoring.  As a result it seems that
    a reasonable defense strategy may be to aim for outcomes where such
-   highly centralised control points are unecessary or don't handle
+   highly centralised control points are unnecessary or don't handle
    sensitive data.  (Recalling that with the DNS, meta-data about the
    requestor and the act of requesting an answer are what is potentially
    sensitive, rather than the content of the answer.)
@@ -414,7 +414,7 @@ Table of Contents
    claims that simple obfuscation enables malware to avoid detection by
    even sophisticated operators.  Given the scale of these deployments,
    distribution of even a small percentage of malware-infected
-   applictions can affect a huge number of people.
+   applications can affect a huge number of people.
 
 2.3.1.2.  Virtual private networks (VPNs)
 
@@ -526,7 +526,7 @@ Table of Contents
 2.3.1.10.  Attacks leveraging compromised high-level DNS infrastructure
 
    Recent attacks [DeepDive] against DNS infrastructure enable
-   subsequent targetted attacks on specific application layer sources or
+   subsequent targeted attacks on specific application layer sources or
    destinations.  The general method appears to be to attack DNS
    infrastructure, in these cases infrastructure that is towards the top
    of the DNS naming hierarchy and "far" from the presumed targets, in
@@ -584,7 +584,7 @@ Table of Contents
    issuing a certificate for a fake entity.  Indeed one study
    [HijackDet] used the emergence of new web server TLS key pairs during
    the event, (detected via Internet-wide scans), as a distinguisher
-   between one form of deliberate BGP hijacking and indadvertent route
+   between one form of deliberate BGP hijacking and inadvertent route
    leaks.
 
 2.3.1.12.  Anti-virus vendor selling user clickstream data
@@ -870,7 +870,7 @@ Table of Contents
 4.  Areas requiring more study
 
    In addition to the guidelines in (Section 5), we suggest there may be
-   value in further study on the topics balow, with the goal of
+   value in further study on the topics below, with the goal of
    producing more concrete guidelines.
 
    1.   Isolation: Sophisticated users can sometimes deal with
@@ -890,7 +890,7 @@ Table of Contents
         an effective countermeasure for X.509 certificate mis-issuance,
         which used be a known application layer misbehaviour in the
         public web PKI.  CT can also help with post-facto detection of
-        some infrastructure attacks where BGP or DNS weakenesses have
+        some infrastructure attacks where BGP or DNS weaknesses have
         been leveraged so that some certification authority is tricked
         into issuing a certificate for the wrong entity.  While the
         context in which CT operates is very constrained (essentially to
@@ -943,8 +943,8 @@ Table of Contents
         investigation:
 
         *  For any protocol dependent on infrastructure like DNS or BGP,
-           we ought analysse potential outcomes in the event the
-           relevant infrastructure has been compromised
+           we ought analyse potential outcomes in the event the relevant
+           infrastructure has been compromised
 
         *  Protocol designers perhaps ought consider post-facto
            detection compromise mechanisms in the event that it is
@@ -1122,7 +1122,7 @@ Table of Contents
         suspicion, even if the communications are encrypted.  Other
         endpoints may misuse any information or control opportunity in
         the communication.  Similarly, even endpoints within your own
-        system need to be treated with suspicision, as some may become
+        system need to be treated with suspicion, as some may become
         compromised.
 
    8.   Consider abuse-cases.  Protocol developers are typically most
@@ -1148,7 +1148,7 @@ Table of Contents
         example, re-use of TLS session tickets can enable an observer to
         associate multiple TLS sessions regardless of changes in source
         or destination addressing, which may reduce privacy or help a
-        bad actor in targetting an attack.  The same effects may result
+        bad actor in targeting an attack.  The same effects may result
         regardless of how protocol exchanges can be linked to one
         another.  Protocol designs that aim to prevent such linkage may
         produce have fewer unexpected or unwanted side-effects when
@@ -1178,9 +1178,9 @@ Table of Contents
    those are further developed.)
 
    As evidenced in the OAuth quote in Section 4 - it can be useful to
-   conside the effect of compromised endpoints on those that are not
+   consider the effect of compromised endpoints on those that are not
    compromised.  It may therefore be interesting to consider the
-   consequeneces that would follow from a change to [RFC3552] that
+   consequences that would follow from a change to [RFC3552] that
    recognises how the landscape has changed since 2003.
 
    One initial, draft proposal for such a change could be:
@@ -1247,7 +1247,7 @@ Table of Contents
 
 8.  Conclusions
 
-   At this stage we don't think it approriate to claim that any strong
+   At this stage we don't think it appropriate to claim that any strong
    conclusion can be reached based on the above.  We do however, claim
    that the is a topic that could be worth discussion and more work.
 
@@ -1434,10 +1434,10 @@ Table of Contents
    [I-D.ietf-teep-architecture]
               Pei, M., Tschofenig, H., Thaler, D., and D. Wheeler,
               "Trusted Execution Environment Provisioning (TEEP)
-              Architecture", draft-ietf-teep-architecture-05 (work in
-              progress), 12 December 2019,
+              Architecture", draft-ietf-teep-architecture-06 (work in
+              progress), 8 February 2020,
               <http://www.ietf.org/internet-drafts/draft-ietf-teep-
-              architecture-05.txt>.
+              architecture-06.txt>.
 
    [I-D.ietf-teep-protocol]
               Tschofenig, H., Pei, M., Wheeler, D., and D. Thaler,
@@ -1710,6 +1710,8 @@ Appendix A.  Acknowledgements
    Rescorla, Ali Rezaki, Mohit Sethi, Melinda Shore, Martin Thomson, and
    Robin Wilton ... (missing many people... did we have minutes other
    than the list of actions?) ...
+
+   Thanks for specific comments on this text to: Ronald van der Pol.
 
    Finally, the authors would like to thank numerous other people for
    insightful comments and discussions in this space.

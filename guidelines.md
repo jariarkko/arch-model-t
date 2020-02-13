@@ -54,7 +54,7 @@ resources to be selectable, depending on context and user settings.
 1. Treat parties with which your protocol endpoints interact with suspicion,
 even if the communications are encrypted. Other endpoints may misuse any
 information or control opportunity in the communication. Similarly, even
-endpoints within your own system need to be treated with suspicision, as some
+endpoints within your own system need to be treated with suspicion, as some
 may become compromised.
 
 1. Consider abuse-cases. Protocol developers are typically most interested in a
@@ -76,7 +76,7 @@ sources of information (e.g. public or private databases) can create privacy or
 security issues. As an example, re-use of TLS session tickets can enable an
 observer to associate multiple TLS sessions regardless of changes in source or
 destination addressing, which may reduce privacy or help a bad actor in
-targetting an attack. The same effects may result regardless of how protocol
+targeting an attack. The same effects may result regardless of how protocol
 exchanges can be linked to one another.  Protocol designs that aim to prevent
 such linkage may produce have fewer unexpected or unwanted side-effects when
 deployed.
