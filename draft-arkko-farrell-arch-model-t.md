@@ -16,6 +16,8 @@ author:
     ins: J. Arkko
     name: Jari Arkko
     org: Ericsson
+    street: Valitie 1B
+    city: Kauniainen
     country: Finland
     email: jari.arkko@piuha.net
 
@@ -23,6 +25,8 @@ author:
     ins: S. Farrell
     name: Stephen Farrell
     org: Trinity College Dublin
+    street: College Green
+    city: Dublin
     country: Ireland
     email: stephen.farrell@cs.tcd.ie
 

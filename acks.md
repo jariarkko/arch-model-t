@@ -1,3 +1,8 @@
+# Contributors {#contribs}
+
+Eric Rescorla and Chris Wood provided much of the text in
+{{webtracking}}, item 2 of {{studysect}} and {{detailedguidance}}.
+
 # Acknowledgements {#ack}
 
 The authors would like to thank the IAB:

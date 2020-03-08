@@ -1,7 +1,8 @@
 # Areas requiring more study {#studysect}
 
-In addition to the guidelines in ({{guidelinessect}}), we suggest there may be value in further
-study on the topics below, with the goal of producing more concrete guidelines.
+In addition to the guidelines in ({{guidelinessect}}), we suggest
+there may be value in further study on the topics below, with the goal
+of producing more concrete guidelines.
 
 1. Isolation:
 Sophisticated users can sometimes deal with adversarial behaviours in
@@ -13,6 +14,23 @@ that relate to uses of such isolation mechanisms might be worth considering.
 To an extent, the IETF has in practice already recognised some of these issues
 as being in-scope, e.g.  when considering the linkability issues with
 mechanisms such as TLS session tickets, or QUIC connection identifiers.
+
+1. Controlling Tracking:
+Browsers are in a central role with the deployment anti-tracking
+technologies.  A number of browsers have started adding these
+technologies (see, e.g., {{Mozilla2019}}). This is a rapidly moving
+field and so it is difficult to characterize full in this memo. The
+technologies can be as simple as blocking any communication with known
+trackers, or more complex such identifying trackers and suppressing
+their ability to store and access cookies and other state. Browsers
+may also treat each third party load on different first party sites is
+treated as a different context, thereby isolating cookies and other
+state, e.g., TLS-layer information.  This technique is called "Double
+Keying".  The further development of anti-tracking technology is
+important, but it is also important to deploy it in browsers.
+It is also important to ensure that browsers themselves do not
+themselves enable new data collection points, e.g., via search, DNS,
+or other functions.
 
 1. Transparency:
 Certificate transparency (CT) {{RFC6962}} has been an effective countermeasure

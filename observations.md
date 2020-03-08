@@ -165,13 +165,11 @@ absence of software update {{RFC8240}} has been a major cause of these issues
 and rises to the level that considering this as intentional behaviour by 
 device vendors who have chosen this path is warranted.
 
-#### Web browsers
+#### Web tracking {#webtracking}
 
-Tracking of users in order to support advertising based business models is
-ubiquitous on the Internet today.  HTTP header fields (such as cookies) are
-commonly used for such tracking, as are structures within the content of HTTP
-responses such as links to 1x1 pixel images and (ab)use of Javascript APIs
-offered by browsers {{Tracking}}.
+One of the biggest threats to user privacy on the Web is ubiquitous
+tracking. This is often done to support advertising based
+business models.
 
 While some people may be sanguine about this kind of tracking, others consider
 this behaviour unwelcome, when or if they are informed that it happens,
@@ -181,6 +179,87 @@ Historically, browsers have not made this kind of tracking visible and have
 enabled it by default, though some recent browser versions are starting to
 enable visibility and blocking of some kinds of tracking. Browsers are also increasingly
 imposing more stringent requirements on plug-ins for varied security reasons. 
+
+Third party tracking
+ 
+One form of tracking is by third parties. HTTP header fields (such as cookies, {{RFC6265}}) are
+commonly used for such tracking, as are structures within the content of HTTP
+responses such as links to 1x1 pixel images and (ab)use of Javascript APIs
+offered by browsers {{Tracking}}.
+
+Whenever a resource is loaded from a server, that server can include a
+cookie which will be sent back to the server on future loads. This
+includes situations where the resource is loaded as a resource on
+a page, such as an image or a JavaScript  module. When loading a
+resource, the server is aware of the top-level page that the resource
+is used on, through the use of the Referer HTTP header {{RFC7231}}.
+those loads include a Referer header which contains the top-level page
+that the subresource is being loaded from.
+
+The combination of these features makes it possible 
+to track a user across the Web. The tracker convinces a number of content sites ("first
+parties") to include a resource from the tracker site. 
+This resource can perform some function such as displaying
+an advertisement or providing analytics to the first party site. But
+the resource may also be simply a tracker. When the user visits one of the
+content sites, the tracker receives both a Referer header and the
+cookie. For an individual user with a particular browser, the cookie
+is the same regardless of which site the tracker is on. This allows the
+tracker to observe what pages within the set of content sites the user
+visits. The resulting information is commonly used for targeting
+advertisements, but it can also be used for other purposes.
+
+This capability itself constitutes a major threat to user privacy.
+
+Some additional techniques such as cookie syncing,
+identifier correlation, and fingerprinting make the problem even
+worse.
+
+Any given tracker may not be on all sites, which gives that tracker
+incomplete coverage. However, trackers often collude (a practice
+called "cookie syncing") to combine the information from different
+tracking cookies.
+
+Sometimes trackers will be embedded on a site which collects a user
+identifier, such as social media identity or an e-mail address.  If
+the site can informs the tracker of the identifier, this allows the
+tracker to tie it to the cookie.
+
+While browser may block cookies, fingerprinting browsers often
+allows tracking the users. For instance,
+features such as User-Agent string, plugin and font support, screen
+resolution, and timezone can yield a fingerprint that is sometimes
+unique to a single user {{AmIUnique}} and which persists beyond
+cookie scope and lifetime. Even in cases where this fingerprint is not unique,
+the anonymity set may be sufficiently small that, when coupled with
+yet more data, yields a unique, per-user identifier. Fingerprinting
+of this type is more prevalent on systems and platforms wherein data
+set features are flexible, such as desktops, wherein plugins are
+more commonly in use.  Fingerprinting prevention is an active
+research area; see {{Boix2018}} for more information.
+
+Other types of tracking
+
+But third party tracking is not the only tracking worry. An obvious
+tracking danger exists also in popular ecosystems -- such as social
+media networks -- that house a large part of many users' online
+existence. There is no need for a third party to track the user's
+browsing as all actions are performed within a single site, where most
+messaging, viewing, and sharing activities happen.
+
+Browsers themselves or services used by the browser can also become a
+potential source of tracking users. For instance, the URL/search bar
+service may leak information about the user's actions to a
+search provider.
+
+Tracking through users' DNS queries is also a danger. This may happen
+by directly observing the cleartext DNS traffic, but this is
+preventable via DNS protocols that are secured end-to-end. But DNS
+queries are also seen by the used DNS recursive resolver service,
+which may accidentally or otherwise track the users' activities.
+This is particularly problematic if a large number of users employ
+either a commonly used ISP service or an Internet-based resolver
+service {{I-D.arkko-arch-infrastructure-centralisation}}.
 
 #### Web site policy deception
 

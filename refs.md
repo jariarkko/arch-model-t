@@ -3,6 +3,7 @@ informative:
   RFC3935: 
   RFC3552:
   RFC4655:
+  RFC6265:
   RFC6454:
   RFC6480:
   RFC6749:
@@ -10,10 +11,12 @@ informative:
   RFC6819:
   RFC6962:
   RFC6973:
+  RFC7231:
   RFC7258:
   RFC7469:
   RFC7540:
   RFC7817:
+  RFC7830:
   RFC8240:
   RFC8446:
   RFC8484:
@@ -36,6 +39,7 @@ informative:
   I-D.ietf-teep-architecture:
   I-D.ietf-teep-protocol:
   I-D.ietf-rats-eat:
+  I-D.wood-pearg-website-fingerprinting:
   Saltzer:
    title: End-To-End Arguments in System Design
    date: November 1984
@@ -281,4 +285,31 @@ informative:
     author:
     - ins: J. Cox
     seriesinfo: "https://www.vice.com/en_us/article/qjdkq7/avast-antivirus-sells-user-browsing-data-investigation"
-
+  Boix2018:
+    title: "Hiding in the crowd: an analysis of the effectiveness of browser fingerprinting at large scale"
+    date: 2018
+    author:
+    - ins: A. Gómez-Boix
+    - ins: P. Laperdrix
+    - ins: B. Baudry
+    seriesinfo: "Proceedings of the 2018 world wide web conference"
+  AmIUnique:
+    title: "Am I Unique?"
+    date: 2020
+    author:
+    - ins: INRIA
+    seriesinfo: "https://amiunique.org"
+  Jager2015:
+    title: "On the Security of TLS 1.3 and QUIC Against Weaknesses in PKCS#1 v1.5 Encryption"
+    date: October 2015
+    author:
+    - ins: T. Jager
+    - ins: J. Schwenk
+    - ins: J. Somorovsky
+    seriesinfo: "Proceedings of ACM CCS 2015, DOI 10.1145/2810103.2813657, https://www.nds.rub.de/media/nds/veroeffentlichungen/2015/08/21/Tls13QuicAttacks.pdf"
+  Mozilla2019:
+    title: "Firefox Now Available with Enhanced Tracking Protection by Default Plus Updates to Facebook Container, Firefox Monitor and Lockwise"
+    date: June 2019
+    author:
+    - ins: D. Camp
+    seriesinfo: "The Mozilla Blog, https://blog.mozilla.org/blog/2019/06/04/firefox-now-available-with-enhanced-tracking-protection-by-default/"

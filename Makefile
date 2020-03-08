@@ -33,12 +33,12 @@ endif
 cleantrash:
 	rm -f *~
 
-OLD=draft-arkko-farrell-arch-model-t-00.txt
+OLD=draft-arkko-farrell-arch-model-t-02.txt
 
 jaricompile:	draft-arkko-farrell-arch-model-t.txt Makefile
 	rfcdiff $(OLD) draft-arkko-farrell-arch-model-t.txt
 	scp 	draft-arkko-farrell-arch-model-t.txt \
-		draft-arkko-farrell-arch-model-t-from--00.diff.html \
+		draft-arkko-farrell-arch-model-t-from--02.diff.html \
 		jar@cloud1.arkko.eu:/var/www/www.arkko.com/html/ietf/iab
 
 #		draft-arkko-farrell-arch-model-t.diff.html \
