@@ -194,7 +194,7 @@ a page, such as an image or a JavaScript  module. When loading a
 resource, the server is aware of the top-level page that the resource
 is used on, through the use of the Referer HTTP header {{RFC7231}}.
 those loads include a Referer header which contains the top-level page
-that the subresource is being loaded from.
+from which that subresource is being loaded.
 
 The combination of these features makes it possible 
 to track a user across the Web. The tracker convinces a number of content sites ("first
@@ -210,37 +210,36 @@ visits. The resulting information is commonly used for targeting
 advertisements, but it can also be used for other purposes.
 
 This capability itself constitutes a major threat to user privacy.
-
-Some additional techniques such as cookie syncing,
+Additional techniques such as cookie syncing,
 identifier correlation, and fingerprinting make the problem even
 worse.
 
-Any given tracker may not be on all sites, which gives that tracker
+As a given tracker will not be on all sites, that tracker has
 incomplete coverage. However, trackers often collude (a practice
 called "cookie syncing") to combine the information from different
 tracking cookies.
 
 Sometimes trackers will be embedded on a site which collects a user
 identifier, such as social media identity or an e-mail address.  If
-the site can informs the tracker of the identifier, this allows the
-tracker to tie it to the cookie.
+the site can inform the tracker of the identifier, that allows the
+tracker to tie the identifier to the cookie.
 
-While browser may block cookies, fingerprinting browsers often
+While a browser may block cookies, fingerprinting browsers often
 allows tracking the users. For instance,
 features such as User-Agent string, plugin and font support, screen
 resolution, and timezone can yield a fingerprint that is sometimes
 unique to a single user {{AmIUnique}} and which persists beyond
 cookie scope and lifetime. Even in cases where this fingerprint is not unique,
-the anonymity set may be sufficiently small that, when coupled with
-yet more data, yields a unique, per-user identifier. Fingerprinting
-of this type is more prevalent on systems and platforms wherein data
-set features are flexible, such as desktops, wherein plugins are
+the anonymity set may be sufficiently small that, coupled with
+other data, this yields a unique, per-user identifier. Fingerprinting
+of this type is more prevalent on systems and platforms where data-set 
+features are flexible, such as desktops, where plugins are
 more commonly in use.  Fingerprinting prevention is an active
 research area; see {{Boix2018}} for more information.
 
-Other types of tracking
+Other types of tracking linked to web tracking
 
-But third party tracking is not the only tracking worry. An obvious
+Third party web tracking is not the only concern. An obvious
 tracking danger exists also in popular ecosystems -- such as social
 media networks -- that house a large part of many users' online
 existence. There is no need for a third party to track the user's
@@ -250,16 +249,22 @@ messaging, viewing, and sharing activities happen.
 Browsers themselves or services used by the browser can also become a
 potential source of tracking users. For instance, the URL/search bar
 service may leak information about the user's actions to a
-search provider.
+search provider via an "autocomplete" feature. {{Leith2020}}
 
-Tracking through users' DNS queries is also a danger. This may happen
-by directly observing the cleartext DNS traffic, but this is
-preventable via DNS protocols that are secured end-to-end. But DNS
-queries are also seen by the used DNS recursive resolver service,
+Tracking through users' IP addresses or DNS queries is also a danger. This may happen
+by directly observing the cleartext IP or DNS traffic, though DNS
+tracking may be
+preventable via DNS protocols that are secured end-to-end. But the DNS
+queries are also (by definition) seen by the used DNS recursive resolver service,
 which may accidentally or otherwise track the users' activities.
 This is particularly problematic if a large number of users employ
 either a commonly used ISP service or an Internet-based resolver
-service {{I-D.arkko-arch-infrastructure-centralisation}}.
+service {{I-D.arkko-arch-infrastructure-centralisation}}. In 
+contrast, use of a DNS recursive that sees little traffic could
+equally be used for tracking.
+Similarly, other applications, such an mail or instant messaging
+protocols, that can carry HTML content can be integrated with
+web tracking. (See {{webbug}}.) 
 
 #### Web site policy deception
 
@@ -278,7 +283,7 @@ perhaps a misnomer, but considered as web applications, that may for
 example link in advertising networks, it seems clear that
 many exist that are adversarial.
 
-#### Tracking bugs in mail
+#### Tracking bugs in mail {#webbug}
 
 Some mail user agents (MUAs) render HTML content by default (with a subset not
 allowing that to be turned off, perhaps particularly on mobile devices) and

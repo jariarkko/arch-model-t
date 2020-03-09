@@ -313,3 +313,16 @@ informative:
     author:
     - ins: D. Camp
     seriesinfo: "The Mozilla Blog, https://blog.mozilla.org/blog/2019/06/04/firefox-now-available-with-enhanced-tracking-protection-by-default/"
+  Leith2020:
+    title: "Web Browser Privacy: What Do Browsers Say When They Phone Home?"
+    date: March 2020
+    author:
+    - ins: D. Leith
+    seriesinfo: "In submission, https://www.scss.tcd.ie/Doug.Leith/pubs/browser_privacy.pdf"
+  DoubleKey:
+    title: "Thirdparty"
+    date: June 2010
+    author:
+    - ins: D. Witte
+    seriesinfo: "https://wiki.mozilla.org/Thirdparty"
+

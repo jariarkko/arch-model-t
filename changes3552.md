@@ -18,20 +18,20 @@ text.  Potential changes also need to be easily understood as IETF participants
 from all backgrounds need to be able to use BCP 72.
 
 In this section
-we provide a couple of initial suggested changes to BCP 72 that will
+we provide a few initial suggested changes to BCP 72 that will
 need to be further developed as part of this work. (For example, it
 may be possible to include some of the guidelines from {{guidelinessect}}
 as those are further developed.)
 
-There is a range of possible updates. In this memo we propose either
-adding a simple observation ({{simple3552}}), or additionally, also
-some further discussion about endpoint compromises and the need for
+There are a range of possible updates. We could propose
+adding a simple observation ({{simple3552}}), or additionally propose
+further discussion about endpoint compromises and the need for
 system-level security analysis ({{discussion3552}}).
 
-A third possibility would be to add even more material about
-guidelines, areas of concern, and recommendations of techniques to
-use. Potential suggestions for such material is covered even further
-down, in {{detailedguidance}}.
+Another possibility would be to add more guidance 
+covering areas of concern, and recommendations of broadly-applicable techniques to
+use. One suggestion (due to others) for such material is provided in
+{{detailedguidance}}.
 
 The authors of this memo believe that any updates to RFC 3552 should
 be relatively high-level and short. Additional documents may be needed

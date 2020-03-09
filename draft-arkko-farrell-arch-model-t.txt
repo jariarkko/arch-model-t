@@ -5,8 +5,8 @@
 Network Working Group                                           J. Arkko
 Internet-Draft                                                  Ericsson
 Intended status: Informational                                S. Farrell
-Expires: September 9, 2020                        Trinity College Dublin
-                                                          March 08, 2020
+Expires: 10 September 2020                        Trinity College Dublin
+                                                            9 March 2020
 
 
           Challenges and Changes in the Internet Threat Model
@@ -46,17 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 9, 2020.
-
-
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020               [Page 1]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
+   This Internet-Draft will expire on 10 September 2020.
 
 Copyright Notice
 
@@ -64,55 +54,46 @@ Copyright Notice
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
-   Provisions Relating to IETF Documents
-   (https://trustee.ietf.org/license-info) in effect on the date of
-   publication of this document.  Please review these documents
-   carefully, as they describe your rights and restrictions with respect
-   to this document.  Code Components extracted from this document must
-   include Simplified BSD License text as described in Section 4.e of
-   the Trust Legal Provisions and are provided without warranty as
-   described in the Simplified BSD License.
+   Provisions Relating to IETF Documents (http://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Simplified BSD License text
+   as described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Simplified BSD License.
 
 Table of Contents
 
-   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
-   2.  Observations  . . . . . . . . . . . . . . . . . . . . . . . .   5
-     2.1.  Communications Security Improvements  . . . . . . . . . .   5
-     2.2.  Beyond Communications Security  . . . . . . . . . . . . .   6
-     2.3.  Examples  . . . . . . . . . . . . . . . . . . . . . . . .   9
-       2.3.1.  Deliberate adversarial behaviour in applications  . .   9
-       2.3.2.  Inadvertent adversarial behaviours  . . . . . . . . .  15
-   3.  Analysis  . . . . . . . . . . . . . . . . . . . . . . . . . .  16
-     3.1.  The Role of End-to-end  . . . . . . . . . . . . . . . . .  16
-     3.2.  Trusted networks  . . . . . . . . . . . . . . . . . . . .  18
-       3.2.1.  Even closed networks can have compromised nodes . . .  19
-     3.3.  Balancing Threats . . . . . . . . . . . . . . . . . . . .  20
-   4.  Areas requiring more study  . . . . . . . . . . . . . . . . .  21
-   5.  Guidelines  . . . . . . . . . . . . . . . . . . . . . . . . .  25
-   6.  Potential changes in BCP 72/RFC 3552  . . . . . . . . . . . .  27
-     6.1.  Simple change . . . . . . . . . . . . . . . . . . . . . .  28
-     6.2.  Additional discussion of compromises  . . . . . . . . . .  29
-     6.3.  Guidance with regards to communications security  . . . .  29
-       6.3.1.  Limiting time scope of compromise . . . . . . . . . .  29
-       6.3.2.  Forcing active attack . . . . . . . . . . . . . . . .  30
-       6.3.3.  Traffic analysis  . . . . . . . . . . . . . . . . . .  31
-       6.3.4.  Containing compromise of trust points . . . . . . . .  31
-   7.  Potential Changes in BCP 188/RFC 7258 . . . . . . . . . . . .  32
-   8.  Conclusions . . . . . . . . . . . . . . . . . . . . . . . . .  32
-   9.  Informative References  . . . . . . . . . . . . . . . . . . .  33
-   Appendix A.  Contributors . . . . . . . . . . . . . . . . . . . .  42
-   Appendix B.  Acknowledgements . . . . . . . . . . . . . . . . . .  42
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  43
-
-
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020               [Page 2]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
+   1.  Introduction
+   2.  Observations
+       2.1.  Communications Security Improvements
+       2.2.  Beyond Communications Security
+       2.3.  Examples
+             2.3.1.  Deliberate adversarial behaviour in
+                     applications
+             2.3.2.  Inadvertent adversarial behaviours
+   3.  Analysis
+       3.1.  The Role of End-to-end
+       3.2.  Trusted networks
+             3.2.1.  Even closed networks can have compromised
+                     nodes
+       3.3.  Balancing Threats
+   4.  Areas requiring more study
+   5.  Guidelines
+   6.  Potential changes in BCP 72/RFC 3552
+       6.1.  Simple change
+       6.2.  Additional discussion of compromises
+       6.3.  Guidance with regards to communications security
+             6.3.1.  Limiting time scope of compromise
+             6.3.2.  Forcing active attack
+             6.3.3.  Traffic analysis
+             6.3.4.  Containing compromise of trust points
+   7.  Potential Changes in BCP 188/RFC 7258
+   8.  Conclusions
+   9.  Informative References
+   Appendix A.  Contributors
+   Appendix B.  Acknowledgements
+   Authors' Addresses
 
 1.  Introduction
 
@@ -144,7 +125,7 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    However, the communications-security -only threat model is becoming
    outdated.  Some of the causes for this are:
 
-   o  Success!  Advances in protecting most of our communications with
+   *  Success!  Advances in protecting most of our communications with
       strong cryptographic means.  This has resulted in much improved
       communications security, but also highlights the need for
       addressing other, remaining issues.  This is not to say that
@@ -154,23 +135,14 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
       not all of their aspects have been fully protected.  Fortunately,
       there are ongoing projects working on improvements.
 
-   o  Adversaries have increased their pressure against other avenues of
+   *  Adversaries have increased their pressure against other avenues of
       attack, from supply-channel attacks, to compromising devices to
       legal coercion of centralized endpoints in conversations.
 
-   o  New adversaries and risks have arisen, e.g., due to creation of
+   *  New adversaries and risks have arisen, e.g., due to creation of
       large centralized information sources.
 
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020               [Page 3]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
-   o  While communications-security does seem to be required to protect
+   *  While communications-security does seem to be required to protect
       privacy, more is needed, especially if endpoints choose to act
       against the interests of their peers or users.
 
@@ -218,19 +190,11 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    used with all the associated downsides, regardless of what deployment
    expectations there were during protocol design.
 
-
-
-
-Arkko & Farrell         Expires September 9, 2020               [Page 4]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
    This memo does not stand alone.  To begin with, it is a merge of
-   earlier work by the two authors [I-D.farrell-etm]
-   [I-D.arkko-arch-internet-threat-model].  There are also other
-   documents discussing this overall space, e.g.
-   [I-D.lazanski-smart-users-internet] [I-D.arkko-arch-dedr-report].
+   earlier work by the two authors [I-D.farrell-etm] [I-D.arkko-arch-
+   internet-threat-model].  There are also other documents discussing
+   this overall space, e.g.  [I-D.lazanski-smart-users-internet] [I-
+   D.arkko-arch-dedr-report].
 
    The authors of this memo envisage independent development of each of
    those (and other work) with an eventual goal to extract an updated
@@ -271,16 +235,8 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    cryptographically protected has grown tremendously in the last few
    years.  Several factors have contributed to this change, from Snowden
    revelations to business reasons and to better available technology
-   such as HTTP/2 [RFC7540], TLS 1.3 [RFC8446], QUIC
-   [I-D.ietf-quic-transport].
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020               [Page 5]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
+   such as HTTP/2 [RFC7540], TLS 1.3 [RFC8446], QUIC [I-D.ietf-quic-
+   transport].
 
    In many networks, the majority of traffic has flipped from being
    cleartext to being encrypted.  Reaching the level of (almost) all
@@ -299,8 +255,8 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    There have also been improvements to ensure that the security
    protocols that are in use actually have suitable credentials and that
    those credentials have not been compromised, see, for instance, Let's
-   Encrypt [RFC8555], HSTS [RFC6797], HPKP [RFC7469], and Expect-CT
-   [I-D.ietf-httpbis-expect-ct].
+   Encrypt [RFC8555], HSTS [RFC6797], HPKP [RFC7469], and Expect-CT [I-
+   D.ietf-httpbis-expect-ct].
 
    This is not to say that all problems in communications security have
    been resolved - far from it.  But the situation is definitely
@@ -330,14 +286,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    The situation is different, but not necessarily better on the side of
    servers.  The pattern of communications in today's Internet is almost
    always via a third party that has at least as much information as the
-
-
-
-Arkko & Farrell         Expires September 9, 2020               [Page 6]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
    other parties have.  For instance, these third parties are typically
    endpoints for any transport layer security connections, and able to
    see much communications or other messaging in cleartext.  There are
@@ -351,25 +299,25 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
 
    Specifically, the following issues need attention:
 
-   o  Security of users' devices and the ability of the user to control
+   *  Security of users' devices and the ability of the user to control
       their own equipment.
 
-   o  Leaks and attacks related to data at rest.
+   *  Leaks and attacks related to data at rest.
 
-   o  Coercion of some endpoints to reveal information to authorities or
+   *  Coercion of some endpoints to reveal information to authorities or
       surveillance organizations, sometimes even in an extra-territorial
       fashion.
 
-   o  Application design patterns that result in cleartext information
+   *  Application design patterns that result in cleartext information
       passing through a third party or the application owner.
 
-   o  Involvement of entities that have no direct need for involvement
+   *  Involvement of entities that have no direct need for involvement
       for the sake of providing the service that the user is after.
 
-   o  Network and application architectures that result in a lot of
+   *  Network and application architectures that result in a lot of
       information collected in a (logically) central location.
 
-   o  Leverage and control points outside the hands of the users or end-
+   *  Leverage and control points outside the hands of the users or end-
       user device owners.
 
    For instance, while e-mail transport security [RFC7817] has become
@@ -386,14 +334,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
 
    The Domain Name System (DNS) shows signs of ageing but due to the
    legacy of deployed systems has changed very slowly.  Newer technology
-
-
-
-Arkko & Farrell         Expires September 9, 2020               [Page 7]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
    [RFC8484] developed at the IETF enables DNS queries to be performed
    with confidentiality and authentication (of a recursive resolver),
    but its initial deployment is happening mostly in browsers that use
@@ -442,14 +382,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    selected Certification Authorities (CAs) to help drive decisions
    about which participants in the routing infrastructure can make what
    claims.  If this system were globally centralized, it would be a
-
-
-
-Arkko & Farrell         Expires September 9, 2020               [Page 8]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
    concern, but again, fortunately, current designs involve at least
    regional distribution.
 
@@ -497,15 +429,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    Virtual private networks (VPNs) are supposed to hide user traffic to
    various degrees depending on the particular technology chosen by the
    VPN provider.  However, not all VPNs do what they say, some for
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020               [Page 9]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
    example misrepresenting the countries in which they provide vantage
    points [Vpns].
 
@@ -552,15 +475,7 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    resource, the server is aware of the top-level page that the resource
    is used on, through the use of the Referer HTTP header [RFC7231].
    those loads include a Referer header which contains the top-level
-   page that the subresource is being loaded from.
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 10]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
+   page from which that subresource is being loaded.
 
    The combination of these features makes it possible to track a user
    across the Web. The tracker convinces a number of content sites
@@ -577,63 +492,59 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    purposes.
 
    This capability itself constitutes a major threat to user privacy.
+   Additional techniques such as cookie syncing, identifier correlation,
+   and fingerprinting make the problem even worse.
 
-   Some additional techniques such as cookie syncing, identifier
-   correlation, and fingerprinting make the problem even worse.
-
-   Any given tracker may not be on all sites, which gives that tracker
+   As a given tracker will not be on all sites, that tracker has
    incomplete coverage.  However, trackers often collude (a practice
    called "cookie syncing") to combine the information from different
    tracking cookies.
 
    Sometimes trackers will be embedded on a site which collects a user
    identifier, such as social media identity or an e-mail address.  If
-   the site can informs the tracker of the identifier, this allows the
-   tracker to tie it to the cookie.
+   the site can inform the tracker of the identifier, that allows the
+   tracker to tie the identifier to the cookie.
 
-   While browser may block cookies, fingerprinting browsers often allows
-   tracking the users.  For instance, features such as User-Agent
+   While a browser may block cookies, fingerprinting browsers often
+   allows tracking the users.  For instance, features such as User-Agent
    string, plugin and font support, screen resolution, and timezone can
    yield a fingerprint that is sometimes unique to a single user
    [AmIUnique] and which persists beyond cookie scope and lifetime.
    Even in cases where this fingerprint is not unique, the anonymity set
-   may be sufficiently small that, when coupled with yet more data,
-   yields a unique, per-user identifier.  Fingerprinting of this type is
-   more prevalent on systems and platforms wherein data set features are
-   flexible, such as desktops, wherein plugins are more commonly in use.
+   may be sufficiently small that, coupled with other data, this yields
+   a unique, per-user identifier.  Fingerprinting of this type is more
+   prevalent on systems and platforms where data-set features are
+   flexible, such as desktops, where plugins are more commonly in use.
    Fingerprinting prevention is an active research area; see [Boix2018]
    for more information.
 
-   Other types of tracking
+   Other types of tracking linked to web tracking
 
-   But third party tracking is not the only tracking worry.  An obvious
+   Third party web tracking is not the only concern.  An obvious
    tracking danger exists also in popular ecosystems - such as social
    media networks - that house a large part of many users' online
    existence.  There is no need for a third party to track the user's
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 11]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
    browsing as all actions are performed within a single site, where
    most messaging, viewing, and sharing activities happen.
 
    Browsers themselves or services used by the browser can also become a
    potential source of tracking users.  For instance, the URL/search bar
    service may leak information about the user's actions to a search
-   provider.
+   provider via an "autocomplete" feature.  [Leith2020]
 
-   Tracking through users' DNS queries is also a danger.  This may
-   happen by directly observing the cleartext DNS traffic, but this is
-   preventable via DNS protocols that are secured end-to-end.  But DNS
-   queries are also seen by the used DNS recursive resolver service,
-   which may accidentally or otherwise track the users' activities.
-   This is particularly problematic if a large number of users employ
-   either a commonly used ISP service or an Internet-based resolver
-   service [I-D.arkko-arch-infrastructure-centralisation].
+   Tracking through users' IP addresses or DNS queries is also a danger.
+   This may happen by directly observing the cleartext IP or DNS
+   traffic, though DNS tracking may be preventable via DNS protocols
+   that are secured end-to-end.  But the DNS queries are also (by
+   definition) seen by the used DNS recursive resolver service, which
+   may accidentally or otherwise track the users' activities.  This is
+   particularly problematic if a large number of users employ either a
+   commonly used ISP service or an Internet-based resolver service [I-
+   D.arkko-arch-infrastructure-centralisation].  In contrast, use of a
+   DNS recursive that sees little traffic could equally be used for
+   tracking.  Similarly, other applications, such an mail or instant
+   messaging protocols, that can carry HTML content can be integrated
+   with web tracking.  (See Section 2.3.1.6.)
 
 2.3.1.5.  Web site policy deception
 
@@ -664,15 +575,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    authors estimated that 62% of leakage to third parties was
    intentional, for example if leaked data included a hash of the
    recipient email address.
-
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 12]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
 
 2.3.1.7.  Troll farms in online social networks
 
@@ -722,14 +624,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    of the DNS naming hierarchy and "far" from the presumed targets, in
    order to be able to fake DNS responses to a PKI, thereby acquiring
    TLS server certificates so as to subsequently attack TLS connections
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 13]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
    from clients to services (with clients directed to an attacker-owned
    server via additional fake DNS responses).
 
@@ -774,18 +668,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    threat model is lacking in some respect(s), even as applied to our
    currently most important security protocol (TLS).
 
-
-
-
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 14]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
 2.3.1.11.  BGP hijacking
 
    There is a clear history of BGP hijacking [BgpHijack] being used to
@@ -819,62 +701,53 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
 
    We very briefly list some such cases:
 
-   o  Application abuse for command and control, for example, use of IRC
+   *  Application abuse for command and control, for example, use of IRC
       or apache logs for [CommandAndControl]
 
-   o  Carelessly leaky data stores [LeakyBuckets], for example, lots of
+   *  Carelessly leaky data stores [LeakyBuckets], for example, lots of
       Amazon S3 leaks showing that careless admins can too easily cause
       application server data to become available to adversaries
 
-   o  Virtualisation exposing secrets, for example, Meltdown and Spectre
+   *  Virtualisation exposing secrets, for example, Meltdown and Spectre
       [MeltdownAndSpectre] [Kocher2019] [Lipp2018] and other similar
       side-channel attacks.
 
-   o  Compromised badly-maintained web sites, that for example, have led
+   *  Compromised badly-maintained web sites, that for example, have led
       to massive online [Passwords].
 
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 15]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
-   o  Supply-chain attacks, for example, the [TargetAttack] or malware
+   *  Supply-chain attacks, for example, the [TargetAttack] or malware
       within pre-installed applications on Android phones [Bloatware].
 
-   o  Breaches of major service providers, that many of us might have
+   *  Breaches of major service providers, that many of us might have
       assumed would be sufficiently capable to be the best large-scale
       "Identity providers", for example:
 
-      *  3 billion accounts: https://www.wired.com/story/yahoo-breach-
+      -  3 billion accounts: https://www.wired.com/story/yahoo-breach-
          three-billion-accounts/
 
-      *  "up to 600M" account passwords stored in clear:
+      -  "up to 600M" account passwords stored in clear:
          https://www.pcmag.com/news/367319/facebook-stored-up-to-600m-
          user-passwords-in-plain-text
 
-      *  many millions at risk: https://www.zdnet.com/article/us-telcos-
+      -  many millions at risk: https://www.zdnet.com/article/us-telcos-
          caught-selling-your-location-data-again-senator-demands-new-
          laws/
 
-      *  50 million accounts: https://www.cnet.com/news/facebook-breach-
+      -  50 million accounts: https://www.cnet.com/news/facebook-breach-
          affected-50-million-people/
 
-      *  14 million accounts: https://www.zdnet.com/article/millions-
+      -  14 million accounts: https://www.zdnet.com/article/millions-
          verizon-customer-records-israeli-data/
 
-      *  "hundreds of thousands" of accounts:
+      -  "hundreds of thousands" of accounts:
          https://www.wsj.com/articles/google-exposed-user-data-feared-
          repercussions-of-disclosing-to-public-1539017194
 
-      *  unknown numbers, some email content exposed:
+      -  unknown numbers, some email content exposed:
          https://motherboard.vice.com/en_us/article/ywyz3x/hackers-
          could-read-your-hotmail-msn-outlook-microsoft-customer-support
 
-   o  Breaches of smaller service providers: Too many to enumerate,
+   *  Breaches of smaller service providers: Too many to enumerate,
       sadly
 
 3.  Analysis
@@ -890,14 +763,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
       carefully designed, will be subject to failures of transmission at
       some statistically determined rate.  The best way to cope with
       this is to accept it, and give responsibility for the integrity of
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 16]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
       communication to the end systems.  Another specific case is end-
       to-end security.
 
@@ -945,14 +810,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    beyond those components.  For instance, just because an e-mail server
    can read the contents of an e-mail message does not make it a
    legitimate recipient of the e-mail.
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 17]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
 
    This memo also proposes to focus on the "need to know" aspect in
    systems.  Information should not be disclosed, stored, or routed in
@@ -1002,14 +859,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    Some systems are thought of as being deployed only in a closed
    setting, where all the relevant nodes are under direct control of the
    network administrators.  Technologies developed for such networks
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 18]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
    tend to be optimized, at least initially, for these environments, and
    may lack security features necessary for different types of
    deployments.
@@ -1057,14 +906,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    end users.  This shows the need to protect not just communications
    targeted to go over the Internet, but in many cases also internal and
    control communications.
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 19]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
 
    Furthermore, there is a danger of compromised nodes, so
    communications security alone will be insufficient to protect against
@@ -1114,14 +955,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    much value to an attacker.  For instance, it does not always make
    sense to encrypt every packet transmission in a packet-carrying
    system where the traffic is already encrypted at other layers.  But
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 20]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
    it almost always makes sense to protect control communications and to
    understand the impacts of compromised nodes, particularly control
    nodes.
@@ -1145,23 +978,22 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
         with mechanisms such as TLS session tickets, or QUIC connection
         identifiers.
 
-   2.   Controlling Tracking: Browsers are in a central role with the
-        deployment anti-tracking technologies.  A number of browsers
-        have started adding these technologies (see, e.g.,
-        [Mozilla2019]).  This is a rapidly moving field and so it is
-        difficult to characterize full in this memo.  The technologies
-        can be as simple as blocking any communication with known
-        trackers, or more complex such identifying trackers and
-        suppressing their ability to store and access cookies and other
-        state.  Browsers may also treat each third party load on
-        different first party sites is treated as a different context,
-        thereby isolating cookies and other state, e.g., TLS-layer
-        information.  This technique is called "Double Keying".  The
-        further development of anti-tracking technology is important,
-        but it is also important to deploy it in browsers.  It is also
-        important to ensure that browsers themselves do not themselves
-        enable new data collection points, e.g., via search, DNS, or
-        other functions.
+   2.   Controlling Tracking: Web browsers have a central role in terms
+        of the deployment of anti-tracking technologies.  A number of
+        browsers have started adding these technologies [Mozilla2019]
+        but this is a rapidly moving field, so is difficult to fully
+        characterize in this memo.  The mechanisms used can be as simple
+        as blocking communication with known trackers, or more complex,
+        such identifying trackers and suppressing their ability to store
+        and access cookies and other state.  Browsers may also treat
+        each third party load on different first party sites as a
+        different context, thereby isolating cookies and other state,
+        such as TLS layer information (this technique is called "Double
+        Keying" [DoubleKey]).  The further development of browser-based
+        anti-tracking technology is important, but it is also important
+        to ensure that browsers themselves do not themselves enable new
+        data collection points, e.g., via search, DNS, or other
+        functions.
 
    3.   Transparency: Certificate transparency (CT) [RFC6962] has been
         an effective countermeasure for X.509 certificate mis-issuance,
@@ -1170,14 +1002,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
         some infrastructure attacks where BGP or DNS weaknesses have
         been leveraged so that some certification authority is tricked
         into issuing a certificate for the wrong entity.  While the
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 21]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
         context in which CT operates is very constrained (essentially to
         the public CAs trusted by web browsers), similar approaches
         could perhaps be useful for other protocols or technologies.  In
@@ -1227,13 +1051,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
         suggests a number of different possible avenues for
         investigation:
 
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 22]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
         *  For any protocol dependent on infrastructure like DNS or BGP,
            we ought analyse potential outcomes in the event the relevant
            infrastructure has been compromised
@@ -1259,22 +1076,21 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
            device, and that the software runs in a protected
            environment.
 
-        IETF work such as TEEP [I-D.ietf-teep-architecture]
-        [I-D.ietf-teep-protocol] and RATS [I-D.ietf-rats-eat] may be
-        helpful in providing attestations to other nodes about a
-        particular endpoint, or lifecycle management of such endpoints.
+        IETF work such as TEEP [I-D.ietf-teep-architecture] [I-D.ietf-
+        teep-protocol] and RATS [I-D.ietf-rats-eat] may be helpful in
+        providing attestations to other nodes about a particular
+        endpoint, or lifecycle management of such endpoints.
 
         One should note, however, that it is often not possible to fully
-        protect endpoints (see, e.g., [Kocher2019] [Lipp2018]
-        [I-D.taddei-smart-cless-introduction]
-        [I-D.mcfadden-smart-endpoint-taxonomy-for-cless]).  And of
-        course, a trusted computing may be set up and controlled by a
-        party that itself is not trusted; a client that contacts a
-        server that the server's owner runs in a trusted computing
-        setting does not change the fact that the client and the
-        server's owner may have different interests.  As a result, there
-        is a need to prepare for the possibility that another party in a
-        communication is not entirely trusted.
+        protect endpoints (see, e.g., [Kocher2019] [Lipp2018] [I-
+        D.taddei-smart-cless-introduction] [I-D.mcfadden-smart-endpoint-
+        taxonomy-for-cless]).  And of course, a trusted computing may be
+        set up and controlled by a party that itself is not trusted; a
+        client that contacts a server that the server's owner runs in a
+        trusted computing setting does not change the fact that the
+        client and the server's owner may have different interests.  As
+        a result, there is a need to prepare for the possibility that
+        another party in a communication is not entirely trusted.
 
    9.   Trust Boundaries: Traditional forms of communication equipment
         have morphed into today's virtualized environments, where new
@@ -1282,14 +1098,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
         layers.  And an application might consider itself trusted while
         not entirely trusting the underlying operating system.  A
         browser application wants to protect itself against Javascript
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 23]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
         loaded from a website, while the website considers itself and
         the Javascript an application that it wants to protect from the
         browser.  In general, there are multiple parties even in a
@@ -1302,8 +1110,8 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
 
    11.  Re-consider protocol design "lore": It could be that this
         discussion demonstrates that it is timely to reconsider some
-        protocol design "lore" as for example is done in
-        [I-D.iab-protocol-maintenance].  More specifically, protocol
+        protocol design "lore" as for example is done in [I-D.iab-
+        protocol-maintenance].  More specifically, protocol
         extensibility mechanisms may inadvertently create vectors for
         abuse-cases, given that designers cannot fully analyse their
         impact at the time a new protocol is defined or standardised.
@@ -1338,14 +1146,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
         passed via another party who does not intrinsically need the
         information to perform its function should be protected end-to-
         end to its intended recipient.  This guideline is general, and
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 24]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
         holds equally for sending TCP/IP packets, TLS connections, or
         application-layer interactions.  As [RFC8546] notes, it is a
         useful design rule to avoid "accidental invariance" (the
@@ -1394,14 +1194,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
         Javascript model clearly differs from traditional host models,
         but so do many server-side deployments, thanks to
         virtualisation.  At protocol design time assume that all
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 25]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
         endpoints will be run in virtualised environments where co-
         tenants and (sometimes) hypervisors are adversaries, and then
         analyse such scenarios.
@@ -1448,15 +1240,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
         behaviours [AbuseCases] calls for significant attention to be
         paid to potential abuses of whatever new or re-purposed
         technology is being considered.
-
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 26]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
 
    9.   Consider recovery from compromse or attack during protocol
         design - all widely used protocols will at some time be subject
@@ -1506,28 +1289,20 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    be easily understood as IETF participants from all backgrounds need
    to be able to use BCP 72.
 
+   In this section we provide a few initial suggested changes to BCP 72
+   that will need to be further developed as part of this work.  (For
+   example, it may be possible to include some of the guidelines from
+   Section 5 as those are further developed.)
 
+   There are a range of possible updates.  We could propose adding a
+   simple observation (Section 6.1), or additionally propose further
+   discussion about endpoint compromises and the need for system-level
+   security analysis (Section 6.2).
 
-
-Arkko & Farrell         Expires September 9, 2020              [Page 27]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
-   In this section we provide a couple of initial suggested changes to
-   BCP 72 that will need to be further developed as part of this work.
-   (For example, it may be possible to include some of the guidelines
-   from Section 5 as those are further developed.)
-
-   There is a range of possible updates.  In this memo we propose either
-   adding a simple observation (Section 6.1), or additionally, also some
-   further discussion about endpoint compromises and the need for
-   system-level security analysis (Section 6.2).
-
-   A third possibility would be to add even more material about
-   guidelines, areas of concern, and recommendations of techniques to
-   use.  Potential suggestions for such material is covered even further
-   down, in Section 6.3.
+   Another possibility would be to add more guidance covering areas of
+   concern, and recommendations of broadly-applicable techniques to use.
+   One suggestion (due to others) for such material is provided in
+   Section 6.3.
 
    The authors of this memo believe that any updates to RFC 3552 should
    be relatively high-level and short.  Additional documents may be
@@ -1562,13 +1337,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
       minimize the extent of the damage done when the other parties in a
       protocol become compromised or do not act in the best interests
       the end-system implementing a protocol.
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 28]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
 
 6.2.  Additional discussion of compromises
 
@@ -1619,13 +1387,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
 
    NEW:
 
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 29]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
       Forward Security: Many protocols are designed so that compromise
       of an endpoint at time T does not lead to compromise of data
       transmitted prior to some time T' < T.  For instance, if a
@@ -1674,14 +1435,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    Examples include DTLS-SRTP and the trend towards opportunistic
    security.  However, ideally protocols are built with strong defenses
    against active attackers.  One prominent example is QUIC, which takes
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 30]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
    steps to ensure that off-path connection resets are intractable in
    practice.
 
@@ -1703,10 +1456,9 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
       for this leakage by supporting padding.
 
    Some examples of recent work in this area include support for padding
-   either generically in the transport protocol (QUIC
-   [I-D.ietf-quic-transport] and TLS [RFC8446]), or specifically in the
-   application protocol (EDNS(0) padding option for DNS messages
-   [RFC7830]).
+   either generically in the transport protocol (QUIC [I-D.ietf-quic-
+   transport] and TLS [RFC8446]), or specifically in the application
+   protocol (EDNS(0) padding option for DNS messages [RFC7830]).
 
 6.3.4.  Containing compromise of trust points
 
@@ -1729,14 +1481,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
       keys associated with a given entity are publicly visible and
       auditable in tamper-proof logs.  This allows users of these keys
       to check them for correctness.
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 31]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
 
    In the realm of software, Reproducible Builds and Binary Transparency
    are intended to allow a user to determine that they have received a
@@ -1786,14 +1530,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
    protocols, and how transport layer security can be best used to
    provide the right security for various applications.  However, more
    work is needed in equivalently broadly deployed tools for minimising
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 32]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
    or obfuscating information provided by users to other entities, and
    the use of end-to-end security through entities that are involved in
    the protocol exchange but who do not need to know everything that is
@@ -1825,11 +1561,10 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
               https://www.acsac.org/1999/papers/wed-b-1030-john.pdf ,
               1999.
 
-   [AmIUnique]
-              INRIA, ., "Am I Unique?", https://amiunique.org , 2020.
+   [AmIUnique]INRIA, ., "Am I Unique?", https://amiunique.org , March
+              2020.
 
-   [Attitude]
-              "User Perceptions of Sharing, Advertising, and Tracking",
+   [Attitude] "User Perceptions of Sharing, Advertising, and Tracking",
               Symposium on Usable Privacy and Security (SOUPS),
               https://www.usenix.org/conference/soups2015/proceedings/
               presentation/chanchary , 2015.
@@ -1838,38 +1573,24 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
               Your Web Browsing Data",
               https://www.vice.com/en_us/article/qjdkq7/
               avast-antivirus-sells-user-browsing-data-investigation ,
-              2020.
+              March 2020.
 
-
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 33]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
-   [BgpHijack]
-              Sermpezis, P., Kotronis, V., Dainotti, A., and X.
+   [BgpHijack]Sermpezis, P., Kotronis, V., Dainotti, A., and X.
               Dimitropoulos, "A survey among network operators on BGP
               prefix hijacking", ACM SIGCOMM Computer Communication
               Review 48, no. 1 (2018): 64-69,
               https://arxiv.org/pdf/1801.02918.pdf , 2018.
 
-   [Bloatware]
-              Gamba, G., Rashed, M., Razaghpanah, A., Tapiado, J., and
+   [Bloatware]Gamba, G., Rashed, M., Razaghpanah, A., Tapiado, J., and
               N. Vallina, "An Analysis of Pre-installed Android
               Software", arXiv preprint arXiv:1905.02713 (2019) , 2019.
 
-   [Boix2018]
-              Gomez-Boix, A., Laperdrix, P., and B. Baudry, "Hiding in
+   [Boix2018] Gómez-Boix, A., Laperdrix, P., and B. Baudry, "Hiding in
               the crowd: an analysis of the effectiveness of browser
               fingerprinting at large scale", Proceedings of the 2018
               world wide web conference , 2018.
 
-   [Cambridge]
-              Isaak, J. and M. Hanna, "User Data Privacy: Facebook,
+   [Cambridge]Isaak, J. and M. Hanna, "User Data Privacy: Facebook,
               Cambridge Analytica, and Privacy Protection", Computer
               51.8 (2018): 56-59, https://ieeexplore.ieee.org/stamp/
               stamp.jsp?arnumber=8436400 , 2018.
@@ -1888,30 +1609,23 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
               https://www.ics.uci.edu/~seal/
               publications/2018ICSE_Hammad.pdf , 2018.
 
-   [DeepDive]
-              Krebs on Security, ., "A Deep Dive on the Recent
+   [DeepDive] Krebs on Security, ., "A Deep Dive on the Recent
               Widespread DNS Hijacking Attacks", krebsonsecurity.com
               blog, https://krebsonsecurity.com/2019/02/a-deep-dive-on-
               the-recent-widespread-dns-hijacking-attacks/ , 2019.
+
+   [DoubleKey]Witte, D., "Thirdparty",
+              https://wiki.mozilla.org/Thirdparty , June 2010.
 
    [DynDDoS]  York, K., "Dyn's Statement on the 10/21/2016 DNS DDoS
               Attack", Company statement: https://dyn.com/blog/
               dyn-statement-on-10212016-ddos-attack/ , 2016.
 
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 34]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
    [GDPRAccess]
               EU, ., "Right of access by the data subject", Article 15,
-              GDPR, https://gdpr-info.eu/art-15-gdpr/ , n.d..
+              GDPR, https://gdpr-info.eu/art-15-gdpr/ , March 2020.
 
-   [HijackDet]
-              Schlamp, J., Holz, R., Gasser, O., Korste, A., Jacquemart,
+   [HijackDet]Schlamp, J., Holz, R., Gasser, O., Korste, A., Jacquemart,
               Q., Carle, G., and E. Biersack, "Investigating the nature
               of routing anomalies: Closing in on subprefix hijacking
               attacks", International Workshop on Traffic Monitoring and
@@ -1930,116 +1644,132 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
               Arkko, J. and T. Hardie, "Report from the IAB workshop on
               Design Expectations vs. Deployment Reality in Protocol
               Development", draft-arkko-arch-dedr-report-00 (work in
-              progress), November 2019.
+              progress), 4 November 2019,
+              <http://www.ietf.org/internet-drafts/draft-arkko-arch-
+              dedr-report-00.txt>.
 
    [I-D.arkko-arch-infrastructure-centralisation]
               Arkko, J., "Centralised Architectures in Internet
               Infrastructure", draft-arkko-arch-infrastructure-
-              centralisation-00 (work in progress), November 2019.
+              centralisation-00 (work in progress), 4 November 2019,
+              <http://www.ietf.org/internet-drafts/draft-arkko-arch-
+              infrastructure-centralisation-00.txt>.
 
    [I-D.arkko-arch-internet-threat-model]
               Arkko, J., "Changes in the Internet Threat Model", draft-
-              arkko-arch-internet-threat-model-01 (work in progress),
-              July 2019.
+              arkko-arch-internet-threat-model-01 (work in progress), 8
+              July 2019,
+              <http://www.ietf.org/internet-drafts/draft-arkko-arch-
+              internet-threat-model-01.txt>.
 
    [I-D.farrell-etm]
               Farrell, S., "We're gonna need a bigger threat model",
-              draft-farrell-etm-03 (work in progress), July 2019.
+              draft-farrell-etm-03 (work in progress), 6 July 2019,
+              <http://www.ietf.org/internet-drafts/draft-farrell-etm-
+              03.txt>.
 
    [I-D.iab-protocol-maintenance]
               Thomson, M., "The Harmful Consequences of the Robustness
               Principle", draft-iab-protocol-maintenance-04 (work in
-              progress), November 2019.
-
-
-
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 35]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
+              progress), 3 November 2019,
+              <http://www.ietf.org/internet-drafts/draft-iab-protocol-
+              maintenance-04.txt>.
 
    [I-D.ietf-httpbis-expect-ct]
               estark@google.com, e., "Expect-CT Extension for HTTP",
-              draft-ietf-httpbis-expect-ct-08 (work in progress),
-              December 2018.
+              draft-ietf-httpbis-expect-ct-08 (work in progress), 9
+              December 2018,
+              <http://www.ietf.org/internet-drafts/draft-ietf-httpbis-
+              expect-ct-08.txt>.
 
    [I-D.ietf-mls-architecture]
               Omara, E., Beurdouche, B., Rescorla, E., Inguva, S., Kwon,
               A., and A. Duric, "The Messaging Layer Security (MLS)
               Architecture", draft-ietf-mls-architecture-04 (work in
-              progress), January 2020.
+              progress), 26 January 2020,
+              <http://www.ietf.org/internet-drafts/draft-ietf-mls-
+              architecture-04.txt>.
 
    [I-D.ietf-quic-transport]
               Iyengar, J. and M. Thomson, "QUIC: A UDP-Based Multiplexed
               and Secure Transport", draft-ietf-quic-transport-27 (work
-              in progress), February 2020.
+              in progress), 21 February 2020,
+              <http://www.ietf.org/internet-drafts/draft-ietf-quic-
+              transport-27.txt>.
 
    [I-D.ietf-rats-eat]
               Mandyam, G., Lundblade, L., Ballesteros, M., and J.
               O'Donoghue, "The Entity Attestation Token (EAT)", draft-
-              ietf-rats-eat-03 (work in progress), February 2020.
+              ietf-rats-eat-03 (work in progress), 20 February 2020,
+              <http://www.ietf.org/internet-drafts/draft-ietf-rats-eat-
+              03.txt>.
 
    [I-D.ietf-teep-architecture]
               Pei, M., Tschofenig, H., Thaler, D., and D. Wheeler,
               "Trusted Execution Environment Provisioning (TEEP)
-              Architecture", draft-ietf-teep-architecture-06 (work in
-              progress), February 2020.
+              Architecture", draft-ietf-teep-architecture-07 (work in
+              progress), 7 March 2020,
+              <http://www.ietf.org/internet-drafts/draft-ietf-teep-
+              architecture-07.txt>.
 
    [I-D.ietf-teep-protocol]
               Tschofenig, H., Pei, M., Wheeler, D., and D. Thaler,
               "Trusted Execution Environment Provisioning (TEEP)
               Protocol", draft-ietf-teep-protocol-00 (work in progress),
-              December 2019.
+              12 December 2019,
+              <http://www.ietf.org/internet-drafts/draft-ietf-teep-
+              protocol-00.txt>.
 
    [I-D.ietf-tls-esni]
               Rescorla, E., Oku, K., Sullivan, N., and C. Wood,
               "Encrypted Server Name Indication for TLS 1.3", draft-
-              ietf-tls-esni-05 (work in progress), November 2019.
+              ietf-tls-esni-05 (work in progress), 4 November 2019,
+              <http://www.ietf.org/internet-drafts/draft-ietf-tls-esni-
+              05.txt>.
 
    [I-D.ietf-tls-grease]
               Benjamin, D., "Applying GREASE to TLS Extensibility",
-              draft-ietf-tls-grease-04 (work in progress), August 2019.
+              draft-ietf-tls-grease-04 (work in progress), 22 August
+              2019, <http://www.ietf.org/internet-drafts/draft-ietf-tls-
+              grease-04.txt>.
 
    [I-D.lazanski-smart-users-internet]
               Lazanski, D., "An Internet for Users Again", draft-
-              lazanski-smart-users-internet-00 (work in progress), July
-              2019.
-
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 36]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
+              lazanski-smart-users-internet-00 (work in progress), 8
+              July 2019,
+              <http://www.ietf.org/internet-drafts/draft-lazanski-smart-
+              users-internet-00.txt>.
 
    [I-D.mcfadden-smart-endpoint-taxonomy-for-cless]
               McFadden, M., "Endpoint Taxonomy for CLESS", draft-
               mcfadden-smart-endpoint-taxonomy-for-cless-01 (work in
-              progress), February 2020.
+              progress), 5 February 2020,
+              <http://www.ietf.org/internet-drafts/draft-mcfadden-smart-
+              endpoint-taxonomy-for-cless-01.txt>.
 
    [I-D.nottingham-for-the-users]
               Nottingham, M., "The Internet is for End Users", draft-
-              nottingham-for-the-users-09 (work in progress), July 2019.
+              nottingham-for-the-users-09 (work in progress), 22 July
+              2019,
+              <http://www.ietf.org/internet-drafts/draft-nottingham-for-
+              the-users-09.txt>.
 
    [I-D.taddei-smart-cless-introduction]
               Taddei, A., Wueest, C., Roundy, K., and D. Lazanski,
               "Capabilities and Limitations of an Endpoint-only Security
               Solution", draft-taddei-smart-cless-introduction-02 (work
-              in progress), January 2020.
+              in progress), 9 January 2020,
+              <http://www.ietf.org/internet-drafts/draft-taddei-smart-
+              cless-introduction-02.txt>.
 
    [I-D.wood-pearg-website-fingerprinting]
               Goldberg, I., Wang, T., and C. Wood, "Network-Based
               Website Fingerprinting", draft-wood-pearg-website-
-              fingerprinting-00 (work in progress), November 2019.
+              fingerprinting-00 (work in progress), 4 November 2019,
+              <http://www.ietf.org/internet-drafts/draft-wood-pearg-
+              website-fingerprinting-00.txt>.
 
-   [Jager2015]
-              Jager, T., Schwenk, J., and J. Somorovsky, "On the
+   [Jager2015]Jager, T., Schwenk, J., and J. Somorovsky, "On the
               Security of TLS 1.3 and QUIC Against Weaknesses in PKCS#1
               v1.5 Encryption", Proceedings of ACM CCS 2015, DOI
               10.1145/2810103.2813657, https://www.nds.rub.de/media/nds/
@@ -2059,20 +1789,16 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
               https://businessinsights.bitdefender.com/
               worst-amazon-breaches , 2018.
 
-   [Lipp2018]
-              Lipp, M., Schwarz, M., Gruss, D., Prescher, T., Haas, W.,
+   [Leith2020]Leith, D., "Web Browser Privacy: What Do Browsers Say When
+              They Phone Home?", In submission,
+              https://www.scss.tcd.ie/Doug.Leith/pubs/
+              browser_privacy.pdf , March 2020.
+
+   [Lipp2018] Lipp, M., Schwarz, M., Gruss, D., Prescher, T., Haas, W.,
               Fogh, A., Horn, J., Mangard, S., Kocher, P., Genkin, D.,
               Yarom, Y., and M. Hamburg, "Meltdown: Reading Kernel
               Memory from User Space", 27th USENIX Security Symposium
               (USENIX Security 18) , 2018.
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 37]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
 
    [Mailbug]  Englehardt, S., Han, J., and A. Narayanan, "I never signed
               up for this! Privacy implications of email tracking",
@@ -2094,8 +1820,7 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
               available-with-enhanced-tracking-protection-by-default/ ,
               June 2019.
 
-   [Passwords]
-              com, haveibeenpwned., "Pwned Passwords", Website
+   [Passwords]com, haveibeenpwned., "Pwned Passwords", Website
               https://haveibeenpwned.com/Passwords , 2019.
 
    [RFC1958]  Carpenter, B., Ed., "Architectural Principles of the
@@ -2111,24 +1836,14 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
               BCP 95, RFC 3935, DOI 10.17487/RFC3935, October 2004,
               <https://www.rfc-editor.org/info/rfc3935>.
 
-   [RFC4655]  Farrel, A., Vasseur, J., and J. Ash, "A Path Computation
-              Element (PCE)-Based Architecture", RFC 4655,
+   [RFC4655]  Farrel, A., Vasseur, J.-P., and J. Ash, "A Path
+              Computation Element (PCE)-Based Architecture", RFC 4655,
               DOI 10.17487/RFC4655, August 2006,
               <https://www.rfc-editor.org/info/rfc4655>.
 
    [RFC6265]  Barth, A., "HTTP State Management Mechanism", RFC 6265,
               DOI 10.17487/RFC6265, April 2011,
               <https://www.rfc-editor.org/info/rfc6265>.
-
-
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 38]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
 
    [RFC6454]  Barth, A., "The Web Origin Concept", RFC 6454,
               DOI 10.17487/RFC6454, December 2011,
@@ -2175,17 +1890,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
               Extension for HTTP", RFC 7469, DOI 10.17487/RFC7469, April
               2015, <https://www.rfc-editor.org/info/rfc7469>.
 
-
-
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 39]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
    [RFC7540]  Belshe, M., Peon, R., and M. Thomson, Ed., "Hypertext
               Transfer Protocol Version 2 (HTTP/2)", RFC 7540,
               DOI 10.17487/RFC7540, May 2015,
@@ -2222,25 +1926,12 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
               (ACME)", RFC 8555, DOI 10.17487/RFC8555, March 2019,
               <https://www.rfc-editor.org/info/rfc8555>.
 
-   [Saltzer]  Saltzer, J., Reed, D., and D. Clark, "End-To-End Arguments
-              in System Design", ACM TOCS, Vol 2, Number 4, pp 277-288 ,
-              November 1984.
+   [Saltzer]  Saltzer, J.H., Reed, D.P., and D.D. Clark, "End-To-End
+              Arguments in System Design", ACM TOCS, Vol 2, Number 4, pp
+              277-288 , November 1984.
 
    [Savage]   Savage, S., "Modern Automotive Vulnerabilities: Causes,
               Disclosures, and Outcomes", USENIX , 2016.
-
-
-
-
-
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 40]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
 
    [SmartTV]  Malkin, N., Bernd, J., Johnson, M., and S. Egelman, "What
               Can't Data Be Used For? Privacy Expectations about Smart
@@ -2249,8 +1940,7 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
               content/uploads/2018/06/
               eurousec2018_16_Malkin_paper.pdf" , 2018.
 
-   [StackEvo]
-              Trammell, B., Thomson, M., Howard, L., and T. Hardie,
+   [StackEvo] Trammell, B., Thomson, M., Howard, L., and T. Hardie,
               "What Is an Endpoint?", Unpublished work,
               https://github.com/stackevo/endpoint-draft/blob/master/
               draft-trammell-whats-an-endpoint.md , 2017.
@@ -2272,8 +1962,7 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
               IEEE Internet of Things Journal 6.1 (2019): 978-985,
               https://arxiv.org/pdf/1805.02751.pdf , 2019.
 
-   [Tracking]
-              Ermakova, T., Fabian, B., Bender, B., and K. Klimek, "Web
+   [Tracking] Ermakova, T., Fabian, B., Bender, B., and K. Klimek, "Web
               Tracking-A Literature Review on the State of Research",
               Proceedings of the 51st Hawaii International Conference on
               System Sciences, https://scholarspace.manoa.hawaii.edu/
@@ -2290,13 +1979,6 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
               service policies of social networking services",
               Information, Communication and Society (2018): 1-20 ,
               2018.
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 41]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
 
    [Vpns]     Khan, M., DeBlasio, J., Voelker, G., Snoeren, A., Kanich,
               C., and N. Vallina, "An empirical analysis of the
@@ -2347,13 +2029,6 @@ Appendix B.  Acknowledgements
    Robin Wilton ... (missing many people... did we have minutes other
    than the list of actions?) ...
 
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 42]
-
-Internet-Draft       Internet Threat Model Evolution          March 2020
-
-
    Thanks for specific comments on this text to: Ronald van der Pol.
 
    Finally, the authors would like to thank numerous other people for
@@ -2361,10 +2036,10 @@ Internet-Draft       Internet Threat Model Evolution          March 2020
 
 Authors' Addresses
 
-   Jari Arkko
    Ericsson
+   Jari Arkko
    Valitie 1B
-   Kauniainen
+   FI- Kauniainen
    Finland
 
    Email: jari.arkko@piuha.net
@@ -2377,32 +2052,3 @@ Authors' Addresses
    Ireland
 
    Email: stephen.farrell@cs.tcd.ie
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Arkko & Farrell         Expires September 9, 2020              [Page 43]
