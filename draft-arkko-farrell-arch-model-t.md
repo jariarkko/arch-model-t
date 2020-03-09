@@ -1,7 +1,7 @@
 ---
 title: Challenges and Changes in the Internet Threat Model
 abbrev: Internet Threat Model Evolution
-docname: draft-arkko-farrell-arch-model-t-pre-03
+docname: draft-arkko-farrell-arch-model-t-03
 date: 
 category: info
 
