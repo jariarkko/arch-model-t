@@ -19,7 +19,7 @@ This is not to say that all problems in communications security have been resolv
 
 There are, however, significant issues beyond communications security in the Internet.
 
-To begin with, it is not necessarily clear that one can trust all the endpoints in any protocol interaction. Of course, client endpoint implementations were never fully trusted, but the environments in which those endpoints exist are changing.  For instance, users may not have as much control over their own devices as they used to, due to manufacturer-controlled operating system installations and locked device ecosystems. And within those ecosystems, even the applications that are available tend to have privileges that users by themselves might not desire those applications be granted, such as excessive rights to media, location, and peripherals. There are also designated efforts by various authorities to hack end-user devices as a means of intercepting data about the user.
+To begin with, it is not necessarily clear that one can trust all the endpoints in any protocol interaction, includint the user's own devices. Managed or closed ecosystems with multiple layers of hardware and software have made it harder to understand or influence what your devices do. Sophisticated hardware attacks can impact computer  {{TinyChip}}.
 
 The situation is different, but not necessarily better on the side of servers.  Even for applications that are for user-to-user communication, a typical pattern of communications is almost always via a third party that has at least as much information as the other parties have. For instance, these third parties are typically endpoints for any transport layer security connections, and able to see much communications or other messaging in cleartext. There are some exceptions, of course, e.g., messaging applications with end-to-end confidentiality protection.
 
@@ -39,12 +39,80 @@ of action seems to be avoid the disclosure of information in the first place,
 or at least to not perform that in a manner that makes it possible that others
 can readily use the information.
 
+## Types of Attacks
+
+This section discusses a few classes of attacks that are relevant for our consideration.
+
+## Misuse of Accidental Vulnerabilities
+
+Not all adversarial behaviour starts as deliberate, some is initiated due to various levels of carelessness and/or due to erroneous assumptions about the environments in which those applications currently run at. Nevertheless, a leak or vulnerability can be exploited by others that pass on or misuse the data, for instance.
+
+Some attacks in this category include:
+
+- Virtualisation exposing secrets, for example, Meltdown and Spectre {{MeltdownAndSpectre}} {{Kocher2019}} {{Lipp2018}} and other similar side-channel attacks. 
+
+- Compromised badly-maintained web sites or services, e.g., {{Passwords}} or Amazon S3 leaks.
+
+- Supply-chain attacks, for example, the {{TargetAttack}} or malware within pre-installed applications on Android phones {{Bloatware}}.
+
+- Breaches of major service providers, that many of us might have assumed would be sufficiently capable to be the best large-scale "Identity providers", for example,  https://www.wired.com/story/yahoo-breach-three-billion-accounts/ https://www.pcmag.com/news/367319/facebook-stored-up-to-600m-user-passwords-in-plain-text https://www.zdnet.com/article/us-telcos-caught-selling-your-location-data-again-senator-demands-new-laws/ https://www.cnet.com/news/facebook-breach-affected-50-million-people/ https://www.zdnet.com/article/millions-verizon-customer-records-israeli-data/ https://www.wsj.com/articles/google-exposed-user-data-feared-repercussions-of-disclosing-to-public-1539017194 https://motherboard.vice.com/en_us/article/ywyz3x/hackers-could-read-your-hotmail-msn-outlook-microsoft-customer-support 
+
+## Misbehaving Applications
+
+There are many examples of application developers doing their best to protect the security and privacy of their users or customers. That's just the same as the case today where we need to consider in-network actors as potential adversaries despite the many examples of network operators who both act in the best interests of their users and succeed in defending against attacks from others.
+
+But there are also applications that themselves do not act in the best interests of their users. 
+
+This can also happen indirectly. Despite the best efforts of curators, so-called App-Stores frequently distribute malware of many kinds and one recent study {{Curated}} claims that simple obfuscation enables malware to avoid detection by even sophisticated operators. Given the scale of these deployments, distribution of even a small percentage of malware-infected applications can affect a large number of people. The end result is an application that
+
+Applications may also mislead users. Many web sites today provide some form of privacy policy and terms of service, that are known to be mostly unread {{Unread}}. This implies that, legal fiction aside, users of those sites have not in reality agreed to the specific terms published and so users are therefore highly exposed to being exploited by web sites, for example {{Cambridge}} is a recent well-publicised case where a service provider abused the data of 87 million users via a partnership.  While many web site operators claim that they care deeply about privacy, it seems prudent to assume that some do not in fact care about user privacy in ways with which many of their users would agree.
+
+## Network Infrastructure Attacks
+
+The network infrastructure may also work in an inappropriate manner. For instance, a Virtual Private Network (VPN) may misrepresent how it carries the users' traffic, for example misrepresenting the countries in which they provide vantage points {{Vpns}}. A user's home network equipment may also be malicous or compromised. For example, one study {{Home}} reports on a 2011 attack that affected 4.5 million DSL modems in Brazil. The absence of software update {{RFC8240}} has been a major cause of these issues and rises to the level that considering this as intentional behaviour by device vendors who have chosen this path is warranted.
+
+## Devices
+
+To begin with, it is not necessarily clear that one can trust all the endpoints in any protocol interaction. Of course, client endpoint implementations were never fully trusted, but the environments in which those endpoints exist are changing.  For instance, users may not have as much control over their own devices as they used to, due to manufacturer-controlled operating system installations and locked device ecosystems. And within those ecosystems, even the applications that are available tend to have privileges that users by themselves might not desire those applications be granted, such as excessive rights to media, location, and peripherals. There are also designated efforts by various authorities to hack end-user devices as a means of intercepting data about the user.
+
+There have been examples of so-called "smart" televisions spying on their
+owners and one survey of user attitudes {{SmartTV}} found "broad agreement was that it
+is unacceptable for the data to be repurposed or shared" although the level of
+user understanding may be questionable.  What is clear though is that such
+devices generally have not provided controls for their owners that would allow
+them to meaningfully make a decision as to whether or not they want to share
+such data.
+
+## Tracking {#webtracking}
+
+One of the biggest threats to user privacy on the Web is ubiquitous tracking. This is often done to support advertising based business models.
+
+While some people may be sanguine about this kind of tracking, others consider this behaviour unwelcome, when or if they are informed that it happens, {{Attitude}} though the evidence here seems somewhat harder to interpret and many studies (that we have found to date) involve small numbers of users.  Historically, browsers have not made this kind of tracking visible and have enabled it by default, though some recent browser versions are starting to enable visibility and blocking of some kinds of tracking. Browsers are also increasingly imposing more stringent requirements on plug-ins for varied security reasons.
+
+Third party tracking
+ 
+One form of tracking is by third parties. HTTP header fields (such as cookies, {{RFC6265}}) are commonly used for such tracking, as are structures within the content of HTTP responses such as links to 1x1 pixel images and (ab)use of Javascript APIs offered by browsers {{Tracking}}.
+
+Whenever a resource is loaded from a server, that server can include a cookie which will be sent back to the server on future loads. This includes situations where the resource is loaded as a resource on a page, such as an image or a JavaScript module. When loading a resource, the server is aware of the top-level page that the resource is used on, through the use of the Referer HTTP header {{RFC7231}}.  those loads include a Referer header which contains the top-level page from which that subresource is being loaded.
+
+The combination of these features makes it possible to track a user across the Web. The tracker convinces a number of content sites ("first parties") to include a resource from the tracker site.  This resource can perform some function such as displaying an advertisement or providing analytics to the first party site. But the resource may also be simply a tracker. When the user visits one of the content sites, the tracker receives both a Referer header and the cookie. For an individual user with a particular browser, the cookie is the same regardless of which site the tracker is on. This allows the tracker to observe what pages within the set of content sites the user visits. The resulting information is commonly used for targeting advertisements, but it can also be used for other purposes.
+
+This capability itself constitutes a major threat to user privacy.  Additional techniques such as cookie syncing, identifier correlation, and fingerprinting make the problem even worse.
+
+As a given tracker will not be on all sites, that tracker has incomplete coverage. However, trackers often collude (a practice called "cookie syncing") to combine the information from different tracking cookies.
+
+Sometimes trackers will be embedded on a site which collects a user identifier, such as social media identity or an e-mail address.  If the site can inform the tracker of the identifier, that allows the tracker to tie the identifier to the cookie.
+
+While a browser may block cookies, fingerprinting browsers often allows tracking the users. For instance, features such as User-Agent string, plugin and font support, screen resolution, and timezone can yield a fingerprint that is sometimes unique to a single user {{AmIUnique}} and which persists beyond cookie scope and lifetime. Even in cases where this fingerprint is not unique, the anonymity set may be sufficiently small that, coupled with other data, this yields a unique, per-user identifier. Fingerprinting of this type is more prevalent on systems and platforms where data-set features are flexible, such as desktops, where plugins are more commonly in use.  Fingerprinting prevention is an active research area; see {{Boix2018}} for more information.
+
+Other types of tracking linked to web tracking
+
+Third party web tracking is not the only concern. An obvious tracking danger exists also in popular ecosystems -- such as social media networks -- that house a large part of many users' online existence. There is no need for a third party to track the user's browsing as all actions are performed within a single site, where most messaging, viewing, and sharing activities happen.
+
+Browsers themselves or services used by the browser can also become a potential source of tracking users. For instance, the URL/search bar service may leak information about the user's actions to a search provider via an "autocomplete" feature. {{Leith2020}}
+
+Tracking through users' IP addresses or DNS queries is also a danger. This may happen by directly observing the cleartext IP or DNS traffic, though DNS tracking may be preventable via DNS protocols that are secured end-to-end. But the DNS queries are also (by definition) seen by the used DNS recursive resolver service, which may accidentally or otherwise track the users' activities.  This is particularly problematic if a large number of users employ either a commonly used ISP service or an Internet-based resolver service {{I-D.arkko-arch-infrastructure-centralisation}}. In contrast, use of a DNS recursive that sees little traffic could equally be used for tracking.  Similarly, other applications, such an mail or instant messaging protocols, that can carry HTML content can be integrated with web tracking. For instance, intentional tracking are also seen many times per day by email users - in one study {{Mailbug}} the authors estimated that 62% of leakage to third parties was intentional, for example if leaked data included a hash of the recipient email address.
+
+Tracking happens through other systems besides the web, of course. For instance, some mail user agents (MUAs) render HTML content by default (with a subset not allowing that to be turned off, perhaps particularly on mobile devices) and thus enable the same kind of adversarial tracking seen on the web. Attempts at such intentional tracking are also seen many times per day by email users - in one study {{Mailbug}} the authors estimated that 62% of leakage to third parties was intentional, for example if leaked data included a hash of the recipient email address.
 
 
-
-TBD...
-
-##
-## webtracking {#webtracking}
-
-TBD...

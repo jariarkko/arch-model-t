@@ -396,7 +396,7 @@ subsidiary.
 
 ### Inadvertent adversarial behaviours
 
-Not all adversarial behaviour by applications is deliberate, some is likely due to various levels of carelessness (some quite understandable, others not) and/or due to erroneous assumptions about the environments in which those applications (now) run.
+Not all adversarial behaviour by applications is deliberate, some is likely due to various levels of carelessness (some quite understandable, others not) and/or due to erroneous assumptions about the environments in which those applications (now) run. 
 
 We very briefly list some such cases:
 

@@ -327,4 +327,10 @@ informative:
     author:
     - ins: D. Witte
     seriesinfo: "https://wiki.mozilla.org/Thirdparty"
-
+  TinyChip:
+    title: "The Big Hack: How China Used a Tiny Chip to Infiltrate U.S. Companies"
+    date: October 2018
+    author:
+    - ins: J. Robertson
+    - ins: M. Riley
+    seriesinfo: "https://www.bloomberg.com/news/features/2018-10-04/the-big-hack-how-china-used-a-tiny-chip-to-infiltrate-america-s-top-companies"
