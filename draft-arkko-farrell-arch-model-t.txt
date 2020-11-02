@@ -5,8 +5,8 @@
 Network Working Group                                           J. Arkko
 Internet-Draft                                                  Ericsson
 Intended status: Informational                                S. Farrell
-Expires: February 21, 2021                        Trinity College Dublin
-                                                         August 20, 2020
+Expires: May 6, 2021                              Trinity College Dublin
+                                                       November 02, 2020
 
 
           Challenges and Changes in the Internet Threat Model
@@ -46,16 +46,16 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 21, 2021.
+   This Internet-Draft will expire on May 6, 2021.
 
 
 
 
 
 
-Arkko & Farrell         Expires February 21, 2021               [Page 1]
+Arkko & Farrell            Expires May 6, 2021                  [Page 1]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
 Copyright Notice
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Arkko & Farrell         Expires February 21, 2021               [Page 2]
+Arkko & Farrell            Expires May 6, 2021                  [Page 2]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    The purpose of a threat model is to outline what threats exist in
@@ -165,9 +165,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021               [Page 3]
+Arkko & Farrell            Expires May 6, 2021                  [Page 3]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    This memo suggests that the existing threat model, while important
@@ -221,9 +221,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021               [Page 4]
+Arkko & Farrell            Expires May 6, 2021                  [Page 4]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    this memo, or any of the others, would be usefully published as an
@@ -277,14 +277,14 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021               [Page 5]
+Arkko & Farrell            Expires May 6, 2021                  [Page 5]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    transport headers [I-D.ietf-quic-transport], server domain name
    information in TLS [I-D.ietf-tls-esni], and domain name queries
-   [RFC8484].
+   [RFC7858] [RFC8484].
 
    There have also been improvements to ensure that the security
    protocols that are in use actually have suitable credentials and that
@@ -333,9 +333,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021               [Page 6]
+Arkko & Farrell            Expires May 6, 2021                  [Page 6]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    Specifically, the following issues need attention:
@@ -389,9 +389,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021               [Page 7]
+Arkko & Farrell            Expires May 6, 2021                  [Page 7]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    the same time this could lead to a move from using (what appears to
@@ -445,9 +445,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021               [Page 8]
+Arkko & Farrell            Expires May 6, 2021                  [Page 8]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
 2.3.  Examples
@@ -501,9 +501,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021               [Page 9]
+Arkko & Farrell            Expires May 6, 2021                  [Page 9]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
 2.3.1.4.  Web tracking
@@ -557,9 +557,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 10]
+Arkko & Farrell            Expires May 6, 2021                 [Page 10]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    This capability itself constitutes a major threat to user privacy.
@@ -613,9 +613,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 11]
+Arkko & Farrell            Expires May 6, 2021                 [Page 11]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    commonly used ISP service or an Internet-based resolver service
@@ -669,9 +669,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 12]
+Arkko & Farrell            Expires May 6, 2021                 [Page 12]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    provided mechanisms to handle such attacks sufficiently well,
@@ -725,9 +725,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 13]
+Arkko & Farrell            Expires May 6, 2021                 [Page 13]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    to be able to harvest message store content from a real message
@@ -781,9 +781,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 14]
+Arkko & Farrell            Expires May 6, 2021                 [Page 14]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
 2.3.1.12.  Anti-virus vendor selling user clickstream data
@@ -837,9 +837,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 15]
+Arkko & Farrell            Expires May 6, 2021                 [Page 15]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
       *  "up to 600M" account passwords stored in clear:
@@ -893,9 +893,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 16]
+Arkko & Farrell            Expires May 6, 2021                 [Page 16]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
       providing that questioned function as a feature of the
@@ -949,9 +949,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 17]
+Arkko & Farrell            Expires May 6, 2021                 [Page 17]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
       end-to-end protocols.  The role and authority of any additional
@@ -1005,9 +1005,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 18]
+Arkko & Farrell            Expires May 6, 2021                 [Page 18]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    boundaries or even run over the Internet.  As a result, it is also
@@ -1061,9 +1061,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 19]
+Arkko & Farrell            Expires May 6, 2021                 [Page 19]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    Even airgapped networks can have these issues, as evidenced, for
@@ -1117,9 +1117,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 20]
+Arkko & Farrell            Expires May 6, 2021                 [Page 20]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
 3.4.  Checklist for Protocol Designers
@@ -1173,9 +1173,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 21]
+Arkko & Farrell            Expires May 6, 2021                 [Page 21]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
        intended recipient.  This holds equally for sending TCP/IP
@@ -1229,9 +1229,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 22]
+Arkko & Farrell            Expires May 6, 2021                 [Page 22]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
        protocol design time assume that all endpoints will be run in
@@ -1285,9 +1285,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 23]
+Arkko & Farrell            Expires May 6, 2021                 [Page 23]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
         to ensure that browsers themselves do not themselves enable new
@@ -1341,9 +1341,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 24]
+Arkko & Farrell            Expires May 6, 2021                 [Page 24]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
            example, the client and authorization server may be under
@@ -1397,9 +1397,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 25]
+Arkko & Farrell            Expires May 6, 2021                 [Page 25]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
         server that the server's owner runs in a trusted computing
@@ -1453,9 +1453,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 26]
+Arkko & Farrell            Expires May 6, 2021                 [Page 26]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
         to have an opportunity for the users to state their requirements
@@ -1509,9 +1509,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 27]
+Arkko & Farrell            Expires May 6, 2021                 [Page 27]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
 8.  Informative References
@@ -1565,9 +1565,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 28]
+Arkko & Farrell            Expires May 6, 2021                 [Page 28]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    [CommandAndControl]
@@ -1621,9 +1621,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 29]
+Arkko & Farrell            Expires May 6, 2021                 [Page 29]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    [I-D.arkko-arch-dedr-report]
@@ -1664,22 +1664,22 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
    [I-D.ietf-quic-transport]
               Iyengar, J. and M. Thomson, "QUIC: A UDP-Based Multiplexed
-              and Secure Transport", draft-ietf-quic-transport-29 (work
-              in progress), June 2020.
+              and Secure Transport", draft-ietf-quic-transport-32 (work
+              in progress), October 2020.
 
    [I-D.ietf-rats-eat]
               Mandyam, G., Lundblade, L., Ballesteros, M., and J.
               O'Donoghue, "The Entity Attestation Token (EAT)", draft-
-              ietf-rats-eat-03 (work in progress), February 2020.
+              ietf-rats-eat-04 (work in progress), August 2020.
 
 
 
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 30]
+Arkko & Farrell            Expires May 6, 2021                 [Page 30]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    [I-D.ietf-teep-architecture]
@@ -1696,8 +1696,8 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
    [I-D.ietf-tls-esni]
               Rescorla, E., Oku, K., Sullivan, N., and C. Wood, "TLS
-              Encrypted Client Hello", draft-ietf-tls-esni-07 (work in
-              progress), June 2020.
+              Encrypted Client Hello", draft-ietf-tls-esni-08 (work in
+              progress), October 2020.
 
    [I-D.ietf-tls-grease]
               Benjamin, D., "Applying GREASE to TLS Extensibility",
@@ -1733,9 +1733,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 31]
+Arkko & Farrell            Expires May 6, 2021                 [Page 31]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    [Jager2015]
@@ -1789,9 +1789,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 32]
+Arkko & Farrell            Expires May 6, 2021                 [Page 32]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    [Mozilla2019]
@@ -1845,9 +1845,9 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 33]
+Arkko & Farrell            Expires May 6, 2021                 [Page 33]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
 
    [RFC6797]  Hodges, J., Jackson, C., and A. Barth, "HTTP Strict
@@ -1901,10 +1901,15 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
 
 
 
-Arkko & Farrell         Expires February 21, 2021              [Page 34]
+Arkko & Farrell            Expires May 6, 2021                 [Page 34]
 
-Internet-Draft       Internet Threat Model Evolution         August 2020
+Internet-Draft       Internet Threat Model Evolution       November 2020
 
+
+   [RFC7858]  Hu, Z., Zhu, L., Heidemann, J., Mankin, A., Wessels, D.,
+              and P. Hoffman, "Specification for DNS over Transport
+              Layer Security (TLS)", RFC 7858, DOI 10.17487/RFC7858, May
+              2016, <https://www.rfc-editor.org/info/rfc7858>.
 
    [RFC8240]  Tschofenig, H. and S. Farrell, "Report from the Internet
               of Things Software Update (IoTSU) Workshop 2016",
@@ -1948,19 +1953,20 @@ Internet-Draft       Internet Threat Model Evolution         August 2020
               https://github.com/stackevo/endpoint-draft/blob/master/
               draft-trammell-whats-an-endpoint.md , 2017.
 
+
+
+
+
+Arkko & Farrell            Expires May 6, 2021                 [Page 35]
+
+Internet-Draft       Internet Threat Model Evolution       November 2020
+
+
    [Sybil]    Viswanath, B., Post, A., Gummadi, K., and A. Mislove, "An
               analysis of social network-based sybil defenses", ACM
               SIGCOMM Computer Communication Review 41(4), 363-374,
               https://conferences.sigcomm.org/sigcomm/2010/papers/
               sigcomm/p363.pdf , 2011.
-
-
-
-
-Arkko & Farrell         Expires February 21, 2021              [Page 35]
-
-Internet-Draft       Internet Threat Model Evolution         August 2020
-
 
    [TargetAttack]
               Osborne, C., "How hackers stole millions of credit card
@@ -2005,18 +2011,17 @@ Appendix A.  Changes from previous version
 
    o  Split the RFC 3552 and RFC 7258 changes to separate documents.
 
+
+
+Arkko & Farrell            Expires May 6, 2021                 [Page 36]
+
+Internet-Draft       Internet Threat Model Evolution       November 2020
+
+
    o  Added a discussion of assets.
 
    o  Shortened the guidelines and converted it to a "designer's
       checklist" list.
-
-
-
-
-Arkko & Farrell         Expires February 21, 2021              [Page 36]
-
-Internet-Draft       Internet Threat Model Evolution         August 2020
-
 
    o  Moved the end-to-end security via third parties study item to the
       checklist, and added a discussion about key management to it.
@@ -2060,20 +2065,21 @@ Appendix C.  Acknowledgements
    Jim Reid, Jan-Frederik Rieckers, Mohit Sethi, Melinda Shore, Jonne
    Soininen, Andrew Sullivan, and Brian Trammell.
 
+
+
+
+
+Arkko & Farrell            Expires May 6, 2021                 [Page 37]
+
+Internet-Draft       Internet Threat Model Evolution       November 2020
+
+
    The authors would also like to thank the participants of the November
    2016 meeting at the IETF:
 
    Carsten Bormann, Randy Bush, Tommy C, Roman Danyliw, Ted Hardie,
    Christian Huitema, Ben Kaduk, Dirk Kutscher, Dominique Lazanski, Eric
    Rescorla, Ali Rezaki, Mohit Sethi, Melinda Shore, Martin Thomson, and
-
-
-
-Arkko & Farrell         Expires February 21, 2021              [Page 37]
-
-Internet-Draft       Internet Threat Model Evolution         August 2020
-
-
    Robin Wilton ... (missing many people... did we have minutes other
    than the list of actions?) ...
 
@@ -2119,10 +2125,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-Arkko & Farrell         Expires February 21, 2021              [Page 38]
+Arkko & Farrell            Expires May 6, 2021                 [Page 38]
