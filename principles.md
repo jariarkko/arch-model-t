@@ -1,6 +1,8 @@
 
 # Principles {#principles}
 
+TBD...
+
 Unfortunately, there is little that even large service providers can do to not
 be a DDoS target, (though anycast and other DDoS mitigations can certainly help
 when one is targeted), nor to refuse authority-sanctioned pervasive
@@ -47,6 +49,5 @@ Specifically, the following issues need attention:
 
 * Leverage and control points outside the hands of the users or end-user device
   owners.
-
 
 TBD...

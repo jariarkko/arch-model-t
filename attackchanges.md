@@ -19,7 +19,7 @@ This is not to say that all problems in communications security have been resolv
 
 There are, however, significant issues beyond communications security in the Internet.
 
-To begin with, it is not necessarily clear that one can trust all the endpoints in any protocol interaction, includint the user's own devices. Managed or closed ecosystems with multiple layers of hardware and software have made it harder to understand or influence what your devices do. Sophisticated hardware attacks can impact computer  {{TinyChip}}.
+To begin with, it is not necessarily clear that one can trust all the endpoints in any protocol interaction, includint the user's own devices. Managed or closed ecosystems with multiple layers of hardware and software have made it harder to understand or influence what your devices do. 
 
 The situation is different, but not necessarily better on the side of servers.  Even for applications that are for user-to-user communication, a typical pattern of communications is almost always via a third party that has at least as much information as the other parties have. For instance, these third parties are typically endpoints for any transport layer security connections, and able to see much communications or other messaging in cleartext. There are some exceptions, of course, e.g., messaging applications with end-to-end confidentiality protection.
 
@@ -71,17 +71,11 @@ Applications may also mislead users. Many web sites today provide some form of p
 
 The network infrastructure may also work in an inappropriate manner. For instance, a Virtual Private Network (VPN) may misrepresent how it carries the users' traffic, for example misrepresenting the countries in which they provide vantage points {{Vpns}}. A user's home network equipment may also be malicous or compromised. For example, one study {{Home}} reports on a 2011 attack that affected 4.5 million DSL modems in Brazil. The absence of software update {{RFC8240}} has been a major cause of these issues and rises to the level that considering this as intentional behaviour by device vendors who have chosen this path is warranted.
 
-## Devices
+## Untrustworthy Devices
 
 To begin with, it is not necessarily clear that one can trust all the endpoints in any protocol interaction. Of course, client endpoint implementations were never fully trusted, but the environments in which those endpoints exist are changing.  For instance, users may not have as much control over their own devices as they used to, due to manufacturer-controlled operating system installations and locked device ecosystems. And within those ecosystems, even the applications that are available tend to have privileges that users by themselves might not desire those applications be granted, such as excessive rights to media, location, and peripherals. There are also designated efforts by various authorities to hack end-user devices as a means of intercepting data about the user.
 
-There have been examples of so-called "smart" televisions spying on their
-owners and one survey of user attitudes {{SmartTV}} found "broad agreement was that it
-is unacceptable for the data to be repurposed or shared" although the level of
-user understanding may be questionable.  What is clear though is that such
-devices generally have not provided controls for their owners that would allow
-them to meaningfully make a decision as to whether or not they want to share
-such data.
+Examples are too many to list: sophisticated hardware attacks can impact any computers {{TinyChip}}, so-called "smart" televisions spying on their owners and one survey of user attitudes {{SmartTV}}, and so on.
 
 ## Tracking {#webtracking}
 
