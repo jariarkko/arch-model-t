@@ -43,7 +43,7 @@ can readily use the information.
 
 This section discusses a few classes of attacks that are relevant for our consideration.
 
-## Misuse of Accidental Vulnerabilities
+### Misuse of Accidental Vulnerabilities
 
 Not all adversarial behaviour starts as deliberate, some is initiated due to various levels of carelessness and/or due to erroneous assumptions about the environments in which those applications currently run at. Nevertheless, a leak or vulnerability can be exploited by others that pass on or misuse the data, for instance.
 
@@ -57,7 +57,7 @@ Some attacks in this category include:
 
 - Breaches of major service providers, that many of us might have assumed would be sufficiently capable to be the best large-scale "Identity providers", for example,  https://www.wired.com/story/yahoo-breach-three-billion-accounts/ https://www.pcmag.com/news/367319/facebook-stored-up-to-600m-user-passwords-in-plain-text https://www.zdnet.com/article/us-telcos-caught-selling-your-location-data-again-senator-demands-new-laws/ https://www.cnet.com/news/facebook-breach-affected-50-million-people/ https://www.zdnet.com/article/millions-verizon-customer-records-israeli-data/ https://www.wsj.com/articles/google-exposed-user-data-feared-repercussions-of-disclosing-to-public-1539017194 https://motherboard.vice.com/en_us/article/ywyz3x/hackers-could-read-your-hotmail-msn-outlook-microsoft-customer-support 
 
-## Misbehaving Applications
+### Misbehaving Applications
 
 There are many examples of application developers doing their best to protect the security and privacy of their users or customers. That's just the same as the case today where we need to consider in-network actors as potential adversaries despite the many examples of network operators who both act in the best interests of their users and succeed in defending against attacks from others.
 
@@ -67,17 +67,17 @@ This can also happen indirectly. Despite the best efforts of curators, so-called
 
 Applications may also mislead users. Many web sites today provide some form of privacy policy and terms of service, that are known to be mostly unread {{Unread}}. This implies that, legal fiction aside, users of those sites have not in reality agreed to the specific terms published and so users are therefore highly exposed to being exploited by web sites, for example {{Cambridge}} is a recent well-publicised case where a service provider abused the data of 87 million users via a partnership.  While many web site operators claim that they care deeply about privacy, it seems prudent to assume that some do not in fact care about user privacy in ways with which many of their users would agree.
 
-## Network Infrastructure Attacks
+### Network Infrastructure Attacks
 
 The network infrastructure may also work in an inappropriate manner. For instance, a Virtual Private Network (VPN) may misrepresent how it carries the users' traffic, for example misrepresenting the countries in which they provide vantage points {{Vpns}}. A user's home network equipment may also be malicous or compromised. For example, one study {{Home}} reports on a 2011 attack that affected 4.5 million DSL modems in Brazil. The absence of software update {{RFC8240}} has been a major cause of these issues and rises to the level that considering this as intentional behaviour by device vendors who have chosen this path is warranted.
 
-## Untrustworthy Devices
+### Untrustworthy Devices
 
 To begin with, it is not necessarily clear that one can trust all the endpoints in any protocol interaction. Of course, client endpoint implementations were never fully trusted, but the environments in which those endpoints exist are changing.  For instance, users may not have as much control over their own devices as they used to, due to manufacturer-controlled operating system installations and locked device ecosystems. And within those ecosystems, even the applications that are available tend to have privileges that users by themselves might not desire those applications be granted, such as excessive rights to media, location, and peripherals. There are also designated efforts by various authorities to hack end-user devices as a means of intercepting data about the user.
 
 Examples are too many to list: sophisticated hardware attacks can impact any computers {{TinyChip}}, so-called "smart" televisions spying on their owners and one survey of user attitudes {{SmartTV}}, and so on.
 
-## Tracking {#webtracking}
+### Tracking {#webtracking}
 
 One of the biggest threats to user privacy on the Web is ubiquitous tracking. This is often done to support advertising based business models.
 
