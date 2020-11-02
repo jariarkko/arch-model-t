@@ -8,15 +8,50 @@ MD_FILES= draft-arkko-farrell-arch-model-t.md \
 		  observations.md \
 		  analysis.md \
 		  study.md \
-		  changes3552.md \
 		  changes7258.md \
 		  guidelines.md \
 		  conclusions.md \
-		  acks.md
+		  acks.md \
+		  changes.md
+
+MD_FILESREDUX=	draft-arkko-farrell-arch-model-t-redux.md \
+		refsredux.md \
+		abstractredux.md \
+		introredux.md \
+		attackchanges.md \
+		principles.md \
+		seccons.md \
+		iana.md \
+		acksredux.md
+
+MD_FILES3552=	draft-arkko-farrell-arch-model-t-3552-additions.md \
+		changes3552.md \
+		changes3552abstract.md \
+		changes3552intro.md \
+		changes3552seccons.md \
+		changes3552refs.md \
+		changes3552acks.md
+
+MD_FILES7258=	draft-arkko-farrell-arch-model-t-7258-additions.md \
+		changes7258.md \
+		changes7258abstract.md \
+		changes7258intro.md \
+		changes7258seccons.md \
+		changes7258refs.md \
+		changes7258acks.md
+
+base:	draft-arkko-farrell-arch-model-t.txt \
+	draft-arkko-farrell-arch-model-t-redux.txt \
+	draft-arkko-farrell-arch-model-t-3552-additions.txt \
+	draft-arkko-farrell-arch-model-t-7258-additions.txt
 
 draft-arkko-farrell-arch-model-t.txt: $(MD_FILES)
 
-base:	draft-arkko-farrell-arch-model-t.txt
+draft-arkko-farrell-arch-model-t-redux.txt: $(MD_FILESREDUX)
+
+draft-arkko-farrell-arch-model-t-3552-additions.txt: $(MD_FILES3552)
+
+draft-arkko-farrell-arch-model-t-7258-additions.txt: $(MD_FILES7258)
 
 LIBDIR := lib
 include $(LIBDIR)/main.mk
@@ -31,16 +66,28 @@ else
 endif
 
 cleantrash:
+	rm -f draft-arkko-farrell-arch-model-t.txt
+	rm -f draft-arkko-farrell-arch-model-t-3552-additions.txt
+	rm -f draft-arkko-farrell-arch-model-t-7258-additions.txt
 	rm -f *~
 
-OLD=draft-arkko-farrell-arch-model-t-02.txt
+OLD=draft-arkko-farrell-arch-model-t-03.txt
 
-jaricompile:	draft-arkko-farrell-arch-model-t.txt Makefile
+jaricompile:	draft-arkko-farrell-arch-model-t.txt \
+		draft-arkko-farrell-arch-model-t-redux.txt \
+		draft-arkko-farrell-arch-model-t-3552-additions.txt \
+		draft-arkko-farrell-arch-model-t-7258-additions.txt \
+		Makefile
 	rfcdiff $(OLD) draft-arkko-farrell-arch-model-t.txt
 	scp 	draft-arkko-farrell-arch-model-t.txt \
-		draft-arkko-farrell-arch-model-t-from--02.diff.html \
-		jar@cloud1.arkko.eu:/var/www/www.arkko.com/html/ietf/iab
-
-#		draft-arkko-farrell-arch-model-t.diff.html \
-#	rfcdiff draft-arkko-farrell-arch-model-t-00.txt draft-arkko-farrell-arch-model-t.txt
-#	cp draft-arkko-farrell-arch-model-t-from--00.diff.html draft-arkko-farrell-arch-model-t.diff.html
+		draft-arkko-farrell-arch-model-t-from--03.diff.html \
+		draft-arkko-farrell-arch-model-t-redux.txt \
+		draft-arkko-farrell-arch-model-t-3552-additions.txt \
+		draft-arkko-farrell-arch-model-t-7258-additions.txt \
+		root@cloud3.arkko.eu:/var/www/www.arkko.com/html/ietf/iab
+	scp 	draft-arkko-farrell-arch-model-t.txt \
+		draft-arkko-farrell-arch-model-t-from--03.diff.html \
+		draft-arkko-farrell-arch-model-t-redux.txt \
+		draft-arkko-farrell-arch-model-t-3552-additions.txt \
+		draft-arkko-farrell-arch-model-t-7258-additions.txt \
+		root@cloud3.arkko.eu:/var/www/www.arkko.com/html/ietf/model-t

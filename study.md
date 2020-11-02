@@ -1,8 +1,20 @@
 # Areas requiring more study {#studysect}
 
-In addition to the guidelines in ({{guidelinessect}}), we suggest
-there may be value in further study on the topics below, with the goal
-of producing more concrete guidelines.
+There may be value in further study on the topics below, with the goal
+of producing new tools to counter attacks and provide additional
+guidance for protocol designers.
+
+1. Update the BCP for threat models and security considerations
+It may be time for the IETF to extend {{RFC3552}} to cover additional
+issues. See also I-D.arkko-farrell-arch-model-t-3552-additions.
+
+1. Update the BCP about pervasive monitoring
+It may be time for the IETF to extend {{RFC7258}} to cover additional issues.
+See also I-D.arkko-farrell-arch-model-t-7258-additions.
+
+1. Develop a BCP for privacy considerations:
+It may be time for the IETF to develop a BCP for privacy considerations,
+possibly starting from {{RFC6973}}.
 
 1. Isolation:
 Sophisticated users can sometimes deal with adversarial behaviours in
@@ -128,10 +140,6 @@ In general, there are multiple parties even in a single device, with differing
 interests, including some that have (or claim to) the interest of the human
 user in mind.
 
-1. Develop a BCP for privacy considerations:
-It may be time for the IETF to develop a BCP for privacy considerations,
-possibly starting from {{RFC6973}}.
-
 1. Re-consider protocol design "lore":
 It could be that this discussion demonstrates that it is timely to reconsider
 some protocol design "lore" as for example is done in
@@ -143,38 +151,27 @@ be a virtue for some new protocols, in contrast to earlier assumptions.  As
 pointed out by one commenter though, people can find ways to extend things
 regardless, if they feel the need.
 
+1. Consider the potentially different defences against commercial data
+collection and surveillance.
+There are similarities in these activities. Tracking for commercial information collection may also have an
+indirect impact on making accidental data leaks or surveillance more
+feasible, given the data that exists about users. However, the
+defences are likely still different, given that the defending and
+attacking parties are different.
+
 1. Consider the user perspective:
 {{I-D.nottingham-for-the-users}} argues that, in relevant cases where there are
 conflicting requirements, the "IETF considers end users as its highest priority
 concern." Doing so seems consistent with the expanded threat model being argued
 for here, so may indicate that a BCP in that space could also be useful.
 
-1. Have explicit agreements: When users and their devices provide information
-   to network entities, it would be beneficial to have an opportunity for the
+1. Explicit agreements: When users and their devices provide information
+   to network entities, it would perhaps be beneficial to have an opportunity for the
 users to state their requirements regarding the use of the information provided
 in this way. While the actual use of such requirements and the willingness of
 network entities to agree to them remains to be seen, at the moment even the
 technical means of doing this are limited. For instance, it would be beneficial
 to be able to embed usage requirements within popular data formats.
 
-    As appropriate, users should be made aware of the choices made in a particular
-design, and avoid designs or products that protect against some threats but are
-wide open to other serious issues. (SF doesn't know what that last bit means;-)
-
-1. Perform end-to-end protection via other parties: Information passed via
-   another party who does not intrinsically need the information to perform its
-function should be protected end-to-end to its intended recipient. This
-guideline is general, and holds equally for sending TCP/IP packets, TLS
-connections, or application-layer interactions. As {{RFC8546}} notes, it is a
-useful design rule to avoid "accidental invariance" (the deployment of on-path
-devices that over-time start to make assumptions about protocols). However, it
-is also a necessary security design rule to avoid "accidental disclosure" where
-information originally thought to be benign and untapped over-time becomes a
-significant information leak. This guideline can also be applied for different
-aspects of security, e.g., confidentiality and integrity protection, depending
-on what the specific need for information is in the other parties.
-
-    The main reason that further study is needed here is that the key
-management consequences can be significant here - once one enters into a
-multi-party world, securely managing keys for all entities can be so burdonsome
-that deployment just doesn't happen.
+    As appropriate, users could be made aware of the choices and
+    policies offered.

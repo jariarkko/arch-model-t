@@ -1,6 +1,7 @@
+
 # Potential Changes in BCP 188/RFC 7258 {#changes7258}
 
-Other additional guidelines may be necessary also in BCP 188/RFC
+Additional guidelines may be necessary also in BCP 188/RFC
 7258{{RFC7258}}, which specifies how IETF work should take into account
 pervasive monitoring.
 

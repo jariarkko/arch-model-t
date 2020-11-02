@@ -75,9 +75,17 @@ In general, this means that one cannot entirely trust even a closed system where
 
 ## Balancing Threats
 
-Note that not all information needs to be protected, and not all threats can be protected against. But it is important that the main threats are understood and protected against.
+Note that not all information needs to be protected, and not all
+threats can be protected against. But it is important that the main
+threats are understood and protected against.  Nothing is this
+document should be taken as a blanket reason to provide no information
+to anyone, or (impractically) insist on encrypting everything, or
+other extreme measures. But designers should be informed about the
+trade-offs they make.
 
 Sometimes there are higher-level mechanisms that provide safeguards for failures. For instance, it is very difficult in general to protect against denial-of-service against compromised nodes on a communications path. However, it may be possible to detect that a service has failed.
 
 Another example is from packet-carrying networks. Payload traffic that has been properly protected with encryption does not provide much value to an attacker. For instance, it does not always make sense to encrypt every packet transmission in a packet-carrying system where the traffic is already encrypted at other layers. But it almost always makes sense to protect control communications and to understand the impacts of compromised nodes, particularly control nodes.
+
+
 

@@ -1,8 +1,8 @@
 ---
 title: Challenges and Changes in the Internet Threat Model
 abbrev: Internet Threat Model Evolution
-docname: draft-arkko-farrell-arch-model-t-04
-date: 
+docname: draft-arkko-farrell-arch-model-t-redux-00
+date: November 2020
 category: info
 
 ipr: trust200902
@@ -30,24 +30,20 @@ author:
     country: Ireland
     email: stephen.farrell@cs.tcd.ie
 
-!INCLUDE "refs.md"
+!INCLUDE "refsredux.md"
 
 --- abstract
 
-!INCLUDE "abstract.md"
+!INCLUDE "abstractredux.md"
 
 --- middle
 
-!INCLUDE "intro.md"
-!INCLUDE "observations.md"
-!INCLUDE "analysis.md"
-!INCLUDE "guidelines.md"
-!INCLUDE "study.md"
-!INCLUDE "conclusions.md"
+!INCLUDE "introredux.md"
+!INCLUDE "attackchanges.md"
+!INCLUDE "principles.md"
 !INCLUDE "seccons.md"
 !INCLUDE "iana.md"
 
 --- back
 
-!INCLUDE "changes.md"
-!INCLUDE "acks.md"
+!INCLUDE "acksredux.md"

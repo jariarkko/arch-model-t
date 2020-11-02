@@ -65,30 +65,16 @@ It is particularly important to ensure that non-communications security related 
 
 It may also be necessary to have dedicated guidance on how systems design and architecture affect security. The sole consideration of communications security aspects in designing Internet protocols may lead to accidental or increased impact of security issues elsewhere. For instance, allowing a participant to unnecessarily collect or receive information may lead to a similar effect as described in {{RFC8546}} for protocols: over time, unnecessary information will get used with all the associated downsides, regardless of what deployment expectations there were during protocol design. 
 
-This memo does not stand alone. To begin with, it is a merge of earlier work by the two authors {{I-D.farrell-etm}} {{I-D.arkko-arch-internet-threat-model}}. There are also other documents discussing this overall space, e.g. {{I-D.lazanski-smart-users-internet}} {{I-D.arkko-arch-dedr-report}}.
+This memo does not stand alone. To begin with, it is a continuation of
+earlier work by the two authors {{I-D.farrell-etm}}
+{{I-D.arkko-arch-internet-threat-model}} {{I-D.arkko-farrell-arch-model-t}}. There are also other documents discussing this overall space, e.g. {{I-D.lazanski-smart-users-internet}} {{I-D.arkko-arch-dedr-report}}.
 
-The authors of this memo envisage independent development of each of those
-(and other work) with an eventual goal to extract an updated (but usefully
-brief!) description of an extended threat model from the collection of works.
-We consider it an open question whether this memo, or any of the others, would
-be usefully published as an RFC.
+The rest of this memo is organized as follows. {{attacklandscape}} makes some observations about the situation, with respect to communications security and beyond. The section also provides a number of real-world examples.
 
-The rest of this memo is organized as follows. {{situationanalysis}} makes some observations about the situation, with respect to communications security and beyond. The section also provides a number of real-world examples.
-
-{{analysis}} discusses some high-level implications that can be drawn,
-such as the need to consider what the "ends" really are in an
-"end-to-end" communication. A checklist for issues that protocol
-designers need to consider is also included.
-
-{{studysect}} lists some areas where additional work is required.
-
-Possible changes to {{RFC3552}} are covered in a separate document,
-see I-D.arkko-farrell-arch-model-t-3552-additions. Similarly, possible
-changes  to {{RFC7258}} are covered in I-D.arkko-farrell-arch-model-t-7258-additions.
+{{principles}} discusses some high-level principles that relate to
+these changes, and could be used to tackle some of the emerging issues.
 
 Comments are solicited on these and other aspects of this document. The best
 place for discussion is on the model-t list.
 (https://www.ietf.org/mailman/listinfo/model-t)
-
-Finally, {{concl}} draws some conclusions for next steps.
 

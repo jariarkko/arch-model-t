@@ -1,34 +1,18 @@
 
-# Guidelines {#guidelinessect}
+## Checklist for Protocol Designers {#guidelinessect}
 
-As {{RFC3935}} says:
-
-> We embrace technical concepts such as decentralized control,
-> edge-user empowerment and sharing of resources, because those
-> concepts resonate with the core values of the IETF community.
-
-To be more specific, this memo suggests the following guidelines for protocol designers:
+The following topics are thought to be generally important for
+protocol designers to take into account:
 
 1. Consider first principles in protecting information and systems, rather than
    following a specific pattern such as protecting information in a particular
-way or only at a particular protocol layer. It is necessary to understand what
+way or only at a particular protocol layer. It is necessary to
+   understand what assets there are, what
 components can be compromised, where interests may or may not be aligned, and
 what parties have a legitimate role in being a party to a specific information
 or a control task.
 
-1. Consider how you depend on infrastructure.  For any protocol directly or
-   indirectly dependent on infrastructure like DNS or BGP, analyse potential
-outcomes in the event that the relevant infrastructure has been compromised.
-Such attacks occur in the wild. {{DeepDive}}
-
-1. Protocol endpoints are commonly no longer executed on what used be
-   understood as a host system.  {{StackEvo}} The web and Javascript model
-clearly  differs from traditional host models, but so do many server-side
-deployments, thanks to virtualisation.  At protocol design time assume
-that all endpoints will be run in virtualised environments where co-tenants and
-(sometimes) hypervisors are adversaries, and then analyse such scenarios.
-
-1. Once you have something, do not pass it onto others without serious
+1. Once you have an asset, do not pass it onto others without serious
    consideration. In other words, minimize information passed to others to
 guard against the potential compromise of that party.  As recommended in
 {{RFC6973}} data minimisation and additional encryption can be helpful - if
@@ -36,34 +20,51 @@ applications don't ever see data, or a cleartext form of data, then they should
 have a harder time misbehaving. Similarly, not defining new long-term
 identifiers, and not exposing existing ones, help in minimising risk.
 
-1. Minimize passing of control functions to others. Any passing of control
-functions to other parties should be minimized to guard against the
-potential misuse of those control functions. This applies to both technical
-(e.g., nodes that assign resources) and process control functions (e.g., the
-ability to allocate number or develop extensions). Control functions of all
-kinds can become a matter of contention and power struggle, even in cases where
-their actual function is minimal, as we saw with the IANA transition debates.
-
-1. Where possible, avoid centralized resources. While centralized components,
-   resources, and functions are often simpler, there can be grave issues
-associated with them, for example meta-data leakage. Designers should balance
+1. Consider avoiding centralized resources. While centralized components,
+   resources, and functions are often simplest deployment models, there can be issues
+   associated with them, for example meta-data leakage.
+  Consider also how you depend on infrastructure, such as DNS or BGP,
+   and analyse potential
+outcomes in the event that the relevant infrastructure has been
+   compromised (see, e.g.,  {{DeepDive}}).
+Similarly, minimize passing
+   of control functions to others. Designers should balance
 the benefits of centralized resources or control points against the threats
 arising.  If it is not possible to avoid, find a way to allow the centralized
 resources to be selectable, depending on context and user settings.
+As {{RFC3935}} says: " We embrace technical concepts such as decentralized control,
+edge-user empowerment and sharing of resources, because those
+concepts resonate with the core values of the IETF community."
 
-1. Treat parties with which your protocol endpoints interact with suspicion,
+1. Consider treating parties with which your protocol endpoints interact with suspicion,
 even if the communications are encrypted. Other endpoints may misuse any
 information or control opportunity in the communication. Similarly, even
 endpoints within your own system need to be treated with suspicion, as some
 may become compromised.
+   For instance, consider performing end-to-end protection via other
+   parties: Information passed via another party who does not
+   intrinsically need the information to perform its function should
+   be protected end-to-end to its intended recipient. This holds
+   equally for sending TCP/IP packets, TLS connections, or
+   application-layer interactions. As {{RFC8546}} notes, it is a
+   useful design rule to avoid "accidental invariance" (the deployment
+   of on-path devices that over-time start to make assumptions about
+   protocols). However, it is also a necessary security design rule to
+   avoid "accidental disclosure" where information originally thought
+   to be benign and untapped over-time becomes a significant
+   information leak. This guideline can also be applied for different
+   aspects of security, e.g., confidentiality and integrity
+   protection, depending on what the specific need for information is
+   in the other parties.  Of course, depending on the situation
+   end-to-end protection may have key management implications; this may not be possible in all situations.
 
-1. Consider abuse-cases. Protocol developers are typically most interested in a
+4. Consider abuse-cases. Protocol developers are typically most interested in a
    few specific use-cases for which they need solutions. Expanding the threat
 model to consider adversarial behaviours {{AbuseCases}} calls for significant
 attention to be paid to potential abuses of whatever new or re-purposed
 technology is being considered. 
 
-1. Consider recovery from compromse or attack during protocol design - all
+1. Consider recovery from compromise or attack during protocol design - all
    widely used protocols will at some time be subject to successful attack,
 whether that is due to deployment or implementation error, or, less commonly,
 due to protocol design flaws.  For example, recent work on multiparty messaging
@@ -81,9 +82,12 @@ exchanges can be linked to one another.  Protocol designs that aim to prevent
 such linkage may produce have fewer unexpected or unwanted side-effects when
 deployed.
 
-But when applying these guidelines, don't take this as blanket reason to
-provide no information to anyone, or (impractically) insist on encrypting
-everything, or other extreme measures.  Designers need to be aware of the
-different threats facing their system, and deal with the most serious ones (of
-which there are typically many) within their applicable resource constraints. 
+1. Consider the nature of modern protocol implementations. Protocol
+   endpoints are commonly no longer executed on what used be
+   understood as a host system.  {{StackEvo}} The web and Javascript
+   model clearly differs from traditional host models, but so do many
+   server-side deployments, thanks to virtualisation.  At protocol
+   design time assume that all endpoints will be run in virtualised
+   environments where co-tenants and (sometimes) hypervisors are
+   adversaries, and then analyse such scenarios.
 

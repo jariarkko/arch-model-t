@@ -1,8 +1,7 @@
 
 # Contributors {#contribs}
 
-Eric Rescorla and Chris Wood provided much of the text in
-{{webtracking}} and item 2 of {{studysect}}.
+Eric Rescorla and Chris Wood provided much of the text in {{webtracking}}.
 
 # Acknowledgements {#ack}
 

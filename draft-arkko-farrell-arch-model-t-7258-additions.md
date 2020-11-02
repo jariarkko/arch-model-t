@@ -1,7 +1,7 @@
 ---
-title: Challenges and Changes in the Internet Threat Model
-abbrev: Internet Threat Model Evolution
-docname: draft-arkko-farrell-arch-model-t-04
+title: RFC 7258 additions due to evolving Internet thread model
+abbrev: RFC 7258 additions
+docname: draft-arkko-farrell-arch-model-t-7258-additions-01
 date: 
 category: info
 
@@ -30,24 +30,20 @@ author:
     country: Ireland
     email: stephen.farrell@cs.tcd.ie
 
-!INCLUDE "refs.md"
+!INCLUDE "changes7258refs.md"
 
 --- abstract
 
-!INCLUDE "abstract.md"
+!INCLUDE "changes7258abstract.md"
 
 --- middle
 
-!INCLUDE "intro.md"
-!INCLUDE "observations.md"
-!INCLUDE "analysis.md"
-!INCLUDE "guidelines.md"
-!INCLUDE "study.md"
-!INCLUDE "conclusions.md"
-!INCLUDE "seccons.md"
-!INCLUDE "iana.md"
+!INCLUDE "changes7258intro.md"
+!INCLUDE "changes7258.md"
+!INCLUDE "changes7258seccons.md"
+!INCLUDE "changes7258iana.md"
 
 --- back
 
-!INCLUDE "changes.md"
-!INCLUDE "acks.md"
+!INCLUDE "changes7258acks.md"
+

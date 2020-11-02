@@ -1,5 +1,5 @@
 
-# Potential changes in BCP 72/RFC 3552 {#changes3552}
+# The range of potential changes in BCP 72/RFC 3552 {#changes3552range}
 
 BCP 72/RFC 3553 {{RFC3552}} defines an "Internet Threat Model" and provides
 guidance on writing Security Considerations sections in other RFCs.
@@ -20,7 +20,8 @@ from all backgrounds need to be able to use BCP 72.
 In this section
 we provide a few initial suggested changes to BCP 72 that will
 need to be further developed as part of this work. (For example, it
-may be possible to include some of the guidelines from {{guidelinessect}}
+may be possible to include some of the guidelines from
+{{I-D.arkko-farrell-arch-model-t}} Section 5
 as those are further developed.)
 
 There are a range of possible updates. We could propose
@@ -37,10 +38,11 @@ The authors of this memo believe that any updates to RFC 3552 should
 be relatively high-level and short. Additional documents may be needed
 to provide further detail.
 
-## Simple change {#simple3552}
+# Simple change {#simple3552}
 
 This is the simple addition we are suggesting.
-As evidenced in the OAuth quote in {{studysect}} - it can be useful to consider
+As evidenced in the OAuth quote in {{I-D.arkko-farrell-arch-model-t}}
+Section 4 - it can be useful to consider
 the effect of compromised endpoints on those that are not compromised.  It may
 therefore be interesting to consider the consequences that would follow from a
 change to {{RFC3552}} that recognises how the landscape has changed since 2003. 
@@ -66,7 +68,7 @@ NEW:
 > a protocol become compromised or do not act in the best interests
 > the end-system implementing a protocol.
 
-## Additional discussion of compromises {#discussion3552}
+# Change to add discussion of compromises {#discussion3552}
 
 The following new section could be added to discuss the
 capabilities required to mount an attack:
@@ -90,13 +92,13 @@ NEW:
 > of the participants in a system, their roles, and the extent to which they
 > should have access to information and ability to control other participants.
 
-## Guidance with regards to communications security {#detailedguidance}
+# Change to add guidance with regards to communications security {#detailedguidance}
 
-The following discusses some of the aspects that should be considered
-when designing a communications security protocol that are not covered
-in detail in RFC 3552.
+Finally, the following new text could be added to cover some of the
+aspects that should be considered when designing a communications
+security protocol that are not covered in detail in RFC 3552.
 
-### Limiting time scope of compromise
+## Limiting time scope of compromise
 
 {{RFC3552}} Section 3 says:
 
@@ -142,7 +144,7 @@ NEW:
 > has delegated for use in TLS. These help reduce private key
 > lifetimes without compromising or sacrificing reliability.
 
-### Forcing active attack
+## Forcing active attack
 
 {{RFC3552}} Section 3.2 notes that it is important to consider passive
 attacks. This is still valid, but needs further elaboration:
@@ -161,7 +163,7 @@ against active attackers. One prominent example is QUIC, which takes
 steps to ensure that off-path connection resets are intractable in
 practice.
 
-### Traffic analysis
+## Traffic analysis
 
 {{RFC3552}} Section 3.2.1 describes how the absence of TLS or other
 transport-layer encryption may lead to obvious confidentiality
@@ -172,7 +174,7 @@ NEW:
 
 > However, recent trends in traffic analysis indicate encryption alone
 > may be insufficient protection for some types of application data
-> {{I-D.wood-pearg-website-fingerprinting}}. Encrypted traffic metadata,
+ > {{I-D.wood-pearg-website-fingerprinting}}. Encrypted traffic metadata,
 > especially message size, can leak information about the underlying
 > plaintext. DNS queries and responses are particularly at risk given
 > their size distributions. Recent protocols account for this leakage by
@@ -184,7 +186,7 @@ either generically in the transport protocol (QUIC
 specifically in the application protocol (EDNS(0) padding option for
 DNS messages {{RFC7830}}).
 
-### Containing compromise of trust points
+## Containing compromise of trust points
 
 Many protocols are designed to depend on trusted third parties (the
 WebPKI is perhaps the canonical example); if those trust points

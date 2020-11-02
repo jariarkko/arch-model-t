@@ -1,9 +1,3 @@
-
-# Contributors {#contribs}
-
-Eric Rescorla and Chris Wood provided much of the text in
-{{webtracking}} and item 2 of {{studysect}}.
-
 # Acknowledgements {#ack}
 
 The authors would like to thank the IAB:
@@ -95,11 +89,6 @@ Mohit Sethi,
 Melinda Shore,
 Martin Thomson, and
 Robin Wilton
-... (missing many people... did we have minutes other than the list of
-actions?) ...
-
-Thanks for specific comments on this text to:
-Ronald van der Pol.
 
 Finally, the authors would like to thank numerous other people for insightful
 comments and discussions in this space.

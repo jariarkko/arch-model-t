@@ -1,7 +1,7 @@
 ---
-title: Challenges and Changes in the Internet Threat Model
-abbrev: Internet Threat Model Evolution
-docname: draft-arkko-farrell-arch-model-t-04
+title: RFC 3552 additions due to evolving Internet thread model
+abbrev: RFC 3552 additions
+docname: draft-arkko-farrell-arch-model-t-3552-additions-00
 date: 
 category: info
 
@@ -30,24 +30,20 @@ author:
     country: Ireland
     email: stephen.farrell@cs.tcd.ie
 
-!INCLUDE "refs.md"
+!INCLUDE "changes3552refs.md"
 
 --- abstract
 
-!INCLUDE "abstract.md"
+!INCLUDE "changes3552abstract.md"
 
 --- middle
 
-!INCLUDE "intro.md"
-!INCLUDE "observations.md"
-!INCLUDE "analysis.md"
-!INCLUDE "guidelines.md"
-!INCLUDE "study.md"
-!INCLUDE "conclusions.md"
-!INCLUDE "seccons.md"
-!INCLUDE "iana.md"
+!INCLUDE "changes3552intro.md"
+!INCLUDE "changes3552.md"
+!INCLUDE "changes3552seccons.md"
+!INCLUDE "changes3552iana.md"
 
 --- back
 
-!INCLUDE "changes.md"
-!INCLUDE "acks.md"
+!INCLUDE "changes3552acks.md"
+
