@@ -96,46 +96,144 @@ readily use the information.
 
 ## Accidental Vulnerabilities
 
-Some vulnerabilities came to being through various levels of carelessness and/or due to erroneous assumptions about the environments in which those applications currently run at. A vulnerability can be exploited to misuse the data for someone's own purposes.
+Some vulnerabilities came to being through various levels of
+carelessness and/or due to erroneous assumptions about the
+environments in which those applications currently run at. A
+vulnerability can be exploited to misuse the data for someone's own
+purposes.
 
-Some attacks in this category include hardware-related issues, for example, Meltdown and Spectre {{MeltdownAndSpectre}}, compromised or badly-maintained web sites or services, e.g., {{Passwords}}, supply-chain attacks, for example, the {{TargetAttack}}, and breaches of major service providers, that many of us might have assumed would be sufficiently capable to be the best large-scale "Identity providers", for example,  Yahoo (https://www.wired.com/story/yahoo-breach-three-billion-accounts/), Facebook (https://www.pcmag.com/news/367319/facebook-stored-up-to-600m-user-passwords-in-plain-text and many others.
+Some attacks in this category include hardware-related issues, for
+example, Meltdown and Spectre {{MeltdownAndSpectre}}, compromised or
+badly-maintained web sites or services, e.g., {{Passwords}},
+supply-chain attacks, for example, the {{TargetAttack}}, and breaches
+of major service providers, that many of us might have assumed would
+be sufficiently capable to be the best large-scale "Identity
+providers", for example, Yahoo
+(https://www.wired.com/story/yahoo-breach-three-billion-accounts/),
+Facebook
+(https://www.pcmag.com/news/367319/facebook-stored-up-to-600m-user-passwords-in-plain-text
+and many others.
 
 ## Misbehaving Applications
 
-There are many examples of application developers doing their best to protect the security and privacy of their users or customers. But there are also some that do not act int he best interests of their users. As a result, it becomes necessary to consider applications as potentially untrusted, much in the same way that we consider in-network actors as potential adversaries despite the many examples of network operators who both act in the best interests of their users and succeed in defending against attacks from others.
+There are many examples of application developers doing their best to
+protect the security and privacy of their users or customers. But
+there are also some that do not act int he best interests of their
+users. As a result, it becomes necessary to consider applications as
+potentially untrusted, much in the same way that we consider
+in-network actors as potential adversaries despite the many examples
+of network operators who both act in the best interests of their users
+and succeed in defending against attacks from others.
 
-This can also happen indirectly. Despite the best efforts of curators, so-called App-Stores frequently distribute malware of many kinds and one recent study {{Curated}} claims that simple obfuscation enables malware to avoid detection by even sophisticated operators. 
+This can also happen indirectly. Despite the best efforts of curators,
+so-called App-Stores frequently distribute malware of many kinds and
+one recent study {{Curated}} claims that simple obfuscation enables
+malware to avoid detection by even sophisticated operators.
 
-Applications may also mislead users. Many web sites today provide some form of privacy policy and terms of service, that are known to be mostly unread {{Unread}}. This implies that, legal fiction aside, users of those sites have not in reality agreed to the specific terms published and so users are therefore highly exposed to being exploited by web sites, for example {{Cambridge}} is a recent well-publicised case where a service provider abused the data of 87 million users via a partnership. 
+Applications may also mislead users. Many web sites today provide some
+form of privacy policy and terms of service, that are known to be
+mostly unread {{Unread}}. This implies that, legal fiction aside,
+users of those sites have not in reality agreed to the specific terms
+published and so users are therefore highly exposed to being exploited
+by web sites, for example {{Cambridge}} is a recent well-publicised
+case where a service provider abused the data of 87 million users via
+a partnership.
 
 ## Untrustworthy Devices
 
-Traditionally, there's been an implied trust in various parts of the system -- such as the user's own device, nodes inside a particular network perimeter, or nodes under a single administrative control.
+Traditionally, there's been an implied trust in various parts of the
+system -- such as the user's own device, nodes inside a particular
+network perimeter, or nodes under a single administrative control.
 
-Client endpoint implementations were never fully trusted, but the environments in which those endpoints exist are changing.  Users may not have as much control over their own devices as they used to, due to manufacturer-controlled operating system installations and locked device ecosystems. And within those ecosystems, even the applications that are available tend to have privileges that users by themselves might not desire those applications be granted, such as excessive rights to media, location, and peripherals. There are also designated efforts by various authorities to hack end-user devices as a means of intercepting data about the user.
+Client endpoint implementations were never fully trusted, but the
+environments in which those endpoints exist are changing.  Users may
+not have as much control over their own devices as they used to, due
+to manufacturer-controlled operating system installations and locked
+device ecosystems. And within those ecosystems, even the applications
+that are available tend to have privileges that users by themselves
+might not desire those applications be granted, such as excessive
+rights to media, location, and peripherals. There are also designated
+efforts by various authorities to hack end-user devices as a means of
+intercepting data about the user.
 
-Examples of these issues are too many to list, for instance, so-called "smart" televisions spying on their owners and one survey of user attitudes {{SmartTV}}. Untrustworthy devices can also cause damage to other parties, such as badly constructed IoT devices {{DynDDoS}} attacking large Internet services.
+Examples of these issues are too many to list, for instance, so-called
+"smart" televisions spying on their owners and one survey of user
+attitudes {{SmartTV}}. Untrustworthy devices can also cause damage to
+other parties, such as badly constructed IoT devices {{DynDDoS}}
+attacking large Internet services.
 
 ##  Untrustworthy "Closed" Networks
 
-Even in a closed network with carefully managed components there may be compromised components, as evidenced in the most extreme way by the Stuxnet worm that operated in an airgapped network. Every system runs large amount of software, and it is often not practical or even possible to prevent compromised code even in a high-security setting, let alone in commercial or private networks. Installation media, physical ports, both open source and proprietary programs, firmware, or even innocent-looking components on a circuit board can be suspect  {{TinyChip}}. In addition, complex underlying computing platforms, such as modern CPUs with underlying security and management tools are prone to problems. 
+Even in a closed network with carefully managed components there may
+be compromised components, as evidenced in the most extreme way by the
+Stuxnet worm that operated in an airgapped network. Every system runs
+large amount of software, and it is often not practical or even
+possible to prevent compromised code even in a high-security setting,
+let alone in commercial or private networks. Installation media,
+physical ports, both open source and proprietary programs, firmware,
+or even innocent-looking components on a circuit board can be suspect
+{{TinyChip}}. In addition, complex underlying computing platforms,
+such as modern CPUs with underlying security and management tools are
+prone to problems.
 
 ### Tracking {#webtracking}
 
-One of the biggest threats to user privacy on the Web is ubiquitous tracking. This is often done to support advertising based business models, or more specifically advertising based business models that attempt to find out information about the user.
+One of the biggest threats to user privacy on the Web is ubiquitous
+tracking. This is often done to support advertising based business
+models, or more specifically advertising based business models that
+attempt to find out information about the user.
 
-While some people may be sanguine about this kind of tracking, others consider this behaviour unwelcome, when or if they are informed that it happens. Historically, browsers have not made this kind of tracking visible and have enabled it by default, though some recent browser versions are starting to enable visibility and blocking of some kinds of tracking.
+While some people may be sanguine about this kind of tracking, others
+consider this behaviour unwelcome, when or if they are informed that
+it happens. Historically, browsers have not made this kind of tracking
+visible and have enabled it by default, though some recent browser
+versions are starting to enable visibility and blocking of some kinds
+of tracking.
 
-One form of tracking is by third parties. HTTP header fields (such as cookies, {{RFC6265}}) are commonly used for such tracking, as are structures within the content of HTTP responses such as links to 1x1 pixel images and (ab)use of Javascript APIs offered by browsers {{Tracking}}. Whenever a resource is loaded from a server, that server can include a cookie which will be sent back to the server on future loads. The combination of these features makes it possible to track a user across the Web
+One form of tracking is by third parties. HTTP header fields (such as
+cookies, {{RFC6265}}) are commonly used for such tracking, as are
+structures within the content of HTTP responses such as links to 1x1
+pixel images and (ab)use of Javascript APIs offered by browsers
+{{Tracking}}. Whenever a resource is loaded from a server, that server
+can include a cookie which will be sent back to the server on future
+loads. The combination of these features makes it possible to track a
+user across the Web
 
-This capability itself constitutes a major threat to user privacy.  Additional techniques such as cookie syncing, identifier correlation, and fingerprinting make the problem even worse {{I-D.wood-pearg-website-fingerprinting}}. For instance, features such as User-Agent string, plugin and font support, screen resolution, and timezone can yield a fingerprint that is sometimes unique to a single user {{AmIUnique}} and which persists beyond cookie scope and lifetime.
+This capability itself constitutes a major threat to user privacy.
+Additional techniques such as cookie syncing, identifier correlation,
+and fingerprinting make the problem even worse
+{{I-D.wood-pearg-website-fingerprinting}}. For instance, features such
+as User-Agent string, plugin and font support, screen resolution, and
+timezone can yield a fingerprint that is sometimes unique to a single
+user {{AmIUnique}} and which persists beyond cookie scope and
+lifetime.
 
-Third party web tracking is not the only concern. An obvious tracking danger exists also in popular ecosystems -- such as social media networks -- that house a large part of many users' online existence. There is no need for a third party to track the user's browsing as all actions are performed within a single site, where most messaging, viewing, and sharing activities happen.
+Third party web tracking is not the only concern. An obvious tracking
+danger exists also in popular ecosystems -- such as social media
+networks -- that house a large part of many users' online
+existence. There is no need for a third party to track the user's
+browsing as all actions are performed within a single site, where most
+messaging, viewing, and sharing activities happen.
 
-Browsers themselves or services used by the browser can also become a potential source of tracking users. For instance, the URL/search bar service may leak information about the user's actions to a search provider via an "autocomplete" feature. {{Leith2020}}
+Browsers themselves or services used by the browser can also become a
+potential source of tracking users. For instance, the URL/search bar
+service may leak information about the user's actions to a search
+provider via an "autocomplete" feature. {{Leith2020}}
 
-Tracking through users' IP addresses or DNS queries is also a danger. This may happen by directly observing the cleartext IP or DNS traffic, though DNS tracking may be preventable via DNS protocols that are secured end-to-end. But the DNS queries are also (by definition) seen by the used DNS recursive resolver service, which may accidentally or otherwise track the users' activities.
+Tracking through users' IP addresses or DNS queries is also a
+danger. This may happen by directly observing the cleartext IP or DNS
+traffic, though DNS tracking may be preventable via DNS protocols that
+are secured end-to-end. But the DNS queries are also (by definition)
+seen by the used DNS recursive resolver service, which may
+accidentally or otherwise track the users' activities.
 
-Tracking happens through other systems besides the web, of course. For instance, some mail user agents (MUAs) render HTML content by default (with a subset not allowing that to be turned off, perhaps particularly on mobile devices) and thus enable the same kind of adversarial tracking seen on the web.
+Tracking happens through other systems besides the web, of course. For
+instance, some mail user agents (MUAs) render HTML content by default
+(with a subset not allowing that to be turned off, perhaps
+particularly on mobile devices) and thus enable the same kind of
+adversarial tracking seen on the web.
 
-
+One of the concerns with universal user tracking is that it provides
+yet another avenue for pervasive surveillance {{RFC7258}}, e.g., by
+intelligence agencies, by tapping into the databases constructed by
+user tracking.
