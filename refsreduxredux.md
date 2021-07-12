@@ -84,14 +84,6 @@ informative:
     - ins: C. Kanich
     - ins: N. Vallina
    seriesinfo: "ACM Internet Measurement Conference 2018 (pp. 443-456), https://eprints.networks.imdea.org/1886/1/imc18-final198.pdf"
-  Toys:
-   title: "Security and Privacy Analyses of Internet of Things Childrens' Toys"
-   date: 2019
-   author:
-    - ins: G. Chu
-    - ins: N. Apthorpe
-    - ins: N. Feamster
-   seriesinfo: "IEEE Internet of Things Journal 6.1 (2019): 978-985, https://arxiv.org/pdf/1805.02751.pdf"
   Mailbug:
    title: "I never signed up for this! Privacy implications of email tracking"
    date: 2018
@@ -129,30 +121,6 @@ informative:
    date: 2015
    author:
    seriesinfo: "Symposium on Usable Privacy and Security (SOUPS), https://www.usenix.org/conference/soups2015/proceedings/presentation/chanchary"
-  AbuseCases:
-   title: "Using abuse case models for security requirements analysis"
-   date: 1999
-   author:
-    - ins: J. McDermott
-    - ins: C. Fox
-   seriesinfo: "IEEE Annual Computer Security Applications Conference (ACSAC'99), https://www.acsac.org/1999/papers/wed-b-1030-john.pdf"
-  Troll:
-   title: "Examining trolls and polarization with a retweet network"
-   date: 2018
-   author:
-    - ins: L. Stewart
-    - ins: A. Arif
-    - ins: K. Starbird
-   seriesinfo: "ACM Workshop on Misinformation and Misbehavior Mining on the Web, https://faculty.washington.edu/kstarbi/examining-trolls-polarization.pdf"
-  Sybil:
-    title: "An analysis of social network-based sybil defenses"
-    date: 2011
-    author:
-    - ins: B. Viswanath
-    - ins: A. Post
-    - ins: K. Gummadi
-    - ins: A. Mislove
-    seriesinfo: "ACM SIGCOMM Computer Communication Review 41(4), 363-374, https://conferences.sigcomm.org/sigcomm/2010/papers/sigcomm/p363.pdf"
   MeltdownAndSpectre:
    title: Meltdown and Spectre Side-Channel Vulnerability Guidance
    date: 2018
@@ -205,24 +173,12 @@ informative:
     author:
      - ins: C. Osborne
     seriesinfo: "ZDNET, https://www.zdnet.com/article/how-hackers-stole-millions-of-credit-card-records-from-target/"
-  GDPRAccess:
-   title: "Right of access by the data subject"
-   date: 
-   author:
-    - ins: EU
-   seriesinfo: "Article 15, GDPR, https://gdpr-info.eu/art-15-gdpr/"
   DynDDoS:
     title: "Dyn's Statement on the 10/21/2016 DNS DDoS Attack"
     date: 2016
     author: 
     - ins: K. York
     seriesinfo: "Company statement: https://dyn.com/blog/dyn-statement-on-10212016-ddos-attack/"
-  avleak:
-    title: "Leaked Documents Expose the Secretive Market for Your Web Browsing Data"
-    date: 2020
-    author:
-    - ins: J. Cox
-    seriesinfo: "https://www.vice.com/en_us/article/qjdkq7/avast-antivirus-sells-user-browsing-data-investigation"
   Boix2018:
     title: "Hiding in the crowd: an analysis of the effectiveness of browser fingerprinting at large scale"
     date: 2018
