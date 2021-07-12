@@ -3,13 +3,11 @@ informative:
   RFC3552:
   RFC6265:
   RFC6797:
-  RFC7231:
   RFC7258:
   RFC7469:
   RFC7540:
   RFC7817:
   RFC7858: 
-  RFC8240:
   RFC8446:
   RFC8484:
   RFC8546:
@@ -23,7 +21,6 @@ informative:
   I-D.arkko-farrell-arch-model-t-redux: 
   I-D.arkko-arch-internet-threat-model:
   I-D.arkko-arch-dedr-report:
-  I-D.arkko-arch-infrastructure-centralisation:
   I-D.wood-pearg-website-fingerprinting:
   I-D.thomson-tmi:
   Saltzer:
@@ -49,16 +46,6 @@ informative:
     - ins: B. Bender
     - ins: K. Klimek
    seriesinfo: "Proceedings of the 51st Hawaii International Conference on System Sciences, https://scholarspace.manoa.hawaii.edu/bitstream/10125/50485/paper0598.pdf"
-  Bloatware:
-   title: "An Analysis of Pre-installed Android Software"
-   date: 2019
-   author:
-    - ins: G. Gamba
-    - ins: M. Rashed
-    - ins: A. Razaghpanah
-    - ins: J. Tapiado
-    - ins: N. Vallina
-   seriesinfo: "arXiv preprint arXiv:1905.02713 (2019)"
   Cambridge:
    title: "User Data Privacy: Facebook, Cambridge Analytica, and Privacy Protection"
    date: 2018
@@ -73,25 +60,6 @@ informative:
     - ins: J. Obar
     - ins: A. Oeldorf
    seriesinfo: "Information, Communication and Society (2018): 1-20"
-  Vpns:
-   title: "An empirical analysis of the commercial VPN ecosystem"
-   date: 2018
-   author:
-    - ins: M. Khan
-    - ins: J. DeBlasio
-    - ins: G. Voelker
-    - ins: A. Snoeren
-    - ins: C. Kanich
-    - ins: N. Vallina
-   seriesinfo: "ACM Internet Measurement Conference 2018 (pp. 443-456), https://eprints.networks.imdea.org/1886/1/imc18-final198.pdf"
-  Mailbug:
-   title: "I never signed up for this! Privacy implications of email tracking"
-   date: 2018
-   author:
-    - ins: S. Englehardt
-    - ins: J. Han
-    - ins: A. Narayanan
-   seriesinfo: "Proceedings on Privacy Enhancing Technologies 2018.1 (2018): 109-126, https://www.degruyter.com/downloadpdf/j/popets.2018.2018.issue-1/popets-2018-0006/popets-2018-0006.pdf"
   Curated:
    title: "A large-scale empirical study on the effects of code obfuscations on Android apps and anti-malware products"
    date: 2018
@@ -109,58 +77,12 @@ informative:
     - ins: M. Johnson
     - ins: S. Egelman
    seriesinfo: European Workshop on Usable Security (Euro USEC), https://www.ndss-symposium.org/wp-content/uploads/2018/06/eurousec2018_16_Malkin_paper.pdf"
-  Home:
-   title: "Rethinking home network security"
-   date: 2018
-   author:
-    - ins: N. Nthala
-    - ins: I. Flechais
-   seriesinfo: "European Workshop on Usable Security (EuroUSEC), https://ora.ox.ac.uk/objects/uuid:e2460f50-579b-451b-b14e-b7be2decc3e1/download_file?safe_filename=bare_conf_EuroUSEC2018.pdf&file_format=application%2Fpdf&type_of_work=Conference+item"
-  Attitude:
-   title: "User Perceptions of Sharing, Advertising, and Tracking"
-   date: 2015
-   author:
-   seriesinfo: "Symposium on Usable Privacy and Security (SOUPS), https://www.usenix.org/conference/soups2015/proceedings/presentation/chanchary"
   MeltdownAndSpectre:
    title: Meltdown and Spectre Side-Channel Vulnerability Guidance
    date: 2018
    author:
     - ins: CISA
    seriesinfo: "Alert (TA18-004A), https://www.us-cert.gov/ncas/alerts/TA18-004A"
-  Kocher2019:
-   title: "Spectre Attacks: Exploiting Speculative Execution"
-   date: 2019
-   author:
-    - ins: P. Kocher
-    - ins: J. Horn
-    - ins: A. Fogh
-    - ins: D. Genkin
-    - ins: D. Gruss
-    - ins: W. Haas
-    - ins: M. Hamburg
-    - ins: M. Lipp
-    - ins: S. Mangard
-    - ins: T. Prescher
-    - ins: M. Schwarz
-    - ins: Y. Yarom
-   seriesinfo: "40th IEEE Symposium on Security and Privacy (S&P'19)"
-  Lipp2018:
-   title: "Meltdown: Reading Kernel Memory from User Space"
-   date: 2018
-   author:
-    - ins: M. Lipp
-    - ins: M. Schwarz
-    - ins: D. Gruss
-    - ins: T. Prescher
-    - ins: W. Haas
-    - ins: A. Fogh
-    - ins: J. Horn
-    - ins: S. Mangard
-    - ins: P. Kocher
-    - ins: D. Genkin
-    - ins: Y. Yarom
-    - ins: M. Hamburg
-   seriesinfo: "27th USENIX Security Symposium (USENIX Security 18)"
   Passwords:
    title: "Pwned Passwords"
    author:
@@ -179,14 +101,6 @@ informative:
     author: 
     - ins: K. York
     seriesinfo: "Company statement: https://dyn.com/blog/dyn-statement-on-10212016-ddos-attack/"
-  Boix2018:
-    title: "Hiding in the crowd: an analysis of the effectiveness of browser fingerprinting at large scale"
-    date: 2018
-    author:
-    - ins: A. Gómez-Boix
-    - ins: P. Laperdrix
-    - ins: B. Baudry
-    seriesinfo: "Proceedings of the 2018 world wide web conference"
   AmIUnique:
     title: "Am I Unique?"
     date: 2020
