@@ -23,14 +23,6 @@ informative:
   I-D.arkko-arch-dedr-report:
   I-D.wood-pearg-website-fingerprinting:
   I-D.thomson-tmi:
-  Saltzer:
-   title: End-To-End Arguments in System Design
-   date: November 1984
-   author:
-    - ins: J.H. Saltzer
-    - ins: D.P. Reed
-    - ins: D.D. Clark
-   seriesinfo: ACM TOCS, Vol 2, Number 4, pp 277-288
   Tracking:
    title: "Web Tracking-A Literature Review on the State of Research"
    date: 2018
