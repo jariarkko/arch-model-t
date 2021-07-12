@@ -46,14 +46,6 @@ informative:
     - ins: J. Obar
     - ins: A. Oeldorf
    seriesinfo: "Information, Communication and Society (2018): 1-20"
-  Curated:
-   title: "A large-scale empirical study on the effects of code obfuscations on Android apps and anti-malware products"
-   date: 2018
-   author:
-    - ins: M. Hammad
-    - ins: J. Garcia
-    - ins: S. MaleK
-   seriesinfo: "ACM International Conference on Software Engineering 2018, https://www.ics.uci.edu/~seal/publications/2018ICSE_Hammad.pdf"
   SmartTV:
    title: "What Can't Data Be Used For? Privacy Expectations about Smart TVs in the U.S."
    date: 2018
@@ -106,9 +98,3 @@ informative:
     - ins: J. Robertson
     - ins: M. Riley
     seriesinfo: "https://www.bloomberg.com/news/features/2018-10-04/the-big-hack-how-china-used-a-tiny-chip-to-infiltrate-america-s-top-companies"
-  Vastaamo:
-    title:  "Read this if your personal data was leaked in the Vastaamo data system break-in"
-    date: October 2020
-    author:
-    - ins: Redcross Finland
-    seriesinfo: https://www.redcross.fi/news/20201029/read-if-your-personal-data-was-leaked-vastaamo-data-system-break

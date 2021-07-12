@@ -126,9 +126,7 @@ of network operators who both act in the best interests of their users
 and succeed in defending against attacks from others.
 
 This can also happen indirectly. Despite the best efforts of curators,
-so-called App-Stores frequently distribute malware of many kinds and
-one recent study {{Curated}} claims that simple obfuscation enables
-malware to avoid detection by even sophisticated operators.
+so-called App-Stores frequently distribute malware of many kinds.
 
 Applications may also mislead users. Many web sites today provide some
 form of privacy policy and terms of service, that are known to be
@@ -197,7 +195,7 @@ pixel images and (ab)use of Javascript APIs offered by browsers
 {{Tracking}}. Whenever a resource is loaded from a server, that server
 can include a cookie which will be sent back to the server on future
 loads. The combination of these features makes it possible to track a
-user across the Web
+user across the Web.
 
 This capability itself constitutes a major threat to user privacy.
 Additional techniques such as cookie syncing, identifier correlation,
@@ -234,6 +232,6 @@ particularly on mobile devices) and thus enable the same kind of
 adversarial tracking seen on the web.
 
 One of the concerns with universal user tracking is that it provides
-yet another avenue for pervasive surveillance {{RFC7258}}, e.g., by
-intelligence agencies, by tapping into the databases constructed by
+yet another avenue for pervasive surveillance {{RFC7258}}, e.g.,
+intelligence agencies can tap into the databases constructed by
 user tracking.

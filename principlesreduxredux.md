@@ -48,7 +48,7 @@ Information leakage is particularly harmful in situations where the information 
 
 PRINCIPLE: Assume that every interaction with another party can result in fingerprinting or identification of the user in question.
 
-In many cases there are readily available user identifiers in data that is leaked, such as was the case with a recent medical information leak in Finland {{Vastaamo}}. But even when such identifiers are not present, in many communication methods, there is ample opportunity for narrowing down which entity is connecting, through geolocation, fingerprinting, and correlation with other information.
+In many cases there are readily available user identifiers in data that is leaked. But even when such identifiers are not present, there is often an opportunity to narrow down which entity is connecting, through, for instance, geolocation or fingerprinting.
 
 ## Role of End-to-End
 
@@ -56,9 +56,7 @@ In many cases there are readily available user identifiers in data that is leake
 end-to-end protocols". This functional argument aligns with other,
 practical arguments about the evolution of the Internet under the
 end-to-end model. The endpoints evolve quickly, often with simply
-having one party change the necessary software on both ends. Whereas
-waiting for network upgrades would involve potentially a large number
-of parties from application owners to multiple network operators. The
+having one party change the necessary software on both ends. The
 end-to-end model supports permissionless innovation where new
 innovation can flourish in the Internet without excessive wait for
 other parties to act.
@@ -72,7 +70,7 @@ out. These services are typically implemented as servers that provide,
 e.g., the messaging relay function.
 
 Thomson {{I-D.thomson-tmi}} discusses the role of intermediaries. We
-prefer to use the term services to underline all types of services can
+prefer to use the term services to underline how all types of services can
 have issues -- including the simple case of an end-user contacting a
 server for some information.
 
@@ -87,9 +85,16 @@ use of those services to cases where they are necessary.
 
 This is a general rule, but perhaps a few examples can illustrate it:
 
-* A router's role is to efficiently forward packets to their destination, not to differentiate the treatment based on what content is being carried.
-* The role of an information service web server is to provide that information, not to gather the identity or personal information about the user accessing information.
-* The role of a messaging service is to deliver messages to other users, not to process the contents of the messages.
+* A router's role is to efficiently forward packets to their
+  destination, not to differentiate the treatment based on what
+  content is being carried.
+
+* The role of an information service web server is to provide that
+  information, not to gather the identity or personal information
+  about the user accessing information.
+
+* The role of a messaging service is to deliver messages to other
+  users, not to process the contents of the messages.
 
 Note that this principle applies at multiple layers in the stack. It
 is not just about intermediaries in the network and transport layers,
