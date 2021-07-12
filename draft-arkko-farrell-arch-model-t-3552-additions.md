@@ -1,8 +1,8 @@
 ---
 title: RFC 3552 additions due to evolving Internet thread model
 abbrev: RFC 3552 additions
-docname: draft-arkko-farrell-arch-model-t-3552-additions-00
-date: 
+docname: draft-arkko-farrell-arch-model-t-3552-additions-01
+date: February 2021
 category: info
 
 ipr: trust200902

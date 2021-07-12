@@ -19,10 +19,7 @@ from all backgrounds need to be able to use BCP 72.
 
 In this section
 we provide a few initial suggested changes to BCP 72 that will
-need to be further developed as part of this work. (For example, it
-may be possible to include some of the guidelines from
-{{I-D.arkko-farrell-arch-model-t}} Section 5
-as those are further developed.)
+need to be further developed as part of this work.
 
 There are a range of possible updates. We could propose
 adding a simple observation ({{simple3552}}), or additionally propose

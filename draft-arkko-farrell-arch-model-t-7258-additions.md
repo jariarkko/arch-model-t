@@ -1,8 +1,8 @@
 ---
 title: RFC 7258 additions due to evolving Internet thread model
 abbrev: RFC 7258 additions
-docname: draft-arkko-farrell-arch-model-t-7258-additions-01
-date: 
+docname: draft-arkko-farrell-arch-model-t-7258-additions-02
+date: February 2021
 category: info
 
 ipr: trust200902

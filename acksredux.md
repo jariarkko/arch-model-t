@@ -1,7 +1,9 @@
 
 # Contributors {#contribs}
 
-Eric Rescorla and Chris Wood provided much of the text in {{webtracking}}.
+Eric Rescorla and Chris Wood provided much of the text in
+{{webtracking}}. Martin Thomson's excellent document
+{{I-D.thomson-tmi}} also inspired some of the work in {{principles}}.
 
 # Acknowledgements {#ack}
 

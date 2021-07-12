@@ -3,4 +3,4 @@ normative:
   RFC7258:
 
 informative:
-  I-D.arkko-farrell-arch-model-t:
+  I-D.arkko-farrell-arch-model-t-redux:

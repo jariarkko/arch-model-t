@@ -1,8 +1,8 @@
 ---
-title: "Internet Threat Model Evolution: Background and Principles"
-abbrev: Internet Threat Model Evolution
-docname: draft-arkko-farrell-arch-model-t-redux-01
-date: February 2021
+title: "Internet Threat Model Guidance"
+abbrev: Internet Threat Model Guidance
+docname: draft-arkko-arch-internet-threat-model-guidance
+date: July 2021
 category: info
 
 ipr: trust200902
@@ -38,7 +38,7 @@ author:
 
 --- middle
 
-!INCLUDE "introredux.md"
+!INCLUDE "introreduxredux.md"
 !INCLUDE "attackchanges.md"
 !INCLUDE "principles.md"
 !INCLUDE "seccons.md"

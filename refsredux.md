@@ -1,46 +1,28 @@
 informative:
   RFC1958:
-  RFC3935: 
   RFC3552:
-  RFC4655:
   RFC6265:
-  RFC6454:
-  RFC6480:
-  RFC6749:
   RFC6797:
-  RFC6819:
-  RFC6962:
-  RFC6973:
   RFC7231:
   RFC7258:
   RFC7469:
   RFC7540:
   RFC7817:
-  RFC7830: 
   RFC7858: 
   RFC8240:
   RFC8446:
   RFC8484:
   RFC8546:
   RFC8555:
-  I-D.nottingham-for-the-users:
   I-D.ietf-tls-esni:
   I-D.ietf-quic-transport:
   I-D.ietf-httpbis-expect-ct:
   I-D.farrell-etm:
-  I-D.iab-protocol-maintenance:
-  I-D.ietf-mls-architecture:
-  I-D.ietf-tls-grease:
   I-D.lazanski-smart-users-internet:
   I-D.arkko-farrell-arch-model-t: 
   I-D.arkko-arch-internet-threat-model:
   I-D.arkko-arch-dedr-report:
   I-D.arkko-arch-infrastructure-centralisation:
-  I-D.taddei-smart-cless-introduction:
-  I-D.mcfadden-smart-endpoint-taxonomy-for-cless:
-  I-D.ietf-teep-architecture:
-  I-D.ietf-teep-protocol:
-  I-D.ietf-rats-eat:
   I-D.wood-pearg-website-fingerprinting:
   I-D.thomson-tmi:
   Saltzer:
@@ -170,45 +152,6 @@ informative:
     - ins: K. Gummadi
     - ins: A. Mislove
     seriesinfo: "ACM SIGCOMM Computer Communication Review 41(4), 363-374, https://conferences.sigcomm.org/sigcomm/2010/papers/sigcomm/p363.pdf"
-  HijackDet:
-   title: "Investigating the nature of routing anomalies: Closing in on subprefix hijacking attacks"
-   date: 2015
-   author:
-    - ins: J. Schlamp
-    - ins: R. Holz
-    - ins: O. Gasser
-    - ins: A. Korste
-    - ins: Q. Jacquemart
-    - ins: G. Carle
-    - ins: E. Biersack
-   seriesinfo: "International Workshop on Traffic Monitoring and Analysis, pp. 173-187. Springer, Cham, https://www.net.in.tum.de/fileadmin/bibtex/publications/papers/schlamp_TMA_1_2015.pdf"
-  BgpHijack:
-   title: "A survey among network operators on BGP prefix hijacking"
-   date: 2018
-   author:
-    - ins: P. Sermpezis
-    - ins: V. Kotronis
-    - ins: A. Dainotti
-    - ins: X. Dimitropoulos
-   seriesinfo: "ACM SIGCOMM Computer Communication Review 48, no. 1 (2018): 64-69, https://arxiv.org/pdf/1801.02918.pdf"
-  DeepDive:
-   title: "A Deep Dive on the Recent Widespread DNS Hijacking Attacks"
-   date: 2019
-   author:
-    - ins: "Krebs on Security"
-   seriesinfo: "krebsonsecurity.com blog, https://krebsonsecurity.com/2019/02/a-deep-dive-on-the-recent-widespread-dns-hijacking-attacks/"
-  CommandAndControl:
-   title: "Creating botnet C&C server. What architecture should I use? IRC? HTTP?"
-   date: 2014
-   author: 
-    - ins: Botnet
-   seriesinfo: "Stackexchange.com question, https://security.stackexchange.com/questions/100577/creating-botnet-cc-server-what-architecture-should-i-use-irc-http"
-  LeakyBuckets:
-   title: "Leaky Buckets: 10 Worst Amazon S3 Breaches"
-   date: 2018
-   author:
-    - ins: E. Chickowski
-   seriesinfo: "Bitdefender blog, https://businessinsights.bitdefender.com/worst-amazon-breaches"
   MeltdownAndSpectre:
    title: Meltdown and Spectre Side-Channel Vulnerability Guidance
    date: 2018
@@ -267,15 +210,6 @@ informative:
    author:
     - ins: EU
    seriesinfo: "Article 15, GDPR, https://gdpr-info.eu/art-15-gdpr/"
-  StackEvo:
-   title: "What Is an Endpoint?"
-   date: 2017
-   author:
-    - ins: B. Trammell
-    - ins: M. Thomson
-    - ins: L. Howard
-    - ins: T. Hardie
-   seriesinfo: "Unpublished work, https://github.com/stackevo/endpoint-draft/blob/master/draft-trammell-whats-an-endpoint.md"
   DynDDoS:
     title: "Dyn's Statement on the 10/21/2016 DNS DDoS Attack"
     date: 2016
@@ -302,32 +236,12 @@ informative:
     author:
     - ins: INRIA
     seriesinfo: "https://amiunique.org"
-  Jager2015:
-    title: "On the Security of TLS 1.3 and QUIC Against Weaknesses in PKCS#1 v1.5 Encryption"
-    date: October 2015
-    author:
-    - ins: T. Jager
-    - ins: J. Schwenk
-    - ins: J. Somorovsky
-    seriesinfo: "Proceedings of ACM CCS 2015, DOI 10.1145/2810103.2813657, https://www.nds.rub.de/media/nds/veroeffentlichungen/2015/08/21/Tls13QuicAttacks.pdf"
-  Mozilla2019:
-    title: "Firefox Now Available with Enhanced Tracking Protection by Default Plus Updates to Facebook Container, Firefox Monitor and Lockwise"
-    date: June 2019
-    author:
-    - ins: D. Camp
-    seriesinfo: "The Mozilla Blog, https://blog.mozilla.org/blog/2019/06/04/firefox-now-available-with-enhanced-tracking-protection-by-default/"
   Leith2020:
     title: "Web Browser Privacy: What Do Browsers Say When They Phone Home?"
     date: March 2020
     author:
     - ins: D. Leith
     seriesinfo: "In submission, https://www.scss.tcd.ie/Doug.Leith/pubs/browser_privacy.pdf"
-  DoubleKey:
-    title: "Thirdparty"
-    date: June 2010
-    author:
-    - ins: D. Witte
-    seriesinfo: "https://wiki.mozilla.org/Thirdparty"
   TinyChip:
     title: "The Big Hack: How China Used a Tiny Chip to Infiltrate U.S. Companies"
     date: October 2018
@@ -335,3 +249,9 @@ informative:
     - ins: J. Robertson
     - ins: M. Riley
     seriesinfo: "https://www.bloomberg.com/news/features/2018-10-04/the-big-hack-how-china-used-a-tiny-chip-to-infiltrate-america-s-top-companies"
+  Vastaamo:
+    title:  "Read this if your personal data was leaked in the Vastaamo data system break-in"
+    date: October 2020
+    author:
+    - ins: Redcross Finland
+    seriesinfo: https://www.redcross.fi/news/20201029/read-if-your-personal-data-was-leaked-vastaamo-data-system-break

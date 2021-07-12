@@ -26,7 +26,7 @@ scope and of primary interest, and some threats out of scope {{RFC3552}}:
 > onto the wire. 
 
 However, the communications-security -only threat model may not entirely
-match today's reality, as discussed in {{I-D.arkko-farrell-arch-model-t}}.
+match today's reality, as discussed in {{I-D.arkko-farrell-arch-model-t-redux}}.
 
 The rest of this document tentatively suggests some changes to the
  BCP.  {{changes3552range}} discussses the range of potential

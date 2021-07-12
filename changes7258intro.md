@@ -9,7 +9,7 @@ formalized in BCP 72 {{RFC3552}}, which defined the Internet threat model in
 were covered in BCP 188 {{RFC7258}}.
 
 However, threats in the Internet continue to evolve, as discussed in
-{{I-D.arkko-farrell-arch-model-t}}.
+{{I-D.arkko-farrell-arch-model-t-redux}}.
 
 The rest of this document tentatively suggests a small (but our view, important) change to the
 BCP. 

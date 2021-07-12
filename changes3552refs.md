@@ -4,7 +4,8 @@ normative:
 informative:
   RFC7830: 
   RFC8446: 
-  I-D.arkko-farrell-arch-model-t:
+  I-D.arkko-farrell-arch-model-t: 
+  I-D.arkko-farrell-arch-model-t-redux: 
   I-D.ietf-quic-transport:
   I-D.wood-pearg-website-fingerprinting:
   Jager2015:
