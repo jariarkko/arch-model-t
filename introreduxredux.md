@@ -66,7 +66,10 @@ information will get used with all the associated downsides,
 regardless of what deployment expectations there were during protocol
 design.
 
-The rest of this memo is organized as follows. {{attacklandscape}} makes some observations about the situation, with respect to communications security and beyond. The section also provides a number of real-world examples.
+The rest of this memo is organized as follows. {{attacklandscape}}
+makes some observations about the situation, with respect to
+communications security and beyond. The section also provides a number
+of real-world examples.
 
 {{principles}} discusses some high-level principles that relate to
 these changes, and could be used to tackle some of the emerging issues.

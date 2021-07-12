@@ -42,18 +42,38 @@ in any Internet technology development.
 
 ## Beyond Communications Security {#beyondcommsec}
 
-There are, however, significant issues beyond communications security
-in the Internet.
+There are issues beyond communications security in the Internet. It is
+not necessarily clear that one can trust all the endpoints in any
+protocol interaction, including the user's own devices. Managed or
+closed ecosystems with multiple layers of hardware and software have
+made it harder to understand or influence what your devices do.
 
-To begin with, it is not necessarily clear that one can trust all the endpoints in any protocol interaction, including the user's own devices. Managed or closed ecosystems with multiple layers of hardware and software have made it harder to understand or influence what your devices do. 
+The situation is different, but not necessarily better on the side of
+servers.  Even for applications that are for user-to-user
+communication, a typical pattern of communications is almost always
+via an intermediary that has at least as much information as the other
+parties have. For instance, these intermediaries are typically
+endpoints for any transport layer security connections, and able to
+see much communications or other messaging in cleartext. There are
+some exceptions, of course, e.g., messaging applications with
+end-to-end confidentiality protection.
 
-The situation is different, but not necessarily better on the side of servers.  Even for applications that are for user-to-user communication, a typical pattern of communications is almost always via an intermediary that has at least as much information as the other parties have. For instance, these intermediaries are typically endpoints for any transport layer security connections, and able to see much communications or other messaging in cleartext. There are some exceptions, of course, e.g., messaging applications with end-to-end confidentiality protection.
+For instance, while e-mail transport security {{RFC7817}} has become
+much more widely deployed in recent years, progress in securing e-mail
+messages between users has been much slower. This has lead to a
+situation where e-mail content is considered a critical resource by
+some mail service providers who use the content for machine learning,
+advertisement targeting, and other purposes unrelated to message
+delivery. Equally however, it is unclear how some useful anti-spam
+techniques could be deployed in an end-to-end encrypted mail universe
+(with today's end-to-end mail security protocols) and there are many
+significant challenges should one desire to deploy end-to-end email
+security at scale.
 
-For instance, while e-mail transport security {{RFC7817}} has become much more widely deployed in recent years, progress in securing e-mail messages between users has been much slower. This has lead to a situation where e-mail content is considered a critical resource by some mail service providers who use the content for machine learning, advertisement targeting, and other purposes unrelated to message delivery. Equally however, it is unclear how some useful anti-spam techniques could be deployed in an end-to-end encrypted mail universe (with today's end-to-end mail security protocols) and there are many significant challenges should one desire to deploy end-to-end email security at scale.
+Even services that are not about user-to-user to communication often
+collect information about the user.
 
-Services that are not about user-to-user to communication often collect information about the user.
-
-Even services that are part of the infrastructure may have security
+Services that are part of the infrastructure may have security
 issues.  For instance, despite progress in protecting DNS query
 protocols with encryption (see, e.g., {{RFC7858}} and {{RFC8484}}),
 DNS resolver services themselves may be targets for attack or sources
@@ -65,47 +85,30 @@ services with information about a large number of users is collected
 in small number of services are particularly attractive targets for
 these attacks.
 
-In general, many recent attacks relate more to information than communications.
-For instance, personal information leaks typically happen via information
-stored on a compromised server rather than capturing communications. There is
-little hope that such attacks can be prevented entirely. Again, the best course
-of action seems to be avoid the disclosure of information in the first place,
-or at least to not perform that in a manner that makes it possible that others
-can readily use the information.
+In general, many recent attacks relate more to information than
+communications.  For instance, personal information leaks typically
+happen via information stored on a compromised server rather than
+capturing communications. There is little hope that such attacks can
+be prevented entirely. Again, the best course of action seems to be
+avoid the disclosure of information in the first place, or at least to
+not perform that in a manner that makes it possible that others can
+readily use the information.
 
-## Types of Attacks
+## Accidental Vulnerabilities
 
-This section discusses a few classes of attacks that are relevant for our consideration.
+Some vulnerabilities came to being through various levels of carelessness and/or due to erroneous assumptions about the environments in which those applications currently run at. A vulnerability can be exploited to misuse the data for someone's own purposes.
 
-### Misuse of Accidental Vulnerabilities
+Some attacks in this category include hardware-related issues, for example, Meltdown and Spectre {{MeltdownAndSpectre}}, compromised or badly-maintained web sites or services, e.g., {{Passwords}}, supply-chain attacks, for example, the {{TargetAttack}}, and breaches of major service providers, that many of us might have assumed would be sufficiently capable to be the best large-scale "Identity providers", for example,  Yahoo (https://www.wired.com/story/yahoo-breach-three-billion-accounts/), Facebook (https://www.pcmag.com/news/367319/facebook-stored-up-to-600m-user-passwords-in-plain-text and many others.
 
-Not all adversarial behaviour starts as deliberate, some is initiated due to various levels of carelessness and/or due to erroneous assumptions about the environments in which those applications currently run at. Nevertheless, a leak or vulnerability can be exploited by others that misuse the data for their own purposes.
+## Misbehaving Applications
 
-Some attacks in this category include:
+There are many examples of application developers doing their best to protect the security and privacy of their users or customers. But there are also some that do not act int he best interests of their users. As a result, it becomes necessary to consider applications as potentially untrusted, much in the same way that we consider in-network actors as potential adversaries despite the many examples of network operators who both act in the best interests of their users and succeed in defending against attacks from others.
 
-- Virtualisation exposing secrets, for example, Meltdown and Spectre {{MeltdownAndSpectre}} {{Kocher2019}} {{Lipp2018}} and other similar side-channel attacks. 
+This can also happen indirectly. Despite the best efforts of curators, so-called App-Stores frequently distribute malware of many kinds and one recent study {{Curated}} claims that simple obfuscation enables malware to avoid detection by even sophisticated operators. 
 
-- Compromised badly-maintained web sites or services, e.g., {{Passwords}} or Amazon S3 leaks.
+Applications may also mislead users. Many web sites today provide some form of privacy policy and terms of service, that are known to be mostly unread {{Unread}}. This implies that, legal fiction aside, users of those sites have not in reality agreed to the specific terms published and so users are therefore highly exposed to being exploited by web sites, for example {{Cambridge}} is a recent well-publicised case where a service provider abused the data of 87 million users via a partnership. 
 
-- Supply-chain attacks, for example, the {{TargetAttack}} or malware within pre-installed applications on Android phones {{Bloatware}}.
-
-- Breaches of major service providers, that many of us might have assumed would be sufficiently capable to be the best large-scale "Identity providers", for example,  Yahoo (https://www.wired.com/story/yahoo-breach-three-billion-accounts/), Facebook (https://www.pcmag.com/news/367319/facebook-stored-up-to-600m-user-passwords-in-plain-text and https://www.cnet.com/news/facebook-breach-affected-50-million-people/), Telcos (https://www.zdnet.com/article/us-telcos-caught-selling-your-location-data-again-senator-demands-new-laws/ and https://www.zdnet.com/article/millions-verizon-customer-records-israeli-data/), Google (https://www.wsj.com/articles/google-exposed-user-data-feared-repercussions-of-disclosing-to-public-1539017194), and  Microsoft (https://motherboard.vice.com/en_us/article/ywyz3x/hackers-could-read-your-hotmail-msn-outlook-microsoft-customer-support).
-
-### Misbehaving Applications
-
-There are many examples of application developers doing their best to protect the security and privacy of their users or customers. That's just the same as the case today where we need to consider in-network actors as potential adversaries despite the many examples of network operators who both act in the best interests of their users and succeed in defending against attacks from others.
-
-In short, there are applications that do not act in the best interests of their users. 
-
-This can also happen indirectly. Despite the best efforts of curators, so-called App-Stores frequently distribute malware of many kinds and one recent study {{Curated}} claims that simple obfuscation enables malware to avoid detection by even sophisticated operators. Given the scale of these deployments, distribution of even a small percentage of malware-infected applications can affect a large number of people. The end result is an application that
-
-Applications may also mislead users. Many web sites today provide some form of privacy policy and terms of service, that are known to be mostly unread {{Unread}}. This implies that, legal fiction aside, users of those sites have not in reality agreed to the specific terms published and so users are therefore highly exposed to being exploited by web sites, for example {{Cambridge}} is a recent well-publicised case where a service provider abused the data of 87 million users via a partnership.  While many web site operators claim that they care deeply about privacy, it seems prudent to assume that some do not in fact care about user privacy in ways with which many of their users would agree.
-
-### Network Infrastructure Attacks
-
-The network infrastructure may also work in an inappropriate manner. For instance, a Virtual Private Network (VPN) may misrepresent how it carries the users' traffic, for example misrepresenting the countries in which they provide vantage points {{Vpns}}. A user's home network equipment may also be malicous or compromised. For example, one study {{Home}} reports on a 2011 attack that affected 4.5 million DSL modems in Brazil. The absence of software update {{RFC8240}} has been a major cause of these issues and rises to the level that considering this as intentional behaviour by device vendors who have chosen this path is warranted.
-
-### Untrustworthy Devices
+## Untrustworthy Devices
 
 Traditionally, there's been an implied trust in various parts of the system -- such as the user's own device, nodes inside a particular network perimeter, or nodes under a single administrative control.
 
