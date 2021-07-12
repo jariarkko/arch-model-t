@@ -20,6 +20,7 @@ informative:
   I-D.farrell-etm:
   I-D.lazanski-smart-users-internet:
   I-D.arkko-farrell-arch-model-t: 
+  I-D.arkko-farrell-arch-model-t-redux: 
   I-D.arkko-arch-internet-threat-model:
   I-D.arkko-arch-dedr-report:
   I-D.arkko-arch-infrastructure-centralisation:
