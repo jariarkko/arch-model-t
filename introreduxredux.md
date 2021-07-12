@@ -27,13 +27,12 @@ scope and of primary interest, and some threats out of scope {{RFC3552}}:
 However, the communications-security -only threat model is becoming outdated.
 Some of the causes for this are:
 
-* Success! Advances in protecting most of our communications with strong cryptographic
-  means. This has resulted in much improved communications security, but also
-highlights the need for addressing other, remaining issues. This is not to say
-that communications security is not important, it still is: improvements are
-still needed. Not all communications have been protected, and even out of the
-already protected communications, not all of their aspects have been fully
-protected. Fortunately, there are ongoing projects working on improvements.
+* Success! Advances in protecting most of our communications with
+  strong cryptographic means. This has resulted in much improved
+  communications security, but also highlights the need for addressing
+  other, remaining issues. This is not to say that communications
+  security is not important, it still is. Fortunately, there are
+  ongoing projects working on improvements.
 
 * Adversaries have increased their pressure against other avenues of
   attack, from supply-channel attacks, to compromising devices to
@@ -47,10 +46,7 @@ protected. Fortunately, there are ongoing projects working on improvements.
   against the interests of their peers or users.
 
 In short, attacks are migrating towards the currently easier targets, which no
-longer necessarily include direct attacks on traffic flows. In addition,
-trading information about users and ability to influence them has become a
-common practice for many Internet services, often without users understanding
-those practices.
+longer necessarily include direct attacks on traffic flows.
 
 It is important that when it comes to basic Internet infrastructure,
 our chosen technologies lead to minimal exposure with respect to the
@@ -67,9 +63,6 @@ regardless of what deployment expectations there were during protocol
 design.
 
 The rest of this memo is organized as follows. {{attacklandscape}}
-makes some observations about the situation, with respect to
-communications security and beyond. The section also provides a number
-of real-world examples.
-
-{{principles}} discusses some high-level principles that relate to
-these changes, and could be used to tackle some of the emerging issues.
+makes some observations about the threa situation.  {{principles}}
+discusses some high-level principles that could be used to address
+some of the emerging issues.
