@@ -35,6 +35,13 @@ PRINCIPLE: Build defences to protect information, even when some component in a 
 
 For instance, encryption of data at rest or in use may assist in protecting information when an attacker gainst access to a server system.
 
+PRINCIPLE: Trust that information is handled appropriately, but verify that this is actually the case.
+
+It is not wise to merely trust that someone acts correctly, without mistakes, and does not misuse your information. When we send packets over the Internet, we encrypt them and know that they can only received by a specific party. Similarly, if we send information to a server, we can, for instance:
+
+* encrypt a message only to the actual final recipient, even if the server holds our message before it is delivered
+* verify (e.g., through confidential computing attestations) that the server runs a software that we know does not leak our information
+
 ## Tracking
 
 Information leakage is particularly harmful in situations where the information can be traced to an individual, such as is the case with any information that users would consider private, be it about messages to another users, browsing history, or even user's medical information.
@@ -45,17 +52,48 @@ In many cases there are readily available user identifiers in data that is leake
 
 ## Role of End-to-End
 
-{{RFC1958}} noted that "end-to-end functions can best be realised by end-to-end protocols".
-This functional argument aligns with other, practical arguments about the evolution of the Internet under the end-to-end model. The endpoints evolve quickly, often with simply having one party change the necessary software on both ends. Whereas waiting for network upgrades would involve potentially a large number of parties from application owners to multiple network operators. The end-to-end model supports permissionless innovation where new innovation can flourish in the Internet without excessive wait for other parties to act.
+{{RFC1958}} noted that "end-to-end functions can best be realised by
+end-to-end protocols". This functional argument aligns with other,
+practical arguments about the evolution of the Internet under the
+end-to-end model. The endpoints evolve quickly, often with simply
+having one party change the necessary software on both ends. Whereas
+waiting for network upgrades would involve potentially a large number
+of parties from application owners to multiple network operators. The
+end-to-end model supports permissionless innovation where new
+innovation can flourish in the Internet without excessive wait for
+other parties to act.
 
-However, there is a significant difference between actual endpoints from a user's interaction perspective (e.g., another user) and from a system perspective (e.g., a third party relaying a message). Such intermediaries can provide a useful service. As {{I-D.thomson-tmi}} points out, networks themselves would not exist without intermediaries that can forward communications to others.
+However, there is a significant difference between actual endpoints
+from a user's interaction perspective (e.g., another user) and from a
+system perspective (e.g., a third party relaying a message). Such
+intermediaries can provide a useful service. As {{I-D.thomson-tmi}}
+points out, networks themselves would not exist without intermediaries
+that can forward communications to others.
 
 PRINCIPLE: Limit the use of intermediaries, and what they can do.
 
-This principle applies at multiple layers in the stack. It is not just about intermediaries in the network and transport layers, but also on the application layer.
+This principle applies at multiple layers in the stack. It is not just
+about intermediaries in the network and transport layers, but also on
+the application layer.
 
-PRINCIPLE: Pass information only between the "real ends" of a conversation, unless the information is necessary for a useful function in an intermediary.
+PRINCIPLE: Pass information only between the "real ends" of a
+conversation, unless the information is necessary for a useful
+function in an intermediary.
 
-For instance, a transport connection between two components of a system is not an end-to-end connection even if it encompasses all the protocol layers up to the application layer. It is not end-to-end, if the information or control function it carries actually extends beyond those components. For instance, just because an e-mail server can read the contents of an e-mail message does not make it a legitimate recipient of the e-mail.
+For instance, a transport connection between two components of a
+system is not an end-to-end connection even if it encompasses all the
+protocol layers up to the application layer. It is not end-to-end, if
+the information or control function it carries actually extends beyond
+those components. For instance, just because an e-mail server can read
+the contents of an e-mail message does not make it a legitimate
+recipient of the e-mail.
 
-This memo also proposes to focus on the "need to know" aspect in systems. Information should not be disclosed, stored, or routed in cleartext through parties that do not absolutely need to have that information. This relates to the discussion in {{I-D.thomson-tmi}}, in that the valuable functions provided by intermediaries need to be balanced against the information that they need to perform their function. And, in a lot of cases unnecessary information is provided to intermediaries, which leads to privacy and other problems.
+PRINCIPLE: Information should not be disclosed, stored, or routed in
+cleartext through parties that do not absolutely need to have that
+information for the function they perform.
+
+
+This the "need to know" principle. It also relates to the discussion
+in {{I-D.thomson-tmi}}, in that the valuable functions provided by
+intermediaries need to be balanced against the information that they
+need to perform their function.
