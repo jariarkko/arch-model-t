@@ -176,7 +176,7 @@ or even innocent-looking components on a circuit board can be suspect
 such as modern CPUs with underlying security and management tools are
 prone to problems.
 
-### Tracking {#webtracking}
+## Tracking {#webtracking}
 
 One of the biggest threats to user privacy on the Web is ubiquitous
 tracking. This is often done to support advertising based business
