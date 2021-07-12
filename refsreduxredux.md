@@ -31,12 +31,6 @@ informative:
     - ins: D.P. Reed
     - ins: D.D. Clark
    seriesinfo: ACM TOCS, Vol 2, Number 4, pp 277-288
-  Savage:
-   title: "Modern Automotive Vulnerabilities: Causes, Disclosures, and Outcomes"
-   date: 2016
-   author:
-    - ins: S. Savage
-   seriesinfo: USENIX
   Tracking:
    title: "Web Tracking-A Literature Review on the State of Research"
    date: 2018
