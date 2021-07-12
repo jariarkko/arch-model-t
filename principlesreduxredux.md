@@ -9,7 +9,7 @@ Based on the above issues, it is necessary to pay attention to the following asp
 
 * Tracking and identification of users and their devices. 
 
-* Role of intermediaries, and in particular information passing through them.
+* Role of servers, and in particular information passing through them.
 
 These topics are discussed below. There are obviously many detailed technical questions and approaches to tackling them. However, in this memo we wish to focus on higher level architectural principles that might guide us in thinking about about the topics.
 
@@ -65,20 +65,39 @@ other parties to act.
 
 However, there is a significant difference between actual endpoints
 from a user's interaction perspective (e.g., another user) and from a
-system perspective (e.g., a third party relaying a message). Such
-intermediaries can provide a useful service. As {{I-D.thomson-tmi}}
-points out, networks themselves would not exist without intermediaries
-that can forward communications to others.
+system perspective (e.g., a party relaying a message). In general,
+there needs to be distinction between the intended interaction
+participants and the services used to carry this interaction
+out. These services are typically implemented as servers that provide,
+e.g., the messaging relay function.
 
-PRINCIPLE: Limit the use of intermediaries, and what they can do.
+Thomson {{I-D.thomson-tmi}} discusses the role of intermediaries. We
+prefer to use the term services to underline all types of services can
+have issues -- including the simple case of an end-user contacting a
+server for some information.
 
-This principle applies at multiple layers in the stack. It is not just
-about intermediaries in the network and transport layers, but also on
-the application layer.
+In any case, as Thomson points out, intermediaries (or services) can
+provide a useful function. Networks themselves would not exist without
+intermediaries that can forward communications to others. Similarly,
+networks would not exist without services responding to communications
+sent by end users.
+
+PRINCIPLE: Set clear limits what all services can do, and minimise the
+use of those services to cases where they are necessary.
+
+This is a general rule, but perhaps a few examples can illustrate it:
+
+* A router's role is to efficiently forward packets to their destination, not to differentiate the treatment based on what content is being carried.
+* The role of an information service web server is to provide that information, not to gather the identity or personal information about the user accessing information.
+* The role of a messaging service is to deliver messages to other users, not to process the contents of the messages.
+
+Note that this principle applies at multiple layers in the stack. It
+is not just about intermediaries in the network and transport layers,
+but also intermediaries and services on the application layer.
 
 PRINCIPLE: Pass information only between the "real ends" of a
 conversation, unless the information is necessary for a useful
-function in an intermediary.
+function in a service.
 
 For instance, a transport connection between two components of a
 system is not an end-to-end connection even if it encompasses all the
@@ -89,9 +108,8 @@ the contents of an e-mail message does not make it a legitimate
 recipient of the e-mail.
 
 PRINCIPLE: Information should not be disclosed, stored, or routed in
-cleartext through parties that do not absolutely need to have that
+cleartext through services that do not absolutely need to have that
 information for the function they perform.
-
 
 This the "need to know" principle. It also relates to the discussion
 in {{I-D.thomson-tmi}}, in that the valuable functions provided by
