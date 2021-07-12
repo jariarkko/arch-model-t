@@ -30,7 +30,7 @@ author:
     country: Ireland
     email: stephen.farrell@cs.tcd.ie
 
-!INCLUDE "refsredux.md"
+!INCLUDE "refsreduxredux.md"
 
 --- abstract
 
@@ -46,4 +46,4 @@ author:
 
 --- back
 
-!INCLUDE "acksredux.md"
+!INCLUDE "acksreduxredux.md"

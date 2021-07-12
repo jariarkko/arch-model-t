@@ -35,16 +35,16 @@ still needed. Not all communications have been protected, and even out of the
 already protected communications, not all of their aspects have been fully
 protected. Fortunately, there are ongoing projects working on improvements.
 
-* Adversaries have increased their pressure against other avenues of attack,
-  from supply-channel attacks, to compromising devices to legal coercion of centralized endpoints in
-conversations.
+* Adversaries have increased their pressure against other avenues of
+  attack, from supply-channel attacks, to compromising devices to
+  legal coercion of centralized endpoints in conversations.
 
 * New adversaries and risks have arisen, e.g., due to creation of large
   centralized information sources.
 
-* While communications-security does seem to be required to protect privacy,
-  more is needed, especially if endpoints choose to act against the interests of
-their peers or users.
+* While communications-security does seem to be required to protect
+  privacy, more is needed, especially if endpoints choose to act
+  against the interests of their peers or users.
 
 In short, attacks are migrating towards the currently easier targets, which no
 longer necessarily include direct attacks on traffic flows. In addition,
@@ -52,22 +52,43 @@ trading information about users and ability to influence them has become a
 common practice for many Internet services, often without users understanding
 those practices.
 
-This memo suggests that the existing threat model, while important and still
-valid, is no longer alone sufficient to cater for the pressing security and
-privacy issues on the Internet. For instance, while it continues to be very
-important to protect Internet communications against outsiders, it is also
-necessary to protect systems against endpoints that are compromised, malicious,
-or whose interests simply do not align with the interests of the users.
+This memo suggests that the existing threat model, while important and
+still valid, is no longer alone sufficient to cater for the pressing
+security and privacy issues on the Internet. For instance, while it
+continues to be very important to protect Internet communications
+against outsiders, it is also necessary to protect systems against
+endpoints that are compromised, malicious, or whose interests simply
+do not align with the interests of the users.
 
-Of course, there are many trade-offs in the Internet on who one chooses to interact with and why or how. It is not the role of this memo to dictate those choices. But it is important that we understand the implications of different practices. It is also important that when it comes to basic Internet infrastructure, our chosen technologies lead to minimal exposure with respect to the non-communications threats.
+Of course, there are many trade-offs in the Internet on who one
+chooses to interact with and why or how. It is not the role of this
+memo to dictate those choices. But it is important that we understand
+the implications of different practices. It is also important that
+when it comes to basic Internet infrastructure, our chosen
+technologies lead to minimal exposure with respect to the
+non-communications threats.
 
-It is particularly important to ensure that non-communications security related threats are properly understood for any new Internet technology. While the consideration of these issues is relatively new in the IETF, this memo provides some initial ideas about potential broader threat models to consider when designing protocols for the Internet or when trying to defend against pervasive monitoring. Further down the road, updated threat models could result in changes in BCP 72 {{RFC3552}} (guidelines for writing security considerations) and BCP 188 {{RFC7258}} (pervasive monitoring), to include proper consideration of non-communications security threats.
+It is particularly important to ensure that non-communications
+security related threats are properly understood for any new Internet
+technology. While the consideration of these issues is relatively new
+in the IETF, this memo provides some initial ideas about potential
+broader threat models to consider when designing protocols for the
+Internet or when trying to defend against pervasive
+monitoring. Further down the road, updated threat models could result
+in changes in BCP 72 {{RFC3552}} (guidelines for writing security
+considerations) and BCP 188 {{RFC7258}} (pervasive monitoring), to
+include proper consideration of non-communications security threats.
 
-It may also be necessary to have dedicated guidance on how systems design and architecture affect security. The sole consideration of communications security aspects in designing Internet protocols may lead to accidental or increased impact of security issues elsewhere. For instance, allowing a participant to unnecessarily collect or receive information may lead to a similar effect as described in {{RFC8546}} for protocols: over time, unnecessary information will get used with all the associated downsides, regardless of what deployment expectations there were during protocol design. 
-
-This memo does not stand alone. To begin with, it is a continuation of
-earlier work by the two authors {{I-D.farrell-etm}}
-{{I-D.arkko-arch-internet-threat-model}} {{I-D.arkko-farrell-arch-model-t}}. There are also other documents discussing this overall space, e.g. {{I-D.lazanski-smart-users-internet}} {{I-D.arkko-arch-dedr-report}}.
+It may also be necessary to have dedicated guidance on how systems
+design and architecture affect security. The sole consideration of
+communications security aspects in designing Internet protocols may
+lead to accidental or increased impact of security issues
+elsewhere. For instance, allowing a participant to unnecessarily
+collect or receive information may lead to a similar effect as
+described in {{RFC8546}} for protocols: over time, unnecessary
+information will get used with all the associated downsides,
+regardless of what deployment expectations there were during protocol
+design.
 
 The rest of this memo is organized as follows. {{attacklandscape}} makes some observations about the situation, with respect to communications security and beyond. The section also provides a number of real-world examples.
 
