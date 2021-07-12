@@ -39,8 +39,8 @@ author:
 --- middle
 
 !INCLUDE "introreduxredux.md"
-!INCLUDE "attackchanges.md"
-!INCLUDE "principles.md"
+!INCLUDE "attackchangesreduxredux.md"
+!INCLUDE "principlesreduxredux.md"
 !INCLUDE "seccons.md"
 !INCLUDE "iana.md"
 
