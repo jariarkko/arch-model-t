@@ -38,12 +38,28 @@ informative:
   I-D.lazanski-smart-users-internet:
   I-D.arkko-iab-path-signals-collaboration:
   I-D.thomson-tmi:
+  I-D.iab-use-it-or-lose-it:
+  I-D.wood-pearg-website-fingerprinting:
   WP2021:
    title: "There’s no escape from Facebook, even if you don’t use it"
    date: August 2021
    author:
      - ins: Geoffrey A. Fowler
    seriesinfo: "Washington Post"
+  Fingerprinting:
+    title: "Browser Fingerprinting: A survey"
+    author:
+     - ins P. Laperdrix
+     - ins N. Bielova
+     - B. Baudry
+     - G. Avoine
+    seriesinfo: "arXiv:1905.01051v2 [cs.CR] 4 Nov 2019"
+  AmIUnique:
+    title: "Am I Unique?"
+    date: 2020
+    author:
+    - ins: INRIA
+    seriesinfo: "https://amiunique.org"
   
 --- abstract
 
@@ -254,7 +270,24 @@ recipient of the e-mail.
 
 ### Fingerprinting avoidance
 
-Fingerprinting warrants a separate discussions. Internet technology tends to move towards richer and more power mechanisms over time. For instance,
+Fingerprinting warrants a separate discussions. Internet technology
+tends to move towards richer and more power mechanisms over time. For
+instance, full-functionality web and transport layer security stacks are now
+used for almost all purposes across the network.
+
+This is of course good, and the performance, expressive power, and
+security improvements that came through these are much needed.
+
+Nevertheless, all protocol mechanisms come with some fingerprinting
+opportunities, and this tends to be easier the higher in the stack we
+are, given the wealth of options and algorithms in
+use. {{Fingerprinting}} and {{AmIUnique}} provide a good starting
+point for some of the technology and measurements.
+
+The general topic of ensuring a protocol mechanisms stays evolvable
+and workable is discussed in {{I-D.iab-use-it-or-lose-it}}, but the
+associated methods for reducing fingerprinting possibilities probably
+deserve further study {{I-D.wood-pearg-website-fingerprinting}}.
 
 # Acknowledgements {#ack}
 
