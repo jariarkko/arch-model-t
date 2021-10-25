@@ -87,7 +87,8 @@ cleantrash:
 OLD=draft-arkko-farrell-arch-model-t-03.txt
 OLDREDUX=draft-arkko-farrell-arch-model-t-redux-01.txt
 
-jaricompile:	draft-arkko-farrell-arch-model-t.txt \
+jaricompile:	draft-arkko-iab-data-minimisation-principle.txt \
+		draft-arkko-farrell-arch-model-t.txt \
 		draft-arkko-farrell-arch-model-t-redux.txt \
 		draft-arkko-arch-internet-threat-model-guidance.txt \
 		draft-arkko-farrell-arch-model-t-3552-additions.txt \
@@ -103,7 +104,8 @@ jaricompile:	draft-arkko-farrell-arch-model-t.txt \
 		draft-arkko-farrell-arch-model-t-3552-additions.txt \
 		draft-arkko-farrell-arch-model-t-7258-additions.txt \
 		root@cloud3.arkko.eu:/var/www/www.arkko.com/html/ietf/iab
-	scp 	draft-arkko-farrell-arch-model-t.txt \
+	scp 	draft-arkko-iab-data-minimisation-princple.txt \
+		draft-arkko-farrell-arch-model-t.txt \
 		draft-arkko-farrell-arch-model-t-from--03.diff.html \
 		draft-arkko-farrell-arch-model-t-redux.txt \
 		draft-arkko-arch-internet-threat-model-guidance.txt \
