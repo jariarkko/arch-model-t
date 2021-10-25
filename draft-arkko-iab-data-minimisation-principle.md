@@ -1,7 +1,7 @@
 ---
-title: "Data minimisation"
-abbrev: Data Minimisation in Internet Architecture
-docname: draft-arkko-iab-data-minimisation-principle
+title: "Data minimization"
+abbrev: Data Minimization in Internet Architecture
+docname: draft-arkko-iab-data-minimization-principle
 date: October 2021
 category: info
 
@@ -75,7 +75,7 @@ difficult, there are some measures that can be taken. It is
 particularly important that new technology and new deployments
 consider the role of data passed to various parties -- including the
 primary protocol participants -- and balance the information given to
-them in light of their roles and possible compromise of the
+them considering their roles and possible compromise of the
 information.
 
 --- middle
@@ -83,7 +83,7 @@ information.
 # Introduction {#introduction}
 
 Communications security has been at the center of many security
-improvements in the Internet. The goal has been to ensure that
+improvements on the Internet. The goal has been to ensure that
 communications are protected against outside observers and
 attackers.
 
@@ -102,7 +102,7 @@ While such protection is difficult, there are some measures that can
 be taken. It is particularly important that new technology and new
 deployments consider the role of data passed to various parties --
 including the primary protocol participants -- and balance the
-information given to them in light of their roles and possible
+information given to them considering their roles and possible
 compromise of the information.
 
 
@@ -114,7 +114,7 @@ cryptographic has resulted in much improved security, but also
 highlight the need for addressing other, remaining
 issues. Particularly when adversaries have increased their pressure
 against other avenues of attack. New adversaries and risks have
-arisen, e.g., due to availability of large centralized information
+arisen, e.g., due to availability of large, centralized information
 sources, or with the endpoints whose interests are not aligned with
 their peers or users.
 
@@ -145,7 +145,7 @@ Hardie {{RFC8558}} discusses path signals, i.e., messages to or from
 on-path elements to endpoints. In the past, path signals were often
 implicit, e.g., network nodes interpreting in a particular way
 transport protocol headers originally intended for end-to-end
-consumpion.  The document recommends a principle that implicit signals
+consumption.  The document recommends a principle that implicit signals
 should be avoided and that explicit signals be used instead, and only
 when the signal's originator intends that it be used by the network
 elements on the path.
@@ -164,14 +164,14 @@ number of principles relating to the use of intermediaries, e.g.,
 deliberate selection of protocol participants or limiting the
 capabilities or information exposure related to the intermediaries.
 
-Trammel and Kuehlewind {{RFC8546}} discuss the concept of a "wire
+Trammel and Kühlewind {{RFC8546}} discuss the concept of a "wire
 image" of a protocol.  This is an abstraction of the information
 available to an on-path non-participant in a networking protocol. It
 relates to the topic non-participants interpreting information that is
 available to them in the "wire image" (or associated timing and other
 indirect information). The issues are largely the same even for
 participants, that may start to use information available to them,
-regardless of whether it was actually intended to that participant or
+regardless of whether it was intended to that participant or
 simply relayed through them.
    
 # Principles {#principles}
@@ -181,7 +181,8 @@ information to another participant in a protocol exchange.
 
 ## Scope of protocol exchanges
 
-This memo does not limit what types of protocol exchanges can lead to information disclosure. The protocol exchanges may relate to:
+This memo does not limit what types of protocol exchanges can lead to
+information disclosure. The protocol exchanges may relate to:
 
 * The interaction of an endpoint with the network, e.g., information
   they provide in any network attachment process or the wire images of
@@ -225,11 +226,11 @@ e.g., because it has become or will later become compromised
 
 ## Principle: Build for eventual compromise
 
-PRINCIPLE: Build defences to protect information, even when some
+PRINCIPLE: Build defenses to protect information, even when some
 component in a system is compromised.
 
 For instance, at the service side encryption of data at rest or in use
-may assist in protecting information when an attacker gainst access to
+may assist in protecting information when an attacker gains access to
 the servers. Similarly, regular purging of old information can limit
 damage in case a compromise occurs.
 
@@ -237,15 +238,15 @@ Protocols can ensure that perfect forward secrecy can be provided, so
 that the damage resulting from a compromise of keying material has
 limited impact.
 
-On the client side, a the client may trust that another party handles
+On the client side, the client may trust that another party handles
 information appropriately, but take steps to ensure or verify that
-this is actually the case. For instance, as discussed above, the
+this is the case. For instance, as discussed above, the
 client can encrypt a message only to the actual final recipient, even
 if the server holds our message before it is delivered. In some case
-the client may also verify correct behaviour, e.g., through
+the client may also verify correct behavior, e.g., through
 confidential computing attestations.
 
-## Principle: Data and recipient minimisation
+## Principle: Data and recipient minimization
 
 PRINCIPLE: Information should not be disclosed, stored, or routed in
 cleartext through services that do not absolutely need to have that
@@ -256,21 +257,27 @@ multiple layers in the stack. It is not just about intermediaries in
 the network and transport layers, but also intermediaries and services
 on the application layer.
 
-Information should  only be passed between the "real ends" of a
+Information should only be passed between the "real ends" of a
 conversation, unless the information is necessary for a useful
 function in a service.
 
 For instance, a transport connection between two components of a
 system is not an end-to-end connection even if it encompasses all the
 protocol layers up to the application layer. It is not end-to-end, if
-the information or control function it carries actually extends beyond
+the information or control function it carries extends beyond
 those components. For instance, just because an e-mail server can read
-the contents of an e-mail message does not make it a legitimate
+the contents of an e-mail message do not make it a legitimate
 recipient of the e-mail.
+
+### Protocol design implications
+
+An obvious implication of the above is that it is necessary to have mechanisms
+that allow secure communication and data object protection, that is not tied to
+a particular IP packet source and destination or a transport layer connection.
 
 ### Fingerprinting avoidance
 
-Fingerprinting warrants a separate discussions. Internet technology
+Fingerprinting warrants a separate discussion. Internet technology
 tends to move towards richer and more power mechanisms over time. For
 instance, full-functionality web and transport layer security stacks are now
 used for almost all purposes across the network.
@@ -284,8 +291,8 @@ are, given the wealth of options and algorithms in
 use. {{Fingerprinting}} and {{AmIUnique}} provide a good starting
 point for some of the technology and measurements.
 
-The general topic of ensuring a protocol mechanisms stays evolvable
-and workable is discussed in {{I-D.iab-use-it-or-lose-it}}, but the
+The general topic of ensuring that protocol mechanisms stays evolvable
+and workable is covered in {{I-D.iab-use-it-or-lose-it}}. But the
 associated methods for reducing fingerprinting possibilities probably
 deserve further study {{I-D.wood-pearg-website-fingerprinting}}.
 
@@ -294,9 +301,9 @@ deserve further study {{I-D.wood-pearg-website-fingerprinting}}.
 The author would like to thank the members of the IAB, and the
 participants of IETF SAAG WG, Model-T IAB program, and the 2019 IAB
 DEDR workshop that all discussed some aspects of these issues. The
-author would like to in particular acknowledge the significant
+author would like to acknowledge the significant
 contributions of Stephen Farrell, Martin Thomson, Mark McFadden, Chris
 Wood, Domique Lazanski, Eric Rescorla, Russ Housley, Robin Wilton,
-Mirja Kuehlewind, Tommy Pauly, and Christian Huitema in discussions
-around this general problem area.
+Mirja Kuehlewind, Tommy Pauly, Jaime Jiménez and Christian Huitema in
+discussions around this general problem area.
 
