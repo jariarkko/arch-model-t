@@ -32,7 +32,11 @@ informative:
   RFC8484: 
   RFC8980:
   RFC9000: 
-
+  I-D.farrell-etm:
+  I-D.arkko-arch-internet-threat-model-guidance:
+  I-D.arkko-iab-path-signals-collaboration:
+  I-D.thomson-tmi:
+  
 --- abstract
 
 Communications security has been at the center of many security
