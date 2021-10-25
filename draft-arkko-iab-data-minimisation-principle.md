@@ -35,6 +35,7 @@ informative:
   RFC9000: 
   I-D.farrell-etm:
   I-D.arkko-arch-internet-threat-model-guidance:
+  I-D.lazanski-smart-users-internet:
   I-D.arkko-iab-path-signals-collaboration:
   I-D.thomson-tmi:
   
@@ -99,7 +100,7 @@ In short, attacks are migrating towards the currently easier targets,
 which no longer necessarily include direct attacks on traffic
 flows. These have been discussed at length in, for instance, {{RFC8980}},
 {{I-D.farrell-etm}} {{I-D.arkko-arch-internet-threat-model-guidance}},
-{{lazanski-smart-users-internet}}, and others.
+{{I-D.lazanski-smart-users-internet}}, and others.
 
 It is important that when it comes to basic Internet infrastructure,
 our technology addresses non-communications threats to the extent
