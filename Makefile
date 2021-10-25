@@ -105,7 +105,7 @@ jaricompile:	draft-arkko-iab-data-minimisation-principle.txt \
 		draft-arkko-farrell-arch-model-t-3552-additions.txt \
 		draft-arkko-farrell-arch-model-t-7258-additions.txt \
 		root@cloud3.arkko.eu:/var/www/www.arkko.com/html/ietf/iab
-	scp 	draft-arkko-iab-data-minimisation-princple.txt \
+	scp 	draft-arkko-iab-data-minimisation-principle.txt \
 		draft-arkko-farrell-arch-model-t.txt \
 		draft-arkko-farrell-arch-model-t-from--03.diff.html \
 		draft-arkko-farrell-arch-model-t-redux.txt \
