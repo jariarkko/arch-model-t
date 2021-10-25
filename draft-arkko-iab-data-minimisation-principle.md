@@ -29,7 +29,8 @@ informative:
   RFC7258: 
   RFC7858:
   RFC8546:
-  RFC8484: 
+  RFC8484:
+  RFC8558:
   RFC8980:
   RFC9000: 
   I-D.farrell-etm:
