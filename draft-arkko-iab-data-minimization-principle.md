@@ -278,7 +278,7 @@ a particular IP packet source and destination or a transport layer connection.
 ### Fingerprinting avoidance
 
 Fingerprinting warrants a separate discussion. Internet technology
-tends to move towards richer and more power mechanisms over time. For
+has tended to move towards richer and more power mechanisms over time. For
 instance, full-functionality web and transport layer security stacks are now
 used for almost all purposes across the network.
 
@@ -294,7 +294,8 @@ point for some of the technology and measurements.
 The general topic of ensuring that protocol mechanisms stays evolvable
 and workable is covered in {{I-D.iab-use-it-or-lose-it}}. But the
 associated methods for reducing fingerprinting possibilities probably
-deserve further study {{I-D.wood-pearg-website-fingerprinting}}.
+deserve further study. {{I-D.wood-pearg-website-fingerprinting}} discusses
+one aspect of this.
 
 # Acknowledgements {#ack}
 
