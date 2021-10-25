@@ -49,10 +49,10 @@ informative:
   Fingerprinting:
     title: "Browser Fingerprinting: A survey"
     author:
-     - ins P. Laperdrix
-     - ins N. Bielova
-     - B. Baudry
-     - G. Avoine
+     - ins: P. Laperdrix
+     - ins: N. Bielova
+     - ins: B. Baudry
+     - ins: G. Avoine
     seriesinfo: "arXiv:1905.01051v2 [cs.CR] 4 Nov 2019"
   AmIUnique:
     title: "Am I Unique?"
