@@ -114,9 +114,9 @@ cryptographic has resulted in much improved security, but also
 highlight the need for addressing other, remaining
 issues. Particularly when adversaries have increased their pressure
 against other avenues of attack. New adversaries and risks have
-arisen, e.g., due to availability of large, centralized information
-sources, or with the endpoints whose interests are not aligned with
-their peers or users.
+arisen, e.g., due to increasing amount of information stored in
+various Internet services, or with the services whose interests are
+not aligned with their users.
 
 In short, attacks are migrating towards the currently easier targets,
 which no longer necessarily include direct attacks on traffic
@@ -156,10 +156,10 @@ and extend the RFC 8558 principles with recommendations to ensure
 minimum set of parties, minimum information, and consent.
 
 Thomson {{I-D.thomson-tmi}} discusses the role intermediaries in the
-Internet architecture, at different layers of the stack. A router is
-an intermediary, some parts of DNS infrastructure can be
+Internet architecture, at different layers of the stack. For instance,
+a router is an intermediary, some parts of DNS infrastructure can be
 intermediaries, messaging gateways are intermediaries. Thomson
-discusses when intermediaries are an appropriate tool, and presents a
+discusses when intermediaries are or are not an appropriate tool, and presents a
 number of principles relating to the use of intermediaries, e.g.,
 deliberate selection of protocol participants or limiting the
 capabilities or information exposure related to the intermediaries.
@@ -167,12 +167,12 @@ capabilities or information exposure related to the intermediaries.
 Trammel and Kühlewind {{RFC8546}} discuss the concept of a "wire
 image" of a protocol.  This is an abstraction of the information
 available to an on-path non-participant in a networking protocol. It
-relates to the topic non-participants interpreting information that is
-available to them in the "wire image" (or associated timing and other
-indirect information). The issues are largely the same even for
-participants, that may start to use information available to them,
-regardless of whether it was intended to that participant or
-simply relayed through them.
+relates to the topic of non-participants interpreting information that
+is available to them in the "wire image" (or associated timing and
+other indirect information). The issues are largely the same even for
+participants. Even proper protocol participants may start to use
+information available to them, regardless of whether it was intended
+to that participant or simply relayed through them.
    
 # Principles {#principles}
 
@@ -201,18 +201,20 @@ It is also important to observe that information disclosure can appear in
 several ways:
 
 * Explicitly carried information, e.g., a data item in a message sent
-  to a protocol participant. The carried information may also appear
-  at multiple layers in the protocol stack, e.g., lower layer
-  information, such as topological network addresses can also be
-  collected and used by the protocol participant at the end.
+  to a protocol participant. Note that the carried information may appear
+  at multiple layers in the protocol stack. For instance, both
+  protocol participants and non-participants may observe lower layer
+  information, such as topological network addresses. Such information can
+  be collected, used, and perhaps misused or leaked.
 
 * Indirectly inferred information, such as message arrival times or
   patterns in the traffic flow. Information may also be obtained from
-  fingerprinting
+  fingerprinting the protocol participants, in an effort to identify
+  unique endpoints or users.
 
-* Information gathered from a collaboration or collusion among several
-  parties, e.g., websites and social media systems collaborating to
-  identify visiting users {{WP2021}}.
+* Information gathered from a collaboration among several parties,
+  e.g., websites and social media systems collaborating to identify
+  visiting users {{WP2021}}.
 
 ## Principle: Transmission is publication
 
@@ -222,19 +224,20 @@ publication. Avoid passing information that should not be published.
 This principle applies even if the communications that carry that
 information are encrypted, as the party that received the
 communications and can decrypt them may use the information,
-e.g., because it has become or will later become compromised
+e.g., because it has become or will later become compromised.
 
 ## Principle: Build for eventual compromise
 
 PRINCIPLE: Build defenses to protect information, even when some
-component in a system is compromised.
+component in a system is or becomes compromised.
 
-For instance, at the service side encryption of data at rest or in use
-may assist in protecting information when an attacker gains access to
-the servers. Similarly, regular purging of old information can limit
-damage in case a compromise occurs.
+For instance, at the service side encryption of data at rest
+may assist in protecting information if an attacker gains access to
+the servers. Similarly, protecting data in use can prevent leakage
+in some cases, and regular purging of old information can limit the
+amount of leaked information.
 
-Protocols can ensure that perfect forward secrecy can be provided, so
+Protocols can ensure that perfect forward secrecy is provided, so
 that the damage resulting from a compromise of keying material has
 limited impact.
 
@@ -269,11 +272,21 @@ those components. For instance, just because an e-mail server can read
 the contents of an e-mail message do not make it a legitimate
 recipient of the e-mail.
 
+Typically, information can be classified in different categories, such
+as information needed for the function provided by a service (e.g.,
+addressing information such as e-mail headers needed to find targeted
+destination) and information that should only be revealed to the
+targeted destination (such as e-mail message contents).
+
 ### Protocol design implications
 
 An obvious implication of the above is that it is necessary to have mechanisms
 that allow secure communication and data object protection, that is not tied to
-a particular IP packet source and destination or a transport layer connection.
+a particular IP packet source and destination or a transport layer
+connection.
+
+These mechanisms also require associated key distribution and
+agreement facilities.
 
 ### Fingerprinting avoidance
 
@@ -289,7 +302,8 @@ Nevertheless, all protocol mechanisms come with some fingerprinting
 opportunities, and this tends to be easier the higher in the stack we
 are, given the wealth of options and algorithms in
 use. {{Fingerprinting}} and {{AmIUnique}} provide a good starting
-point for some of the technology and measurements.
+point for some of the issues, along with measurements about the
+accuracy of fingerprinting mechanisms and defenses against them.
 
 The general topic of ensuring that protocol mechanisms stays evolvable
 and workable is covered in {{I-D.iab-use-it-or-lose-it}}. But the
@@ -304,7 +318,7 @@ participants of IETF SAAG WG, Model-T IAB program, and the 2019 IAB
 DEDR workshop that all discussed some aspects of these issues. The
 author would like to acknowledge the significant
 contributions of Stephen Farrell, Martin Thomson, Mark McFadden, Chris
-Wood, Domique Lazanski, Eric Rescorla, Russ Housley, Robin Wilton,
+Wood, Dominique Lazanski, Eric Rescorla, Russ Housley, Robin Wilton,
 Mirja Kuehlewind, Tommy Pauly, Jaime Jiménez and Christian Huitema in
 discussions around this general problem area.
 
