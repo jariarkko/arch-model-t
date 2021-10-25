@@ -163,7 +163,7 @@ simply relayed through them.
 This memo approaches the topic from the point of disclosing
 information to another participant in a protocol exchange.
 
-## Scope of protocol exchangesin
+## Scope of protocol exchanges
 
 This memo does not limit what types of protocol exchanges can lead to information disclosure. The protocol exchanges may relate to:
 
@@ -197,7 +197,64 @@ several ways:
   parties, e.g., websites and social media systems collaborating to
   identify visiting users {{WP2021}}.
 
-## 
+## Principle: Transmission is publication
+
+PRINCIPLE: Consider information passed to another party as a
+publication. Avoid passing information that should not be published.
+
+This principle applies even if the communications that carry that
+information are encrypted, as the party that received the
+communications and can decrypt them may use the information,
+e.g., because it has become or will later become compromised
+
+## Principle: Build for eventual compromise
+
+PRINCIPLE: Build defences to protect information, even when some
+component in a system is compromised.
+
+For instance, at the service side encryption of data at rest or in use
+may assist in protecting information when an attacker gainst access to
+the servers. Similarly, regular purging of old information can limit
+damage in case a compromise occurs.
+
+Protocols can ensure that perfect forward secrecy can be provided, so
+that the damage resulting from a compromise of keying material has
+limited impact.
+
+On the client side, a the client may trust that another party handles
+information appropriately, but take steps to ensure or verify that
+this is actually the case. For instance, as discussed above, the
+client can encrypt a message only to the actual final recipient, even
+if the server holds our message before it is delivered. In some case
+the client may also verify correct behaviour, e.g., through
+confidential computing attestations.
+
+## Principle: Data and recipient minimisation
+
+PRINCIPLE: Information should not be disclosed, stored, or routed in
+cleartext through services that do not absolutely need to have that
+information for the function they perform.
+
+This the "need to know" principle. Note that this principle applies at
+multiple layers in the stack. It is not just about intermediaries in
+the network and transport layers, but also intermediaries and services
+on the application layer.
+
+Information should  only be passed between the "real ends" of a
+conversation, unless the information is necessary for a useful
+function in a service.
+
+For instance, a transport connection between two components of a
+system is not an end-to-end connection even if it encompasses all the
+protocol layers up to the application layer. It is not end-to-end, if
+the information or control function it carries actually extends beyond
+those components. For instance, just because an e-mail server can read
+the contents of an e-mail message does not make it a legitimate
+recipient of the e-mail.
+
+### Fingerprinting avoidance
+
+Fingerprinting warrants a separate discussions. Internet technology tends to move towards richer and more power mechanisms over time. For instance,
 
 # Acknowledgements {#ack}
 
