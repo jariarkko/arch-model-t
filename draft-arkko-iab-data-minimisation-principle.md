@@ -41,9 +41,9 @@ informative:
   WP2021:
    title: "There’s no escape from Facebook, even if you don’t use it"
    date: August 2021
-    author:
+   author:
      - ins: Geoffrey A. Fowler
-    seriesinfo: "Washington Post"
+   seriesinfo: "Washington Post"
   
 --- abstract
 
