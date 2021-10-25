@@ -54,7 +54,8 @@ base:	draft-arkko-farrell-arch-model-t.txt \
 	draft-arkko-farrell-arch-model-t-redux.txt \
 	draft-arkko-farrell-arch-model-t-3552-additions.txt \
 	draft-arkko-farrell-arch-model-t-7258-additions.txt \
-	draft-arkko-arch-internet-threat-model-guidance.txt
+	draft-arkko-arch-internet-threat-model-guidance.txt \
+	draft-arkko-iab-data-minimisation-principle.txt
 
 draft-arkko-farrell-arch-model-t.txt: $(MD_FILES)
 
