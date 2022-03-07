@@ -2,7 +2,7 @@
 title: "Data minimization"
 abbrev: Data Minimization in Internet Architecture
 docname: draft-arkko-iab-data-minimization-principle
-date: October 2021
+date: March 2022
 category: info
 
 ipr: trust200902
