@@ -227,7 +227,7 @@ recipient of the e-mail.
 The general topic of ensuring that protocol mechanisms stays evolvable
 and workable is covered in {{I-D.iab-use-it-or-lose-it}}. But the
 associated methods for reducing fingerprinting possibilities probably
-deserve further study. {{I-D.wood-pearg-website-fingerprinting}} discusses
+deserve further study {{Fingerprinting}} {{AmIUnique}}. {{I-D.wood-pearg-website-fingerprinting}} discusses
 one aspect of this.
 
 ## Related work {#related}
